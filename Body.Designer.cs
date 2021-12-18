@@ -123,7 +123,6 @@ namespace App_project
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(834, 528);
             this.panelChildForm.TabIndex = 3;
-            this.panelChildForm.Visible = false;
             this.panelChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox1

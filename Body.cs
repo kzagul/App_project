@@ -104,5 +104,10 @@ namespace App_project
         {
 
         }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+            //label1.Text = IDUser_key.global_IDUser;
+        }
     }
 }

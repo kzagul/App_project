@@ -51,13 +51,15 @@ namespace App_project
                 }
                 else
                 {
+                    //назначение глобального ID для сессии пользователя
+                    var SelectID = new SqlCommand("SELECT [IDUser] FROM [PetDataBase].[dbo].[LoginData] WHERE [Login] = '" + login + "'", connection);
+                    IDUser_key.global_IDUser = SelectID.ExecuteScalar().ToString();
+
                     Body bodyForm = new Body();
                     bodyForm.Show();
                     this.Hide();
                 }
             }
-            //var SelectID = new SqlCommand("SELECT [IDUser] FROM [PetDataBase].[dbo].[LoginData] WHERE [Login] = '" + login + "'", connection);
-            //IDUser_outside = SelectID.ExecuteScalar().ToString();
         }
 
         private void Sign_up_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
