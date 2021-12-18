@@ -1,0 +1,1 @@
+﻿INSERT INTO [PetDataBase].[dbo].[PetData] (Category, NickName, DateOfBirth, Breed, RegistrationdDate, PassportNumber, IDUser, Photo, Doc, Gender, Locality) VALUES (@IDRole, @Name, @Surname, @SecondName)
