@@ -59,12 +59,25 @@
     <Compile Include="ADListForm.Designer.cs">
       <DependentUpon>ADListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyADsForm.cs">
+    <Compile Include="FormsOfPetCard\Edit_PetCardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyADsForm.Designer.cs">
+    <Compile Include="FormsOfPetCard\Edit_PetCardForm.Designer.cs">
+      <DependentUpon>Edit_PetCardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsOfPetCard\Show_PetCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsOfPetCard\Show_PetCardForm.Designer.cs">
+      <DependentUpon>Show_PetCardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsOfAD\MyADsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsOfAD\MyADsForm.Designer.cs">
       <DependentUpon>MyADsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IDUser_key.cs" />
     <Compile Include="MakeNewADForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,11 +90,11 @@
     <Compile Include="MyPetsForm.Designer.cs">
       <DependentUpon>MyPetsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsOfPetCard\PetCardForm.cs">
+    <Compile Include="FormsOfPetCard\Add_PetCardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsOfPetCard\PetCardForm.Designer.cs">
-      <DependentUpon>PetCardForm.cs</DependentUpon>
+    <Compile Include="FormsOfPetCard\Add_PetCardForm.Designer.cs">
+      <DependentUpon>Add_PetCardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PetDataBaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -126,8 +139,11 @@
     <EmbeddedResource Include="ADListForm.resx">
       <DependentUpon>ADListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyADsForm.resx">
+    <EmbeddedResource Include="FormsOfAD\MyADsForm.resx">
       <DependentUpon>MyADsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsOfPetCard\Show_PetCardForm.resx">
+      <DependentUpon>Show_PetCardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MakeNewADForm.resx">
       <DependentUpon>MakeNewADForm.cs</DependentUpon>
@@ -135,8 +151,8 @@
     <EmbeddedResource Include="MyPetsForm.resx">
       <DependentUpon>MyPetsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsOfPetCard\PetCardForm.resx">
-      <DependentUpon>PetCardForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormsOfPetCard\Add_PetCardForm.resx">
+      <DependentUpon>Add_PetCardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="SignForms\SignINForm.resx">
@@ -160,6 +176,7 @@
     <EmbeddedResource Include="UncorrectSignINForm.resx">
       <DependentUpon>UncorrectSignINForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="PetDataBaseDataSet.xsc">
       <DependentUpon>PetDataBaseDataSet.xsd</DependentUpon>
     </None>
@@ -195,5 +212,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

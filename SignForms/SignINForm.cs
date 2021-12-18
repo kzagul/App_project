@@ -13,6 +13,9 @@ namespace App_project
 {
     public partial class SignINForm : Form
     {
+
+        public string IDUser_outside;
+
         public SignINForm()
         {
             InitializeComponent();
@@ -32,6 +35,9 @@ namespace App_project
 
             //связь с бд
             string PetDBConnectionString = @"Data Source=C6F3\SQLEXPRESS; Initial Catalog=PetDataBase; Integrated Security=True";
+            SqlConnection connection = new SqlConnection(PetDBConnectionString);
+            connection.Open();
+
             //sql 
             string PetDBSelectQuery = "SELECT [Login] FROM [PetDataBase].[dbo].[LoginData] WHERE [Login] = '" + login + "'and [Password]='" + password + "'";
             using (SqlDataAdapter dataAdapter = new SqlDataAdapter(PetDBSelectQuery, PetDBConnectionString))
@@ -45,6 +51,10 @@ namespace App_project
                 }
                 else
                 {
+                    //назначение глобального ID для сессии пользователя
+                    var SelectID = new SqlCommand("SELECT [IDUser] FROM [PetDataBase].[dbo].[LoginData] WHERE [Login] = '" + login + "'", connection);
+                    IDUser_key.global_IDUser = SelectID.ExecuteScalar().ToString();
+
                     Body bodyForm = new Body();
                     bodyForm.Show();
                     this.Hide();
