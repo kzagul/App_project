@@ -65,7 +65,7 @@ namespace App_project
             this.buttonNewAD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonNewAD.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.buttonNewAD.UseVisualStyleBackColor = true;
-            this.buttonNewAD.Click += new System.EventHandler(this.button1_Click);
+            this.buttonNewAD.Click += new System.EventHandler(this.AddNewAD_Button);
             // 
             // adDataBindingSource
             // 
@@ -137,13 +137,13 @@ namespace App_project
             // плиткаToolStripMenuItem
             // 
             this.плиткаToolStripMenuItem.Name = "плиткаToolStripMenuItem";
-            this.плиткаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.плиткаToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.плиткаToolStripMenuItem.Text = "Плитка";
             // 
             // реестрToolStripMenuItem
             // 
             this.реестрToolStripMenuItem.Name = "реестрToolStripMenuItem";
-            this.реестрToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.реестрToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.реестрToolStripMenuItem.Text = "Реестр";
             this.реестрToolStripMenuItem.Click += new System.EventHandler(this.реестрToolStripMenuItem_Click);
             // 
@@ -166,10 +166,9 @@ namespace App_project
             // panel1
             // 
             this.panel1.Controls.Add(this.listView1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 33);
+            this.panel1.Location = new System.Drawing.Point(26, 33);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(834, 465);
+            this.panel1.Size = new System.Drawing.Size(780, 367);
             this.panel1.TabIndex = 5;
             // 
             // listView1
@@ -179,9 +178,10 @@ namespace App_project
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Margin = new System.Windows.Forms.Padding(5);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(834, 465);
+            this.listView1.Size = new System.Drawing.Size(780, 367);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // ADListForm
             // 

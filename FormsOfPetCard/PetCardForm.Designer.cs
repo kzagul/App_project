@@ -61,7 +61,7 @@ namespace App_project
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.Breed = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.PassportNumber = new System.Windows.Forms.TextBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.NickName = new System.Windows.Forms.TextBox();
@@ -72,11 +72,11 @@ namespace App_project
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(748, 431);
+            this.button1.Location = new System.Drawing.Point(718, 393);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 45);
+            this.button1.Size = new System.Drawing.Size(87, 33);
             this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
+            this.button1.Text = "Сохранить ";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.AddNewPetCard);
             // 
@@ -344,12 +344,12 @@ namespace App_project
             this.textBox7.Size = new System.Drawing.Size(100, 20);
             this.textBox7.TabIndex = 23;
             // 
-            // textBox8
+            // PassportNumber
             // 
-            this.textBox8.Location = new System.Drawing.Point(671, 159);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 24;
+            this.PassportNumber.Location = new System.Drawing.Point(671, 159);
+            this.PassportNumber.Name = "PassportNumber";
+            this.PassportNumber.Size = new System.Drawing.Size(100, 20);
+            this.PassportNumber.TabIndex = 24;
             // 
             // radioButton1
             // 
@@ -400,7 +400,7 @@ namespace App_project
             this.Controls.Add(this.NickName);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.PassportNumber);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.Breed);
             this.Controls.Add(this.textBox5);
@@ -460,7 +460,7 @@ namespace App_project
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox Breed;
         private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox PassportNumber;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Button button7;

@@ -40,9 +40,6 @@ namespace App_project
 
             childForm.BringToFront();
             childForm.Show();
-
-
-
         }
 
         private void MyPetsForm_Load(object sender, EventArgs e)

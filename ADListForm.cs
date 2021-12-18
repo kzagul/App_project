@@ -17,9 +17,10 @@ namespace App_project
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddNewAD_Button(object sender, EventArgs e)
         {
-
+           //Body.OpenChildForm(new MakeNewADForm());
+            //panelChildForm.Visible = true;
         }
 
         private void ADListForm_Load(object sender, EventArgs e)
@@ -45,6 +46,11 @@ namespace App_project
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

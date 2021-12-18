@@ -53,7 +53,7 @@ namespace App_project
                 {
                     #region SQL запросы
                     SqlCommand cmd = new SqlCommand("INSERT INTO [PetDataBase].[dbo].[User] (IDRole, Name, Surname, SecondName) VALUES (@IDRole, @Name, @Surname, @SecondName)", connection);
-                    cmd.Parameters.AddWithValue("@IDRole", 2);
+                    cmd.Parameters.AddWithValue("@IDRole", 4);
                     cmd.Parameters.AddWithValue("@Name", name);
                     cmd.Parameters.AddWithValue("@Surname", surname);
                     cmd.Parameters.AddWithValue("@SecondName", secondName);
@@ -102,8 +102,6 @@ namespace App_project
             SignUPSuccessful newForm = new SignUPSuccessful();
             newForm.Show();
         }
-
-
 
         private void back_button(object sender, EventArgs e)
         {

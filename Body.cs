@@ -15,6 +15,7 @@ namespace App_project
         public Body()
         {
             InitializeComponent();
+            
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
@@ -77,7 +78,7 @@ namespace App_project
 
 
         private Form activeForm = null;
-        private void OpenChildForm(Form childForm)
+        public void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
             {
