@@ -32,9 +32,19 @@ namespace App_project
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddNewPetCard(object sender, EventArgs e)
         {
-            
+            string categoryAnimal = CategoryAnimal.Text;
+            string nickName = NickName.Text;
+            string breed = Breed.Text;
+            string locality = Locality.Text;
+
+            //string password = passwordBox.Text;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

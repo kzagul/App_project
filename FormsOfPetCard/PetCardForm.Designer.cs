@@ -55,16 +55,16 @@ namespace App_project
             this.label11 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.CategoryAnimal = new System.Windows.Forms.TextBox();
+            this.Locality = new System.Windows.Forms.TextBox();
+            this.DateOfBirth = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.Breed = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.NickName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -78,7 +78,7 @@ namespace App_project
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.AddNewPetCard);
             // 
             // pictureBox1
             // 
@@ -301,26 +301,27 @@ namespace App_project
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox1
+            // CategoryAnimal
             // 
-            this.textBox1.Location = new System.Drawing.Point(420, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(123, 20);
-            this.textBox1.TabIndex = 17;
+            this.CategoryAnimal.Location = new System.Drawing.Point(420, 75);
+            this.CategoryAnimal.Name = "CategoryAnimal";
+            this.CategoryAnimal.Size = new System.Drawing.Size(123, 20);
+            this.CategoryAnimal.TabIndex = 17;
+            this.CategoryAnimal.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox3
+            // Locality
             // 
-            this.textBox3.Location = new System.Drawing.Point(420, 159);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(123, 20);
-            this.textBox3.TabIndex = 19;
+            this.Locality.Location = new System.Drawing.Point(420, 159);
+            this.Locality.Name = "Locality";
+            this.Locality.Size = new System.Drawing.Size(123, 20);
+            this.Locality.TabIndex = 19;
             // 
-            // textBox4
+            // DateOfBirth
             // 
-            this.textBox4.Location = new System.Drawing.Point(420, 206);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 20;
+            this.DateOfBirth.Location = new System.Drawing.Point(420, 206);
+            this.DateOfBirth.Name = "DateOfBirth";
+            this.DateOfBirth.Size = new System.Drawing.Size(100, 20);
+            this.DateOfBirth.TabIndex = 20;
             // 
             // textBox5
             // 
@@ -329,12 +330,12 @@ namespace App_project
             this.textBox5.Size = new System.Drawing.Size(351, 20);
             this.textBox5.TabIndex = 21;
             // 
-            // textBox6
+            // Breed
             // 
-            this.textBox6.Location = new System.Drawing.Point(671, 75);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 22;
+            this.Breed.Location = new System.Drawing.Point(671, 75);
+            this.Breed.Name = "Breed";
+            this.Breed.Size = new System.Drawing.Size(100, 20);
+            this.Breed.TabIndex = 22;
             // 
             // textBox7
             // 
@@ -372,12 +373,12 @@ namespace App_project
             this.radioButton2.Text = "Ж";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // NickName
             // 
-            this.textBox2.Location = new System.Drawing.Point(118, 252);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(123, 20);
-            this.textBox2.TabIndex = 27;
+            this.NickName.Location = new System.Drawing.Point(118, 252);
+            this.NickName.Name = "NickName";
+            this.NickName.Size = new System.Drawing.Size(123, 20);
+            this.NickName.TabIndex = 27;
             // 
             // label2
             // 
@@ -396,16 +397,16 @@ namespace App_project
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(834, 498);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.NickName);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.Breed);
             this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.DateOfBirth);
+            this.Controls.Add(this.Locality);
+            this.Controls.Add(this.CategoryAnimal);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -453,11 +454,11 @@ namespace App_project
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox CategoryAnimal;
+        private System.Windows.Forms.TextBox Locality;
+        private System.Windows.Forms.TextBox DateOfBirth;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox Breed;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.RadioButton radioButton1;
@@ -471,7 +472,7 @@ namespace App_project
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox NickName;
         private System.Windows.Forms.Label label2;
     }
 }
