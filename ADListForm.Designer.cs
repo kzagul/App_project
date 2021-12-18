@@ -132,6 +132,7 @@ namespace App_project
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(116, 19);
             this.toolStripMenuItem1.Text = "Вид отображения";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // плиткаToolStripMenuItem
             // 
@@ -156,6 +157,7 @@ namespace App_project
             this.label1.Size = new System.Drawing.Size(199, 25);
             this.label1.TabIndex = 4;
             this.label1.Text = "Доска объявлений";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // adDataTableAdapter
             // 

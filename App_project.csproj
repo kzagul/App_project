@@ -59,10 +59,10 @@
     <Compile Include="ADListForm.Designer.cs">
       <DependentUpon>ADListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyADsForm.cs">
+    <Compile Include="FormsOfAD\MyADsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyADsForm.Designer.cs">
+    <Compile Include="FormsOfAD\MyADsForm.Designer.cs">
       <DependentUpon>MyADsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MakeNewADForm.cs">
@@ -126,7 +126,7 @@
     <EmbeddedResource Include="ADListForm.resx">
       <DependentUpon>ADListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyADsForm.resx">
+    <EmbeddedResource Include="FormsOfAD\MyADsForm.resx">
       <DependentUpon>MyADsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MakeNewADForm.resx">
@@ -195,5 +195,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
