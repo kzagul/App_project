@@ -1,7 +1,7 @@
 ﻿
 namespace App_project
 {
-    partial class Delete_PetCardForm
+    partial class Show_PetCardForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace App_project
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Delete_PetCardForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Show_PetCardForm));
             this.label2 = new System.Windows.Forms.Label();
             this.NickName = new System.Windows.Forms.TextBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -65,6 +65,8 @@ namespace App_project
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -256,6 +258,7 @@ namespace App_project
             this.button4.TabIndex = 50;
             this.button4.Text = "X";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.CloseThisForm_Button);
             // 
             // label14
             // 
@@ -369,19 +372,41 @@ namespace App_project
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(699, 541);
+            this.button1.Location = new System.Drawing.Point(699, 433);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 33);
             this.button1.TabIndex = 51;
-            this.button1.Text = "Сохранить ";
+            this.button1.Text = "Изменить";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Edit_PetCard_Button);
             // 
-            // Delete_PetCardForm
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(699, 480);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(87, 33);
+            this.button2.TabIndex = 55;
+            this.button2.Text = "Удалить";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Delete_PetCard_Button);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(699, 523);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(87, 33);
+            this.button3.TabIndex = 56;
+            this.button3.Text = "Импорт";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // Show_PetCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(818, 459);
+            this.ClientSize = new System.Drawing.Size(852, 459);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -409,8 +434,9 @@ namespace App_project
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Delete_PetCardForm";
+            this.Name = "Show_PetCardForm";
             this.Text = "Delete_PetCardForm";
+            this.Load += new System.EventHandler(this.Delete_PetCardForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -456,5 +482,7 @@ namespace App_project
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

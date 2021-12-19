@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace App_project
 {
-    public partial class PetCardForm : Form
+    public partial class Add_PetCardForm : Form
     {
-        public PetCardForm()
+        public Add_PetCardForm()
         {
             InitializeComponent();
         }
@@ -28,7 +28,7 @@ namespace App_project
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void CloseThisForm_Button(object sender, EventArgs e)
         {
             this.Close();
         }

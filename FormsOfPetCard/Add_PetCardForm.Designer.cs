@@ -1,7 +1,7 @@
 ﻿
 namespace App_project
 {
-    partial class PetCardForm
+    partial class Add_PetCardForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace App_project
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PetCardForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_PetCardForm));
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -280,7 +280,7 @@ namespace App_project
             this.button4.TabIndex = 16;
             this.button4.Text = "X";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.CloseThisForm_Button);
             // 
             // CategoryAnimal
             // 

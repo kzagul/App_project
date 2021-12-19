@@ -17,7 +17,12 @@ namespace App_project
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MyADsForm_Load(object sender, EventArgs e)
         {
 
         }
