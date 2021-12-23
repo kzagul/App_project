@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace App_project
 {
-    class IDUser_key
+    public class IDUser_key
     {
         public static string global_IDUser;
     }

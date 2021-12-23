@@ -34,13 +34,14 @@ namespace App_project
             string password = passwordBox.Text;
 
             //связь с бд
-            string PetDBConnectionString = @"Data Source=C6F3\SQLEXPRESS; Initial Catalog=PetDataBase; Integrated Security=True";
-            SqlConnection connection = new SqlConnection(PetDBConnectionString);
-            connection.Open();
+            var connection = DataBase.LinkDataBase();
+
 
             //sql 
             string PetDBSelectQuery = "SELECT [Login] FROM [PetDataBase].[dbo].[LoginData] WHERE [Login] = '" + login + "'and [Password]='" + password + "'";
-            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(PetDBSelectQuery, PetDBConnectionString))
+            
+            
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(PetDBSelectQuery, DataBase.PetDBConnectionString))
             {
                 DataTable table = new DataTable();
                 dataAdapter.Fill(table);

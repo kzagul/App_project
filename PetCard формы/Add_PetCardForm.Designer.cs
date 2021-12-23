@@ -77,7 +77,7 @@ namespace App_project
             this.button1.TabIndex = 0;
             this.button1.Text = "Сохранить ";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.AddNewPetCard);
+            this.button1.Click += new System.EventHandler(this.AddNewPetCard_Button);
             // 
             // pictureBox1
             // 
