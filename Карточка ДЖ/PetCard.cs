@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using static App_project.Controller;
@@ -11,7 +12,7 @@ namespace App_project
     //
     public class PetCard
     {
-        IdPetCard IdCard { get; set; } //Id карточки дж
+        int IdCard { get; set; } //Id карточки дж
         string Category { get; set; } //категория животного
         public string Name { get; set; } //имя животного
         DateTime BirthDate { get; set; } //дата рождения животного
@@ -23,11 +24,15 @@ namespace App_project
         Photo AnimalPhoto { get; set; } // фото животного
         string City { get; set; } // населенный пункт
 
+
+
+        #region Конструкторы
         public PetCard()
         {
 
         }
 
+        //?
         //конструктор
         public PetCard(string category,
                         string name,
@@ -52,13 +57,40 @@ namespace App_project
             AnimalPhoto = animalPhoto;
             City = city;
         }
+        #endregion
+
+
 
         //Просмотр карточки ДЖ
-        public void ShowPetCard(IdPetCard idCard)
+        public void ShowPetCard(int idCard, string category,
+                       string nickName,
+                       string breed,
+                       int passportNumber, //unique
+                       string idUser,
+                       string gender,
+                       string locality)
         {
             //throw new NotImplementedException();
-            Console.WriteLine("Карточка показана");
-            
+            //Console.WriteLine("Карточка показана");
+
+            // string SQLCheckLogin = "SELECT [Login] FROM [PetDataBase].[dbo].[LoginData] WHERE [Login] = '" + login + "'";
+
+            SqlConnection connection = DataBase.LinkDataBase();
+
+            string id_key = IDPetCard_key.global_IDPetCard;
+
+
+            //Category
+            SqlCommand cmdCategory = new SqlCommand("SELECT [Category] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+            SqlDataReader thisReaderCategory = cmdCategory.ExecuteReader();
+            string res1 = string.Empty;
+            while (thisReaderCategory.Read())
+            {
+                res1 += thisReaderCategory["Category"];
+            }
+            thisReaderCategory.Close();
+            category = res1;
         }
 
         //Добавление карточки ДЖ
@@ -76,10 +108,13 @@ namespace App_project
         //    throw new NotImplementedException();
         //}
 
+
+
+        //+
         public void AddNewPetCard(string category,
                        string nickName,
                        string breed,
-                       int passportNumber,
+                       int passportNumber, //unique
                        string idUser,
                        string gender,
                        string locality)
@@ -88,31 +123,42 @@ namespace App_project
 
             SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality)", connection);
 
-            cmd.Parameters.AddWithValue("@Category", category);
-            cmd.Parameters.AddWithValue("@NickName", nickName);
-            cmd.Parameters.AddWithValue("@Breed", breed);
-            cmd.Parameters.AddWithValue("@PassportNumber", passportNumber);
-            cmd.Parameters.AddWithValue("@IDUser", idUser);
-            cmd.Parameters.AddWithValue("@Gender", gender);
-            cmd.Parameters.AddWithValue("@Locality", locality);
-            try
+            //проверка на уникальность passportNumber
+            string SQLCheckLogin = "SELECT [PassportNumber] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + passportNumber + "'";
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(SQLCheckLogin, DataBase.PetDBConnectionString))
             {
-                cmd.ExecuteNonQuery();
-            }
-            catch
-            {
-                MessageBox.Show("Что-то пошло не так!");
-            }
-            finally
-            {
-                connection.Close();
+                DataTable table = new DataTable();
+                dataAdapter.Fill(table);
+                if (table.Rows.Count == 0) 
+                {
+                    //добавление в БД
+                    cmd.Parameters.AddWithValue("@Category", category);
+                    cmd.Parameters.AddWithValue("@NickName", nickName);
+                    cmd.Parameters.AddWithValue("@Breed", breed);
+                    cmd.Parameters.AddWithValue("@PassportNumber", passportNumber);
+                    cmd.Parameters.AddWithValue("@IDUser", idUser);
+                    cmd.Parameters.AddWithValue("@Gender", gender);
+                    cmd.Parameters.AddWithValue("@Locality", locality);
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Что-то пошло не так!");
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                    MessageBox.Show("Карточка успешно добавлена!");
+                }
+                else
+                {
+                    MessageBox.Show("Не корректные данные проверьте правильность заполнения полей и уникальность номера паспорта");
+                }
             }
         }
-
-
-
-
-
 
 
 

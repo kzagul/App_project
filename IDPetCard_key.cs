@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace App_project
 {
-    public class IDUser_key
+    class IDPetCard_key
     {
-        public static string global_IDUser;
-
-        public static void GetIDUserForSession(string login)
+        public static string global_IDPetCard;
+        public static void GetIDPetCardForSession(string login)
         {
             //создание подключения
             var connection = DataBase.LinkDataBase();

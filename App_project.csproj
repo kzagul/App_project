@@ -47,7 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChildForm.cs" />
     <Compile Include="DataBase.cs" />
+    <Compile Include="IDPetCard_key.cs" />
     <Compile Include="Фильтрация\IFilter.cs" />
     <Compile Include="Сортировка\ISort.cs" />
     <Compile Include="Регистрация\ISignUP.cs" />

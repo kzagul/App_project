@@ -239,6 +239,7 @@ namespace App_project
             this.label1.Size = new System.Drawing.Size(389, 25);
             this.label1.TabIndex = 30;
             this.label1.Text = "Основные характеристики животного";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 

@@ -211,6 +211,7 @@ namespace App_project
             this.Name = "SignUPForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FindPet: Регистрация";
+            this.Load += new System.EventHandler(this.SignUPForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

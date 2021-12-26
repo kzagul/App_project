@@ -68,10 +68,16 @@ namespace App_project
         //
 
         //Просмотр карточки ДЖ
-        public static void ShowPetCard(IdPetCard idCard)
-            {
-                new PetCard().ShowPetCard(idCard);
-            }
+        public static void ShowPetCard(int idCard, string category,
+                       string nickName,
+                       string breed,
+                       int passportNumber, //unique
+                       string idUser,
+                       string gender,
+                       string locality)
+        {
+            new PetCard().ShowPetCard(idCard, category, nickName, breed, passportNumber, idUser, gender, locality);
+        }
 
         //Добавление карточки ДЖ
         //public static void AddNewPetCard(string category,
@@ -87,6 +93,7 @@ namespace App_project
         //    {
         //        throw new NotImplementedException();
         //    }
+
 
         public static void AddNewPetCard(string category,
                        string nickName,

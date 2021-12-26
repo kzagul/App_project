@@ -13,9 +13,7 @@ namespace App_project
 {
     public partial class SignINForm : Form
     {
-
         public string IDUser_outside;
-
         public SignINForm()
         {
             InitializeComponent();
@@ -29,13 +27,14 @@ namespace App_project
         //Клавиша входа в систему
         private void Sign_in_button(object sender, EventArgs e)
         {
+            #region Логин и пароль
             //поля логина и пароля, считываемые с боксов
             string login = loginBox.Text;
             string password = passwordBox.Text;
+            #endregion
 
             //связь с бд
             var connection = DataBase.LinkDataBase();
-
 
             //sql 
             string PetDBSelectQuery = "SELECT [Login] FROM [PetDataBase].[dbo].[LoginData] WHERE [Login] = '" + login + "'and [Password]='" + password + "'";
@@ -52,16 +51,16 @@ namespace App_project
                 }
                 else
                 {
-                    //назначение глобального ID для сессии пользователя
-                    var SelectID = new SqlCommand("SELECT [IDUser] FROM [PetDataBase].[dbo].[LoginData] WHERE [Login] = '" + login + "'", connection);
-                    IDUser_key.global_IDUser = SelectID.ExecuteScalar().ToString();
+                    IDUser_key.GetIDUserForSession(login);
 
                     Body bodyForm = new Body();
                     bodyForm.Show();
+                    MessageBox.Show(IDUser_key.global_IDUser);
                     this.Hide();
                 }
             }
         }
+
 
         private void Sign_up_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

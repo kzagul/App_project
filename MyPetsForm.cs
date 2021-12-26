@@ -25,6 +25,7 @@ namespace App_project
         }
 
         private Form activeForm = null;
+
         private void OpenChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -44,10 +45,13 @@ namespace App_project
             childForm.Show();
         }
 
+
         private void MyPetsForm_Load(object sender, EventArgs e)
         {
-            string con = @"Data Source = C6F3\SQLEXPRESS; Initial Catalog=PetDB; Integrated Security=True";
-            listView1.GridLines = true;
+            string connection = DataBase.PetDBConnectionString;
+            DataBase.LinkDataBase();
+            
+            listView1.GridLines = false;
             listView1.View = View.Details;
 
             //Add Column Header
@@ -56,9 +60,8 @@ namespace App_project
             //listView1.Columns.Add("First Name", 150);
             //listView1.Columns.Add("Last Name", 150);
 
-
-            string sql = "Select NickName, Category, Breed from [PetDataBase].[dbo].[PetData]";
-            SqlConnection cnn = new SqlConnection(con);
+            string sql = "Select NickName, Category, Breed, PassportNumber from [PetDataBase].[dbo].[PetData]";
+            SqlConnection cnn = new SqlConnection(connection);
             cnn.Open();
             SqlCommand cmd = new SqlCommand(sql, cnn);
             SqlDataReader Reader = cmd.ExecuteReader();
@@ -67,32 +70,25 @@ namespace App_project
 
             while (Reader.Read())
             {
-
                 ListViewItem lv = new ListViewItem(Reader.GetString(0));
                 lv.SubItems.Add(Reader.GetString(1));
                 lv.SubItems.Add(Reader.GetString(2));
+                lv.SubItems.Add(Convert.ToString(Reader.GetInt32(3)));
                 listView1.Items.Add(lv);
-
-
+                //perem = Convert.ToString(Reader.GetInt32(3));
             }
-
             Reader.Close();
             cnn.Close();
-
-
-
-
-
         }
 
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            IDPetCard_key.global_IDPetCard = listView1.SelectedItems[0].SubItems[3].Text;
             OpenChildForm(new Show_PetCardForm());
-          
+            //MessageBox.Show(IDPetCard_key.global_IDPetCard);
 
-            //MessageBox.Show(listView1.SelectedItems[0].Text);
-
+            //var epa = listView1.SelectedItems[]
         }
 
 

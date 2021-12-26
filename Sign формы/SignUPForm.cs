@@ -37,15 +37,17 @@ namespace App_project
 
             #region Подключение базы
             //подключение базы
-            string PetDBConnectionString = null;
-            PetDBConnectionString = @"Data Source=C6F3\SQLEXPRESS; Initial Catalog=PetDB; Integrated Security=True";
-            SqlConnection connection = new SqlConnection(PetDBConnectionString);
-            connection.Open();
+            //string PetDBConnectionString = null;
+            //PetDBConnectionString = @"Data Source=C6F3\SQLEXPRESS; Initial Catalog=PetDB; Integrated Security=True";
+            //SqlConnection connection = new SqlConnection(PetDBConnectionString);
+            //connection.Open();
+
+            var connection = DataBase.LinkDataBase();
             //sql 
             #endregion
 
             string SQLCheckLogin = "SELECT [Login] FROM [PetDataBase].[dbo].[LoginData] WHERE [Login] = '" + login + "'";
-            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(SQLCheckLogin, PetDBConnectionString))
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(SQLCheckLogin, DataBase.PetDBConnectionString))
             {
                 DataTable table = new DataTable();
                 dataAdapter.Fill(table);
@@ -101,8 +103,10 @@ namespace App_project
 
             SignUPSuccessful newForm = new SignUPSuccessful();
             newForm.Show();
+            //this.Close();
         }
 
+        //Кнопка назад
         private void back_button(object sender, EventArgs e)
         {
             SignINForm newForm = new SignINForm();
@@ -110,11 +114,13 @@ namespace App_project
             this.Hide();
         }
 
+        //-
         private void label7_Click(object sender, EventArgs e)
         {
             
         }
 
+        //-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -123,6 +129,12 @@ namespace App_project
         private void passwordBox_TextChanged(object sender, EventArgs e)
         {
             passwordBox.PasswordChar = '*';
+        }
+
+        //-
+        private void SignUPForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
