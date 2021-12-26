@@ -42,5 +42,15 @@ namespace App_project.Properties {
                 return ((string)(this["PetDataBaseConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=OLEGPC;Initial Catalog=PetDataBase;Integrated Security=True")]
+        public string PetDataBaseConnectionString1 {
+            get {
+                return ((string)(this["PetDataBaseConnectionString1"]));
+            }
+        }
     }
 }

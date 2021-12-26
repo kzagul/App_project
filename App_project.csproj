@@ -48,6 +48,11 @@
   <ItemGroup>
     <Compile Include="ChildForm.cs" />
     <Compile Include="DataBase.cs" />
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="IDPetCard_key.cs" />
     <Compile Include="Фильтрация\IFilter.cs" />
     <Compile Include="Сортировка\ISort.cs" />
@@ -156,6 +161,9 @@
     <EmbeddedResource Include="AD формы\MyADsForm.resx">
       <DependentUpon>MyADsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PetCard формы\Edit_PetCardForm.resx">
+      <DependentUpon>Edit_PetCardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PetCard формы\Show_PetCardForm.resx">
       <DependentUpon>Show_PetCardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,6 +198,17 @@
       <DependentUpon>UncorrectSignINForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="PetDataBaseDataSet.xsc">
       <DependentUpon>PetDataBaseDataSet.xsd</DependentUpon>
     </None>

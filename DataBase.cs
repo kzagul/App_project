@@ -9,7 +9,7 @@ namespace App_project
 {
     class DataBase
     {
-        public static string PetDBConnectionString = @"Data Source=(local)\SQLEXPRESS; Initial Catalog=PetDataBase; Integrated Security=True";
+        public static string PetDBConnectionString = @"Data Source=(local); Initial Catalog=PetDataBase; Integrated Security=True";
 
         public static SqlConnection LinkDataBase()
         {
