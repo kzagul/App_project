@@ -86,6 +86,7 @@ namespace App_project
             this.NickName.Name = "NickName";
             this.NickName.Size = new System.Drawing.Size(123, 20);
             this.NickName.TabIndex = 48;
+            this.NickName.TextChanged += new System.EventHandler(this.NickName_TextChanged);
             // 
             // radioButton2
             // 
@@ -115,6 +116,7 @@ namespace App_project
             this.PassportNumber.Name = "PassportNumber";
             this.PassportNumber.Size = new System.Drawing.Size(100, 20);
             this.PassportNumber.TabIndex = 45;
+            this.PassportNumber.TextChanged += new System.EventHandler(this.PassportNumber_TextChanged);
             // 
             // textBox7
             // 
@@ -129,6 +131,7 @@ namespace App_project
             this.Breed.Name = "Breed";
             this.Breed.Size = new System.Drawing.Size(100, 20);
             this.Breed.TabIndex = 43;
+            this.Breed.TextChanged += new System.EventHandler(this.Breed_TextChanged);
             // 
             // textBox5
             // 
@@ -150,6 +153,7 @@ namespace App_project
             this.Locality.Name = "Locality";
             this.Locality.Size = new System.Drawing.Size(123, 20);
             this.Locality.TabIndex = 40;
+            this.Locality.TextChanged += new System.EventHandler(this.Locality_TextChanged);
             // 
             // CategoryAnimal
             // 
@@ -157,6 +161,7 @@ namespace App_project
             this.CategoryAnimal.Name = "CategoryAnimal";
             this.CategoryAnimal.Size = new System.Drawing.Size(123, 20);
             this.CategoryAnimal.TabIndex = 39;
+            this.CategoryAnimal.TextChanged += new System.EventHandler(this.CategoryAnimal_TextChanged);
             // 
             // label10
             // 

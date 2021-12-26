@@ -100,9 +100,7 @@ namespace App_project
 
         private void button2_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Add_PetCardForm());
-
-            MessageBox.Show("Выберете карточку животного");
+            MyPetsForm_Load(sender, e);
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -68,15 +68,9 @@ namespace App_project
         //
 
         //Просмотр карточки ДЖ
-        public static void ShowPetCard(int idCard, string category,
-                       string nickName,
-                       string breed,
-                       int passportNumber, //unique
-                       string idUser,
-                       string gender,
-                       string locality)
+        public static void ShowPetCard(string idCard)
         {
-            new PetCard().ShowPetCard(idCard, category, nickName, breed, passportNumber, idUser, gender, locality);
+            new PetCard().ShowPetCard(idCard);
         }
 
         //Добавление карточки ДЖ
@@ -126,18 +120,24 @@ namespace App_project
                 throw new NotImplementedException();
             }
 
+
             //Удаление карточки о пропаже домашнего животного
-        public static void DeletePetCard(IdPetCard idCard)
+        public static void DeletePetCard(string idCard)
         {
             new PetCard().DeletePetCard(idCard);
         }
 
+
+
+            //еще не сделано
             //Сформировать паспорт домашнего животного в Microsoft Word
         public static void Export2WordPetCard(IdPetCard idCard)
         {
             new PetCard().Export2WordPetCard(idCard);
         }
 
+
+            //еще не сделано
             //Экспорт карточки домашнего животного в Microsoft Excel
         public static void Export2ExcelPetCard(IdPetCard idCard)
         {

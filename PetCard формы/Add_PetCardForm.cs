@@ -70,5 +70,10 @@ namespace App_project
         {
 
         }
+
+        private void Breed_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

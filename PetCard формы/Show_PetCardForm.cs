@@ -38,6 +38,9 @@ namespace App_project
         {
             this.Close();
             MessageBox.Show("Карточка удалена");
+            Controller.DeletePetCard(IDPetCard_key.global_IDPetCard);
+
+            //dataGridView1.Rows.Remove(SelectedRows);
         }
 
 
@@ -70,77 +73,83 @@ namespace App_project
 
             SqlConnection connection = DataBase.LinkDataBase();
 
-            //Category
-            SqlCommand cmdCategory = new SqlCommand("SELECT [Category] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+            Controller.ShowPetCard(id_key);
 
-            SqlDataReader thisReaderCategory = cmdCategory.ExecuteReader();
-            string res1 = string.Empty;
-            while (thisReaderCategory.Read())
-            {
-                res1 += thisReaderCategory["Category"];
+            //CategoryAnimal.Text;
+
+            void fullData() {
+                //Category
+                SqlCommand cmdCategory = new SqlCommand("SELECT [Category] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+                SqlDataReader thisReaderCategory = cmdCategory.ExecuteReader();
+                string res1 = string.Empty;
+                while (thisReaderCategory.Read())
+                {
+                    res1 += thisReaderCategory["Category"];
+                }
+                thisReaderCategory.Close();
+
+                CategoryAnimal.Text = res1;
+
+                //Breed
+                SqlCommand cmbBreed = new SqlCommand("SELECT [Breed] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+                SqlDataReader thisReaderBreed = cmbBreed.ExecuteReader();
+                string res2 = string.Empty;
+                while (thisReaderBreed.Read())
+                {
+                    res2 += thisReaderBreed["Breed"];
+                }
+                thisReaderBreed.Close();
+                Breed.Text = res2;
+
+                //NickName
+                SqlCommand cmdNickName = new SqlCommand("SELECT [NickName] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+                SqlDataReader thisReaderNickName = cmdNickName.ExecuteReader();
+                string res3 = string.Empty;
+                while (thisReaderNickName.Read())
+                {
+                    res3 += thisReaderNickName["NickName"];
+                }
+                thisReaderNickName.Close();
+                NickName.Text = res3;
+
+                //Locality
+                SqlCommand cmdLocality = new SqlCommand("SELECT [Locality] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+                SqlDataReader thisReaderLocality = cmdLocality.ExecuteReader();
+                string res4 = string.Empty;
+                while (thisReaderLocality.Read())
+                {
+                    res4 += thisReaderLocality["Locality"];
+                }
+                thisReaderLocality.Close();
+                Locality.Text = res4;
+
+
+                //string SQLCheckLogin = "SELECT [Сategory] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'";
+
+
+                //string nickName = NickName.Text;
+
+                //string breed = Breed.Text;
+
+                PassportNumber.Text = id_key;
+
+                //string idUser = IDUser_key.global_IDUser;
+
+                //string gender = "male";
+
+                //string locality = Locality.Text;
+
+
+                //Controller.ShowPetCard(id_key);
+
+
             }
-            thisReaderCategory.Close();
 
-            CategoryAnimal.Text = res1;
-
-            //Breed
-            SqlCommand cmbBreed = new SqlCommand("SELECT [Breed] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
-
-            SqlDataReader thisReaderBreed = cmbBreed.ExecuteReader();
-            string res2 = string.Empty;
-            while (thisReaderBreed.Read())
-            {
-                res2 += thisReaderBreed["Breed"];
-            }
-            thisReaderBreed.Close();
-            Breed.Text = res2;
-
-            //NickName
-            SqlCommand cmdNickName = new SqlCommand("SELECT [NickName] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
-
-            SqlDataReader thisReaderNickName = cmdNickName.ExecuteReader();
-            string res3 = string.Empty;
-            while (thisReaderNickName.Read())
-            {
-                res3 += thisReaderNickName["NickName"];
-            }
-            thisReaderNickName.Close();
-            NickName.Text = res3;
-
-            //Locality
-            SqlCommand cmdLocality = new SqlCommand("SELECT [Locality] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
-
-            SqlDataReader thisReaderLocality = cmdLocality.ExecuteReader();
-            string res4 = string.Empty;
-            while (thisReaderLocality.Read())
-            {
-                res4 += thisReaderLocality["Locality"];
-            }
-            thisReaderLocality.Close();
-            Locality.Text = res4;
-
-
-            //string SQLCheckLogin = "SELECT [Сategory] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'";
-
-
-            //string nickName = NickName.Text;
-
-            //string breed = Breed.Text;
-
-            PassportNumber.Text = id_key;
-
-            //string idUser = IDUser_key.global_IDUser;
-
-            //string gender = "male";
-
-            //string locality = Locality.Text;
-
-
-            //Controller.ShowPetCard(id_key);
-
-
-
-
+            fullData();
 
 
             //IDPetCard_key.global_IDPetCard;
@@ -152,6 +161,31 @@ namespace App_project
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CategoryAnimal_TextChanged(object sender, EventArgs e)
+        {
+            CategoryAnimal.ReadOnly = true;
+        }
+
+        private void Breed_TextChanged(object sender, EventArgs e)
+        {
+            Breed.ReadOnly = true;
+        }
+
+        private void Locality_TextChanged(object sender, EventArgs e)
+        {
+            Locality.ReadOnly = true;
+        }
+
+        private void PassportNumber_TextChanged(object sender, EventArgs e)
+        {
+            PassportNumber.ReadOnly = true;
+        }
+
+        private void NickName_TextChanged(object sender, EventArgs e)
+        {
+            NickName.ReadOnly = true;
         }
     }
 }

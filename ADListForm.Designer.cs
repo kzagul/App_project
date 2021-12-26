@@ -46,6 +46,9 @@ namespace App_project
             this.adDataTableAdapter = new App_project.PetDBDataSetTableAdapters.AdDataTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.adDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petDBDataSet)).BeginInit();
@@ -166,22 +169,42 @@ namespace App_project
             // panel1
             // 
             this.panel1.Controls.Add(this.listView1);
-            this.panel1.Location = new System.Drawing.Point(26, 33);
+            this.panel1.Location = new System.Drawing.Point(0, 36);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(780, 367);
+            this.panel1.Size = new System.Drawing.Size(834, 364);
             this.panel1.TabIndex = 5;
             // 
             // listView1
             // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.id,
+            this.columnHeader2,
+            this.columnHeader3});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Margin = new System.Windows.Forms.Padding(5);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(780, 367);
+            this.listView1.Size = new System.Drawing.Size(834, 364);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // id
+            // 
+            this.id.Text = "id";
+            this.id.Width = 135;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "idPet";
+            this.columnHeader2.Width = 142;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Locality";
+            this.columnHeader3.Width = 185;
             // 
             // ADListForm
             // 
@@ -227,5 +250,8 @@ namespace App_project
         private System.Windows.Forms.ToolStripMenuItem реестрToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader id;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }

@@ -317,6 +317,7 @@ namespace App_project
             this.Breed.Name = "Breed";
             this.Breed.Size = new System.Drawing.Size(100, 20);
             this.Breed.TabIndex = 22;
+            this.Breed.TextChanged += new System.EventHandler(this.Breed_TextChanged);
             // 
             // textBox7
             // 
@@ -381,7 +382,7 @@ namespace App_project
             this.label14.Text = "Поля, помеченные звездочкой *, обязательны для заполнения!";
             this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
-            // PetCardForm
+            // Add_PetCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -415,7 +416,7 @@ namespace App_project
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "PetCardForm";
+            this.Name = "Add_PetCardForm";
             this.Opacity = 0.7D;
             this.Text = "PetCardForm";
             this.Load += new System.EventHandler(this.PetCardForm_Load);

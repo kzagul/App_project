@@ -62,13 +62,7 @@ namespace App_project
 
 
         //Просмотр карточки ДЖ
-        public void ShowPetCard(int idCard, string category,
-                       string nickName,
-                       string breed,
-                       int passportNumber, //unique
-                       string idUser,
-                       string gender,
-                       string locality)
+        public void ShowPetCard(string idCard)
         {
             //throw new NotImplementedException();
             //Console.WriteLine("Карточка показана");
@@ -79,8 +73,6 @@ namespace App_project
 
             string id_key = IDPetCard_key.global_IDPetCard;
 
-
-            //Category
             SqlCommand cmdCategory = new SqlCommand("SELECT [Category] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
 
             SqlDataReader thisReaderCategory = cmdCategory.ExecuteReader();
@@ -90,8 +82,12 @@ namespace App_project
                 res1 += thisReaderCategory["Category"];
             }
             thisReaderCategory.Close();
-            category = res1;
+
+            Category = res1;
         }
+
+
+
 
         //Добавление карточки ДЖ
         //public void AddNewPetCard(string category,
@@ -107,8 +103,6 @@ namespace App_project
         //{
         //    throw new NotImplementedException();
         //}
-
-
 
         //+
         public void AddNewPetCard(string category,
@@ -131,7 +125,7 @@ namespace App_project
                 dataAdapter.Fill(table);
                 if (table.Rows.Count == 0) 
                 {
-                    //добавление в БД
+                    //добавление в БД в PetCard
                     cmd.Parameters.AddWithValue("@Category", category);
                     cmd.Parameters.AddWithValue("@NickName", nickName);
                     cmd.Parameters.AddWithValue("@Breed", breed);
@@ -151,7 +145,35 @@ namespace App_project
                     {
                         connection.Close();
                     }
+
+
+                    connection.Open();
+
+                    //добавление в БД в ADCard
+                    var PetDBSelectQuery = new SqlCommand("SELECT [IDPet] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + passportNumber + "'", connection);
+                    var sqlForIdPet = PetDBSelectQuery.ExecuteScalar().ToString();
+
+                    SqlCommand cmd2 = new SqlCommand("INSERT INTO [PetDataBase].[dbo].[AdData] (IDPet, LocalityOfMissing) VALUES (@IDPet, @LocalityOfMissing)", connection);
+                    cmd2.Parameters.AddWithValue("@IDPet", sqlForIdPet);
+                    cmd2.Parameters.AddWithValue("@LocalityOfMissing", locality);
+
+                    try
+                    {
+                        cmd2.ExecuteNonQuery();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Облом!");
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+
+
+
                     MessageBox.Show("Карточка успешно добавлена!");
+
                 }
                 else
                 {
@@ -163,29 +185,96 @@ namespace App_project
 
 
 
-
         //Редактирование карточки ДЖ
-        public void EditPetCard(PetCard petCard,
-                        string category,
-                        string name,
-                        DateTime birthDate,
-                        string breed,
-                        DateTime registrationDate,
-                        int passportNumber,
-                        CertainUser thisPetOwner,
-                        string gender,
-                        Photo animalPhoto,
-                        string city)
+
+        //public void EditPetCard(PetCard petCard,
+        //                string category,
+        //                string name,
+        //                DateTime birthDate,
+        //                string breed,
+        //                DateTime registrationDate,
+        //                int passportNumber,
+        //                CertainUser thisPetOwner,
+        //                string gender,
+        //                Photo animalPhoto,
+        //                string city)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public void EditPetCard(string category,
+                       string nickName,
+                       string breed,
+                       int passportNumber, //unique
+                       string idUser,
+                       string gender,
+                       string locality)
         {
-            throw new NotImplementedException();
+          
         }
 
+
+
+
+
+        //+-
         //Удаление карточки о пропаже домашнего животного
-        public void DeletePetCard(IdPetCard idCard)
+
+        //public void DeletePetCard(IdPetCard idCard)
+        //{
+        //    //throw new NotImplementedException();
+        //    Console.WriteLine("Карточка удалена");
+        //}
+
+        public void DeletePetCard(string idCard)
         {
-            //throw new NotImplementedException();
-            Console.WriteLine("Карточка удалена");
+            SqlConnection connection = DataBase.LinkDataBase();
+
+            var PetDBSelectQuery = new SqlCommand("SELECT [IDPet] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + idCard + "'", connection);
+            var sqlForIdPet = PetDBSelectQuery.ExecuteScalar().ToString();
+
+            string sql1 = string.Format("DELETE FROM [PetDataBase].[dbo].[AdData] WHERE [IDPet] = '{0}'", sqlForIdPet);
+            using (SqlCommand cmd1 = new SqlCommand(sql1, connection))
+            {
+                try
+                {
+                    cmd1.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    Exception error = new Exception("Ошибка", ex);
+                    throw error;
+                }
+            }
+
+
+
+            string sql = string.Format("DELETE FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '{0}'", idCard);
+                using (SqlCommand cmd = new SqlCommand(sql, connection))
+                {
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (SqlException ex)
+                    {
+                        Exception error = new Exception("Ошибка", ex);
+                        throw error;
+                    }
+                }
+
         }
+
+
+
+
+
+
+
+
+
+
+
 
         //Сформировать паспорт домашнего животного в Microsoft Word
         public void Export2WordPetCard(IdPetCard idCard)

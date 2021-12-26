@@ -157,6 +157,9 @@
     <EmbeddedResource Include="AD формы\MyADsForm.resx">
       <DependentUpon>MyADsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PetCard формы\Edit_PetCardForm.resx">
+      <DependentUpon>Edit_PetCardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PetCard формы\Show_PetCardForm.resx">
       <DependentUpon>Show_PetCardForm.cs</DependentUpon>
     </EmbeddedResource>

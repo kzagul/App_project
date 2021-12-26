@@ -146,6 +146,7 @@ namespace App_project
             this.ControlBox = false;
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.panelMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Body";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Пропажи и находки домашних животных";

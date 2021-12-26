@@ -35,10 +35,10 @@ namespace App_project
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -58,14 +58,11 @@ namespace App_project
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.listView1);
-            this.panel1.Location = new System.Drawing.Point(67, 43);
+            this.panel1.Location = new System.Drawing.Point(0, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(688, 360);
+            this.panel1.Size = new System.Drawing.Size(834, 360);
             this.panel1.TabIndex = 1;
             // 
             // listView1
@@ -86,7 +83,7 @@ namespace App_project
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(688, 360);
+            this.listView1.Size = new System.Drawing.Size(834, 360);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -107,6 +104,12 @@ namespace App_project
             this.columnHeader3.Text = "Порода";
             this.columnHeader3.Width = 101;
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Tag = "passport";
+            this.columnHeader4.Text = "Номер Паспорта";
+            this.columnHeader4.Width = 146;
+            // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -114,9 +117,9 @@ namespace App_project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Location = new System.Drawing.Point(67, 435);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(220, 23);
+            this.button2.Size = new System.Drawing.Size(84, 23);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Открыть выбранную карточку";
+            this.button2.Text = "Обновить";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -140,13 +143,6 @@ namespace App_project
             this.label1.TabIndex = 0;
             this.label1.Text = "Мои домашние животные";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.DisplayIndex = 3;
-            this.columnHeader4.Tag = "passport";
-            this.columnHeader4.Text = "Номер Паспорта";
-            this.columnHeader4.Width = 146;
             // 
             // MyPetsForm
             // 

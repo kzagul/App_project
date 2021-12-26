@@ -16,5 +16,10 @@ namespace App_project
         {
             InitializeComponent();
         }
+
+        private void Edit_PetCardForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
