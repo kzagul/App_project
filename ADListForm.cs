@@ -25,6 +25,7 @@ namespace App_project
 
         private void ADListForm_Load(object sender, EventArgs e)
         {
+            //комент
             // TODO: данная строка кода позволяет загрузить данные в таблицу "petDBDataSet.AdData". При необходимости она может быть перемещена или удалена.
             this.adDataTableAdapter.Fill(this.petDBDataSet.AdData);
 

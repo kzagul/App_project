@@ -33,7 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.Win.C1TouchToolKit.4, Version=4.0.20213.532, Culture=neutral, PublicKeyToken=5e531fc0479701e7, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -169,7 +168,6 @@
     <EmbeddedResource Include="PetCard формы\Add_PetCardForm.resx">
       <DependentUpon>Add_PetCardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Sign формы\SignINForm.resx">
       <DependentUpon>SignINForm.cs</DependentUpon>
     </EmbeddedResource>
