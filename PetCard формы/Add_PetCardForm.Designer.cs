@@ -65,6 +65,7 @@ namespace App_project
             this.NickName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -356,7 +357,7 @@ namespace App_project
             // 
             // NickName
             // 
-            this.NickName.Location = new System.Drawing.Point(118, 252);
+            this.NickName.Location = new System.Drawing.Point(79, 261);
             this.NickName.Name = "NickName";
             this.NickName.Size = new System.Drawing.Size(123, 20);
             this.NickName.TabIndex = 27;
@@ -364,7 +365,7 @@ namespace App_project
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(56, 255);
+            this.label2.Location = new System.Drawing.Point(27, 264);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 28;
@@ -381,13 +382,24 @@ namespace App_project
             this.label14.Text = "Поля, помеченные звездочкой *, обязательны для заполнения!";
             this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
-            // PetCardForm
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(208, 253);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 35);
+            this.button2.TabIndex = 30;
+            this.button2.Text = "Загрузить фото";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // Add_PetCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(834, 498);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NickName);
@@ -415,7 +427,7 @@ namespace App_project
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "PetCardForm";
+            this.Name = "Add_PetCardForm";
             this.Opacity = 0.7D;
             this.Text = "PetCardForm";
             this.Load += new System.EventHandler(this.PetCardForm_Load);
@@ -464,5 +476,6 @@ namespace App_project
         private System.Windows.Forms.TextBox NickName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button2;
     }
 }

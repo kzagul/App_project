@@ -74,9 +74,10 @@ namespace App_project
                        int passportNumber, //unique
                        string idUser,
                        string gender,
-                       string locality)
+                       string locality,
+                       string photo)
         {
-            new PetCard().ShowPetCard(idCard, category, nickName, breed, passportNumber, idUser, gender, locality);
+            new PetCard().ShowPetCard(idCard, category, nickName, breed, passportNumber, idUser, gender, locality, photo);
         }
 
         //Добавление карточки ДЖ
@@ -101,9 +102,10 @@ namespace App_project
                        int passportNumber,
                        string id,
                        string gender,
-                       string city)
+                       string city,
+                       string photo)
         {
-            new PetCard().AddNewPetCard(category, nickName, breed, passportNumber, id, gender, city);
+            new PetCard().AddNewPetCard(category, nickName, breed, passportNumber, id, gender, city, photo);
         }
 
 
@@ -120,7 +122,7 @@ namespace App_project
                             int passportNumber,
                             CertainUser thisPetOwner,
                             string gender,
-                            Photo animalPhoto,
+                            string animalPhoto,
                             string city)
             {
                 throw new NotImplementedException();
@@ -178,13 +180,13 @@ namespace App_project
         //ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ
 
         //класс фотографии
-        public class Photo
-        {
-            public Photo()
-            {
-                //kind of magic
-            }
-        }
+        //public class Photo
+        //{
+        //    public Photo()
+        //    {
+        //        //kind of magic
+        //    }
+        //}
 
 
         //Класс для ID карточки ДЖ

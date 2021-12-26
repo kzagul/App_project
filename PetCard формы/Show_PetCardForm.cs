@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -119,6 +120,21 @@ namespace App_project
             thisReaderLocality.Close();
             Locality.Text = res4;
 
+            //Photo
+            SqlCommand cmdPhoto = new SqlCommand("SELECT [Photo] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+            SqlDataReader thisReaderPhoto = cmdPhoto.ExecuteReader();
+            string res5 = string.Empty;
+            while (thisReaderPhoto.Read())
+            {
+                res5 += thisReaderPhoto["Photo"];
+            }
+            byte[] data=new byte[res5.Length];
+            for (int i = 0; i < res5.Length; i++)
+                data[i] = Convert.ToByte(res5[i]);
+            thisReaderPhoto.Close();
+            pictureBox1.Image = ConvertByteArrayToImage(data);
+            
 
             //string SQLCheckLogin = "SELECT [Сategory] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'";
 
@@ -146,6 +162,13 @@ namespace App_project
             //IDPetCard_key.global_IDPetCard;
             //MessageBox.Show(IDPetCard_key.global_IDPetCard);
 
+        }
+        public Image ConvertByteArrayToImage(byte[]data)
+        {
+            using(MemoryStream ms= new MemoryStream(data))
+            {
+                return Image.FromStream(ms);
+            }
         }
 
         //-

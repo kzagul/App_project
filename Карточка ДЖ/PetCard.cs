@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using static App_project.Controller;
 
@@ -21,7 +23,7 @@ namespace App_project
         int PassportNumber { get; set; } //номер паспорта
         CertainUser ThisPetOwner { get; set; } //Владелец собаки
         string Gender { get; set; } // пол животного
-        Photo AnimalPhoto { get; set; } // фото животного
+        string Photo { get; set; } // фото животного
         string City { get; set; } // населенный пункт
 
 
@@ -42,7 +44,7 @@ namespace App_project
                         int passportNumber,
                         CertainUser thisPetOwner,
                         string gender,
-                        Photo animalPhoto,
+                        string photo,
                         string city
                         )
         {
@@ -54,7 +56,7 @@ namespace App_project
             PassportNumber = passportNumber;
             ThisPetOwner = thisPetOwner;
             Gender = gender;
-            AnimalPhoto = animalPhoto;
+            Photo = photo;
             City = city;
         }
         #endregion
@@ -68,7 +70,8 @@ namespace App_project
                        int passportNumber, //unique
                        string idUser,
                        string gender,
-                       string locality)
+                       string locality,
+                       string photo)
         {
             //throw new NotImplementedException();
             //Console.WriteLine("Карточка показана");
@@ -117,18 +120,24 @@ namespace App_project
                        int passportNumber, //unique
                        string idUser,
                        string gender,
-                       string locality)
+                       string locality,
+                       string photo )
         {
             SqlConnection connection = DataBase.LinkDataBase();
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality)", connection);
+            SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality, Photo) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality, @Photo)", connection);
 
             //проверка на уникальность passportNumber
             string SQLCheckLogin = "SELECT [PassportNumber] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + passportNumber + "'";
             using (SqlDataAdapter dataAdapter = new SqlDataAdapter(SQLCheckLogin, DataBase.PetDBConnectionString))
             {
+                
                 DataTable table = new DataTable();
                 dataAdapter.Fill(table);
+                byte[] images = null;
+                FileStream stream = new FileStream(photo, FileMode.Open, FileAccess.Read);
+                BinaryReader brs = new BinaryReader(stream);
+                images = brs.ReadBytes((int)stream.Length);
                 if (table.Rows.Count == 0) 
                 {
                     //добавление в БД
@@ -139,6 +148,7 @@ namespace App_project
                     cmd.Parameters.AddWithValue("@IDUser", idUser);
                     cmd.Parameters.AddWithValue("@Gender", gender);
                     cmd.Parameters.AddWithValue("@Locality", locality);
+                    cmd.Parameters.AddWithValue("@Photo", images);
                     try
                     {
                         cmd.ExecuteNonQuery();
@@ -174,7 +184,7 @@ namespace App_project
                         int passportNumber,
                         CertainUser thisPetOwner,
                         string gender,
-                        Photo animalPhoto,
+                        string animalPhoto,
                         string city)
         {
             throw new NotImplementedException();
