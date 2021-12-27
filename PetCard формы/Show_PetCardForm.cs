@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace App_project
 {
@@ -178,6 +179,46 @@ namespace App_project
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string nick = NickName.Text;
+            string fileName = "D:\\ПИС3\\exl\\"+nick+".xlsx";
+           
+            try
+            {
+                var excel = new Excel.Application();
+
+                var workBooks = excel.Workbooks;
+                var workBook = workBooks.Add();
+                var workSheet = (Excel.Worksheet)excel.ActiveSheet;
+                workSheet.Columns[1].ColumnWidth = 30;
+                workSheet.Columns[2].ColumnWidth = 30;
+                var excelcells = workSheet.get_Range("A1", "A5");
+                excelcells.Borders.ColorIndex = 3;
+                workSheet.Cells.Style.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
+                workSheet.Cells[1, "A"] = "Кличка";
+                workSheet.Cells[1, "B"] = NickName.Text;
+                workSheet.Cells[2, "A"] = "Вид животного";
+                workSheet.Cells[2, "B"] = CategoryAnimal.Text;
+                workSheet.Cells[3, "A"] = "Порода";
+                workSheet.Cells[3, "B"] = Breed.Text;
+                workSheet.Cells[4, "A"] = "Населённый пункт";
+                workSheet.Cells[4, "B"] = Locality.Text;
+                workSheet.Cells[5, "A"] = "Номер паспорта";
+                workSheet.Cells[5, "B"] = PassportNumber.Text;
+                //workSheet.Cells[6, "A"] = "Фото";
+                //workSheet.Cells[6, "B"] = pictureBox1.ImageLocation;
+                workBook.SaveAs(fileName);
+                workBook.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.ToString());
+            }
+
+            MessageBox.Show("Файл " + Path.GetFileName(fileName) + " записан успешно!");
         }
     }
 }

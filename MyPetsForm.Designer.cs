@@ -40,6 +40,7 @@ namespace App_project
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -113,7 +114,7 @@ namespace App_project
             // 
             this.columnHeader4.Tag = "";
             this.columnHeader4.Text = "Порода";
-            this.columnHeader4.Width = 146;
+            this.columnHeader4.Width = 110;
             // 
             // button2
             // 
@@ -153,7 +154,17 @@ namespace App_project
             // 
             this.columnHeader5.Tag = "passport";
             this.columnHeader5.Text = "Номер Паспорта";
-            this.columnHeader5.Width = 100;
+            this.columnHeader5.Width = 170;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(369, 434);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Экспорт";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // MyPetsForm
             // 
@@ -163,6 +174,7 @@ namespace App_project
             this.AutoSize = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(834, 498);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
@@ -194,5 +206,6 @@ namespace App_project
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Button button3;
     }
 }

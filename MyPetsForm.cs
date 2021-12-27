@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace App_project
 {
@@ -153,6 +154,54 @@ namespace App_project
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            string fileName = "D:\\ПИС3\\exl\\Список.xlsx";
+
+            try
+            {
+                var excel = new Excel.Application();
+
+                var workBooks = excel.Workbooks;
+                var workBook = workBooks.Add();
+                var workSheet = (Excel.Worksheet)excel.ActiveSheet;
+                workSheet.Columns[1].ColumnWidth = 30;
+                workSheet.Columns[2].ColumnWidth = 30;
+                workSheet.Columns[3].ColumnWidth = 30;
+                workSheet.Columns[4].ColumnWidth = 30;
+                var excelcells = workSheet.get_Range("A1", "D1");
+                excelcells.Borders.ColorIndex = 3;
+                //workSheet.Cells.Borders[].Weight = Excel.XlBorderWeight.xlThin;
+                //workSheet.Cells[1, "A"].Border.Weight = Excel.XlBorderWeight.xlThin;
+                //workSheet.Cells[1, "A"].Border.LineStyle =Excel.XlLineStyle.xlContinuous;
+                //workSheet.Cells[1, "A"].Border.ColorIndex = 0;
+                workSheet.Cells.Style.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                workSheet.Cells[1, "A"] = "Кличка";
+                workSheet.Cells[1, "B"] = "Вид";
+                workSheet.Cells[1, "C"] = "Порода";
+                workSheet.Cells[1, "D"] = "Номер паспорта";
+                for(int i = 0; i < listView1.Items.Count; i++)
+                {
+                    workSheet.Cells[i + 2, "A"] = listView1.Items[i].SubItems[1].Text;
+                    workSheet.Cells[i + 2, "B"] = listView1.Items[i].SubItems[2].Text;
+                    workSheet.Cells[i + 2, "C"] = listView1.Items[i].SubItems[3].Text;
+                    workSheet.Cells[i + 2, "D"] = listView1.Items[i].SubItems[4].Text;
+                }
+                
+                //workSheet.Cells[6, "A"] = "Фото";
+                //workSheet.Cells[6, "B"] = pictureBox1.ImageLocation;
+                workBook.SaveAs(fileName);
+                workBook.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.ToString());
+            }
+
+            MessageBox.Show("Файл " + Path.GetFileName(fileName) + " записан успешно!");
         }
     }
 }
