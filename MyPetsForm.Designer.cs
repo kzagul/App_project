@@ -96,23 +96,23 @@ namespace App_project
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Кличка";
-            this.columnHeader1.Width = 155;
+            this.columnHeader1.Text = "Фото";
+            this.columnHeader1.Width = 100;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Вид";
+            this.columnHeader2.Text = "Кличка";
             this.columnHeader2.Width = 156;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Порода";
+            this.columnHeader3.Text = "Вид";
             this.columnHeader3.Width = 101;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Tag = "passport";
-            this.columnHeader4.Text = "Номер Паспорта";
+            this.columnHeader4.Tag = "";
+            this.columnHeader4.Text = "Порода";
             this.columnHeader4.Width = 146;
             // 
             // button2
@@ -151,6 +151,8 @@ namespace App_project
             // 
             // columnHeader5
             // 
+            this.columnHeader5.Tag = "passport";
+            this.columnHeader5.Text = "Номер Паспорта";
             this.columnHeader5.Width = 100;
             // 
             // MyPetsForm

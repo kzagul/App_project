@@ -172,13 +172,7 @@ namespace App_project
             //MessageBox.Show(IDPetCard_key.global_IDPetCard);
 
         }
-        public Image ConvertByteArrayToImage(byte[]data)
-        {
-            using(MemoryStream ms= new MemoryStream(data))
-            {
-                return Image.FromStream(ms);
-            }
-        }
+        
 
         //-
         private void label1_Click(object sender, EventArgs e)

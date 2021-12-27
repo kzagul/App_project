@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace App_project
 {
@@ -59,23 +60,67 @@ namespace App_project
             //listView1.Columns.Add("Employee ID", 150);
             //listView1.Columns.Add("First Name", 150);
             //listView1.Columns.Add("Last Name", 150);
-
+            SqlConnection connection2 = DataBase.LinkDataBase();
             string sql = "Select NickName, Category, Breed, PassportNumber from [PetDataBase].[dbo].[PetData]";
             SqlConnection cnn = new SqlConnection(connection);
             cnn.Open();
             SqlCommand cmd = new SqlCommand(sql, cnn);
             SqlDataReader Reader = cmd.ExecuteReader();
 
-            listView1.Items.Clear();
+            SqlCommand cmdPhoto = new SqlCommand("SELECT [Photo] FROM [PetDataBase].[dbo].[PetData]", connection2);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmdPhoto);
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+            //if (dataSet.Tables[0].Rows.Count == 1)
+            //{
+            //    Byte[] data = new Byte[0];
+            //    data = (Byte[])(dataSet.Tables[0].Rows[0]["Photo"]);
+            //    MemoryStream mem = new MemoryStream(data);
+            //    pictureBox1.Image = Image.FromStream(mem);
+            //}
 
+            listView1.Items.Clear();
+            //int i= 0;
+            ImageList imagelist = new ImageList();
+            imagelist.ImageSize = new Size(50, 50);
+            //if (dataSet.Tables[0].Rows.Count == 1)
+            //{
+            for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+            {
+                Byte[] data = new Byte[0];
+                data = (Byte[])(dataSet.Tables[0].Rows[i]["Photo"]);
+                MemoryStream mem = new MemoryStream(data);
+
+                imagelist.Images.Add(Image.FromStream(mem));
+            }
+               
+            //}
+            listView1.SmallImageList = imagelist;
+            var nick = new List<string>();
+            var category = new List<string>();
+            var breed = new List<string>();
+            var passportn = new List<string>();
             while (Reader.Read())
             {
-                ListViewItem lv = new ListViewItem(Reader.GetString(0));
-                lv.SubItems.Add(Reader.GetString(1));
-                lv.SubItems.Add(Reader.GetString(2));
-                lv.SubItems.Add(Convert.ToString(Reader.GetInt32(3)));
-                listView1.Items.Add(lv);
+                //i++;
+                //ListViewItem lv = new ListViewItem(Reader.GetString(0));
+                nick.Add(Reader.GetString(0));
+                category.Add(Reader.GetString(1));
+                breed.Add(Reader.GetString(2));
+                passportn.Add(Convert.ToString(Reader.GetInt32(3)));
+                //lv.SubItems.Add(Reader.GetString(1));
+                //lv.SubItems.Add(Reader.GetString(2));
+                //lv.SubItems.Add(Convert.ToString(Reader.GetInt32(3)));
+                
+
+                //listView1.Items.Add(lv);
                 //perem = Convert.ToString(Reader.GetInt32(3));
+            }
+            for(int i=0;i<category.Count;i++)
+            {
+                ListViewItem lst = new ListViewItem(new string[] { "",nick[i],category[i],breed[i],passportn[i]});
+                lst.ImageIndex = i;
+                listView1.Items.Add(lst);
             }
             Reader.Close();
             cnn.Close();
@@ -84,7 +129,7 @@ namespace App_project
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            IDPetCard_key.global_IDPetCard = listView1.SelectedItems[0].SubItems[3].Text;
+            IDPetCard_key.global_IDPetCard = listView1.SelectedItems[0].SubItems[4].Text;
             OpenChildForm(new Show_PetCardForm());
             //MessageBox.Show(IDPetCard_key.global_IDPetCard);
 
