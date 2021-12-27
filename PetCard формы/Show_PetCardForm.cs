@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace App_project
 {
@@ -133,42 +134,15 @@ namespace App_project
                 MemoryStream mem = new MemoryStream(data);
                 pictureBox1.Image = Image.FromStream(mem);
             }
-            //SqlDataReader thisReaderPhoto = cmdPhoto.ExecuteReader();
-            //string res5 = string.Empty;
-            //while (thisReaderPhoto.Read())
-            //{
-            //    res5 += thisReaderPhoto["Photo"];
-            //}
-            //byte[] data=new byte[res5.Length];
-            //for (int i = 0; i < res5.Length; i++)
-            //    data[i] = Convert.ToByte(res5[i]);
-            //thisReaderPhoto.Close();
-            //pictureBox1.Image = ConvertByteArrayToImage(data);
             
-
             //string SQLCheckLogin = "SELECT [Сategory] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'";
-
-
             //string nickName = NickName.Text;
-
             //string breed = Breed.Text;
-
             PassportNumber.Text = id_key;
-
             //string idUser = IDUser_key.global_IDUser;
-
             //string gender = "male";
-
             //string locality = Locality.Text;
-
-
             //Controller.ShowPetCard(id_key);
-
-
-
-
-
-
             //IDPetCard_key.global_IDPetCard;
             //MessageBox.Show(IDPetCard_key.global_IDPetCard);
 
@@ -219,6 +193,51 @@ namespace App_project
             }
 
             MessageBox.Show("Файл " + Path.GetFileName(fileName) + " записан успешно!");
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string nick = NickName.Text;
+            
+
+            // Создаём объект документа
+            Word.Document doc = null;
+            try
+            {
+                Word.Application winword = new Word.Application();
+
+                winword.Visible = false;
+                object missing = System.Reflection.Missing.Value;
+
+                //Создание нового документа
+                Word.Document document = winword.Documents.Add(ref missing, ref missing, ref missing, ref missing);
+
+                //добавление новой страницы
+                winword.Selection.InsertNewPage();                
+                document.Content.SetRange(0, 0);
+                document.Content.Text = "Кличка: "+ NickName.Text + Environment.NewLine
+                    + "Вид животного: " + CategoryAnimal.Text + Environment.NewLine
+                     + "Порода: " + Breed.Text + Environment.NewLine
+                     + "Населённый пункт: " + Locality.Text + Environment.NewLine
+                     + "Номер паспорта: " + PassportNumber.Text + Environment.NewLine;
+                //document.Content.Text = CategoryAnimal.Text + Environment.NewLine;
+                //winword.Visible = true;
+
+                //Сохранение документа
+                object filename = "D:\\ПИС3\\exl\\"+nick+".docx";
+                document.SaveAs(ref filename);
+                //Закрытие текущего документа
+                document.Close(ref missing, ref missing, ref missing);
+                document = null;
+                //Закрытие приложения Word
+                winword.Quit(ref missing, ref missing, ref missing);
+                winword = null;
+                MessageBox.Show("Успешно!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
