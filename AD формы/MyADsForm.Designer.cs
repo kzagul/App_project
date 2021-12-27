@@ -30,36 +30,33 @@ namespace App_project
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.поНаселенномуПунктуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.поИмениToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.видОтображенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.плиткаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(315, 9);
+            this.label1.Location = new System.Drawing.Point(314, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(178, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Мои объявления";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(834, 44);
-            this.panel1.TabIndex = 1;
             // 
             // panel2
             // 
@@ -116,22 +113,87 @@ namespace App_project
             this.button1.Text = "Создать карточку";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.видОтображенияToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(834, 33);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.поНаселенномуПунктуToolStripMenuItem,
+            this.поИмениToolStripMenuItem});
+            this.toolStripMenuItem1.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(99, 19);
+            this.toolStripMenuItem1.Text = "Задать фильтр";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(207, 22);
+            this.toolStripMenuItem2.Text = "По категории";
+            // 
+            // поНаселенномуПунктуToolStripMenuItem
+            // 
+            this.поНаселенномуПунктуToolStripMenuItem.Name = "поНаселенномуПунктуToolStripMenuItem";
+            this.поНаселенномуПунктуToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.поНаселенномуПунктуToolStripMenuItem.Text = "По населенному пункту";
+            // 
+            // поИмениToolStripMenuItem
+            // 
+            this.поИмениToolStripMenuItem.Name = "поИмениToolStripMenuItem";
+            this.поИмениToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.поИмениToolStripMenuItem.Text = "По имени";
+            // 
+            // видОтображенияToolStripMenuItem
+            // 
+            this.видОтображенияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.плиткаToolStripMenuItem,
+            this.списокToolStripMenuItem});
+            this.видОтображенияToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.видОтображенияToolStripMenuItem.Name = "видОтображенияToolStripMenuItem";
+            this.видОтображенияToolStripMenuItem.Size = new System.Drawing.Size(116, 19);
+            this.видОтображенияToolStripMenuItem.Text = "Вид отображения";
+            // 
+            // плиткаToolStripMenuItem
+            // 
+            this.плиткаToolStripMenuItem.Name = "плиткаToolStripMenuItem";
+            this.плиткаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.плиткаToolStripMenuItem.Text = "Плитка";
+            // 
+            // списокToolStripMenuItem
+            // 
+            this.списокToolStripMenuItem.Name = "списокToolStripMenuItem";
+            this.списокToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.списокToolStripMenuItem.Text = "Список";
+            // 
             // MyADsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(834, 498);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MyADsForm";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.MyADsForm_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,12 +202,19 @@ namespace App_project
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem поНаселенномуПунктуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem поИмениToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem видОтображенияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem плиткаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem списокToolStripMenuItem;
     }
 }

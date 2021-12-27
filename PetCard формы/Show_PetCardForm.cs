@@ -187,5 +187,11 @@ namespace App_project
         {
             NickName.ReadOnly = true;
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            panel1.BackColor = Color.FromArgb(0, 0, 0, 0);
+            panel1.Parent = this;
+        }
     }
 }

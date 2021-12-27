@@ -17,12 +17,11 @@ namespace App_project
             }
 
             //Добавление объявления
-            public static void AddNewAnnouncement(DateTime DateOfAd,
-                            string LoosingPlace,
-                            DateTime CheckDate,
-                            PetCard petCard)
+            public static void AddNewAnnouncement(
+                        string idPetCard,
+                        string LoosingPlace)
             {
-                throw new NotImplementedException();
+            new AD().AddNewAnnouncement(idPetCard, LoosingPlace);
             }
 
             //Редактирование объявления

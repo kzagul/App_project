@@ -146,8 +146,8 @@ namespace App_project
             // реестрToolStripMenuItem
             // 
             this.реестрToolStripMenuItem.Name = "реестрToolStripMenuItem";
-            this.реестрToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.реестрToolStripMenuItem.Text = "Реестр";
+            this.реестрToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.реестрToolStripMenuItem.Text = "Список";
             this.реестрToolStripMenuItem.Click += new System.EventHandler(this.реестрToolStripMenuItem_Click);
             // 
             // label1

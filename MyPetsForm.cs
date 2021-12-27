@@ -60,7 +60,7 @@ namespace App_project
             //listView1.Columns.Add("First Name", 150);
             //listView1.Columns.Add("Last Name", 150);
 
-            string sql = "Select NickName, Category, Breed, PassportNumber from [PetDataBase].[dbo].[PetData]";
+            string sql = "Select NickName, Category, Breed, PassportNumber from [PetDataBase].[dbo].[PetData] WHERE [IDUser] = '" + IDUser_key.global_IDUser + "'";
             SqlConnection cnn = new SqlConnection(connection);
             cnn.Open();
             SqlCommand cmd = new SqlCommand(sql, cnn);
@@ -104,6 +104,11 @@ namespace App_project
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

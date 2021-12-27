@@ -50,6 +50,12 @@
     <Compile Include="ChildForm.cs" />
     <Compile Include="DataBase.cs" />
     <Compile Include="IDPetCard_key.cs" />
+    <Compile Include="AD формы\Show_ADForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AD формы\Show_ADForm.Designer.cs">
+      <DependentUpon>Show_ADForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Фильтрация\IFilter.cs" />
     <Compile Include="Сортировка\ISort.cs" />
     <Compile Include="Регистрация\ISignUP.cs" />
@@ -173,6 +179,9 @@
       <DependentUpon>Add_PetCardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="AD формы\Show_ADForm.resx">
+      <DependentUpon>Show_ADForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sign формы\SignINForm.resx">
       <DependentUpon>SignINForm.cs</DependentUpon>
     </EmbeddedResource>
