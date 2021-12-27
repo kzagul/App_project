@@ -122,18 +122,27 @@ namespace App_project
 
             //Photo
             SqlCommand cmdPhoto = new SqlCommand("SELECT [Photo] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
-
-            SqlDataReader thisReaderPhoto = cmdPhoto.ExecuteReader();
-            string res5 = string.Empty;
-            while (thisReaderPhoto.Read())
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmdPhoto);
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+            if(dataSet.Tables[0].Rows.Count==1)
             {
-                res5 += thisReaderPhoto["Photo"];
+                Byte[] data = new Byte[0];
+                data = (Byte[])(dataSet.Tables[0].Rows[0]["Photo"]);
+                MemoryStream mem = new MemoryStream(data);
+                pictureBox1.Image = Image.FromStream(mem);
             }
-            byte[] data=new byte[res5.Length];
-            for (int i = 0; i < res5.Length; i++)
-                data[i] = Convert.ToByte(res5[i]);
-            thisReaderPhoto.Close();
-            pictureBox1.Image = ConvertByteArrayToImage(data);
+            //SqlDataReader thisReaderPhoto = cmdPhoto.ExecuteReader();
+            //string res5 = string.Empty;
+            //while (thisReaderPhoto.Read())
+            //{
+            //    res5 += thisReaderPhoto["Photo"];
+            //}
+            //byte[] data=new byte[res5.Length];
+            //for (int i = 0; i < res5.Length; i++)
+            //    data[i] = Convert.ToByte(res5[i]);
+            //thisReaderPhoto.Close();
+            //pictureBox1.Image = ConvertByteArrayToImage(data);
             
 
             //string SQLCheckLogin = "SELECT [Сategory] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'";

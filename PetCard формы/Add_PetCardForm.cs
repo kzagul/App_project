@@ -50,7 +50,7 @@ namespace App_project
 
             string locality = Locality.Text;
 
-            var photo = pictureBox1.ImageLocation;
+            string photo = pictureBox1.ImageLocation;
             #endregion
 
             Controller.AddNewPetCard(categoryAnimal,
