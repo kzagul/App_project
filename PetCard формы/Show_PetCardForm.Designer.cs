@@ -35,7 +35,7 @@ namespace App_project
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.PassportNumber = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.DateOfRegistration = new System.Windows.Forms.TextBox();
             this.Breed = new System.Windows.Forms.TextBox();
             this.FIO = new System.Windows.Forms.TextBox();
             this.DateOfBirth = new System.Windows.Forms.TextBox();
@@ -125,13 +125,13 @@ namespace App_project
             this.PassportNumber.TabIndex = 45;
             this.PassportNumber.TextChanged += new System.EventHandler(this.PassportNumber_TextChanged);
             // 
-            // textBox7
+            // DateOfRegistration
             // 
-            this.textBox7.Location = new System.Drawing.Point(657, 129);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 44;
+            this.DateOfRegistration.Location = new System.Drawing.Point(657, 129);
+            this.DateOfRegistration.Name = "DateOfRegistration";
+            this.DateOfRegistration.ReadOnly = true;
+            this.DateOfRegistration.Size = new System.Drawing.Size(100, 20);
+            this.DateOfRegistration.TabIndex = 44;
             // 
             // Breed
             // 
@@ -453,7 +453,7 @@ namespace App_project
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.PassportNumber);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.DateOfRegistration);
             this.Controls.Add(this.Breed);
             this.Controls.Add(this.FIO);
             this.Controls.Add(this.DateOfBirth);
@@ -488,7 +488,7 @@ namespace App_project
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.TextBox PassportNumber;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox DateOfRegistration;
         private System.Windows.Forms.TextBox Breed;
         private System.Windows.Forms.TextBox FIO;
         private System.Windows.Forms.TextBox DateOfBirth;

@@ -21,9 +21,12 @@ namespace App_project
             //Добавление объявления
             public static void AddNewAnnouncement(
                         string idPetCard,
-                        string LoosingPlace)
+                        string LoosingPlace,
+                        string missingDate, 
+                        string postDate
+                )
             {
-                new AD().AddNewAnnouncement(idPetCard, LoosingPlace);
+                new AD().AddNewAnnouncement(idPetCard, LoosingPlace, missingDate, postDate);
 
                 new Journal().RegisterToJournal(IDUser_key.global_IDUser);
         }
@@ -104,10 +107,12 @@ namespace App_project
                        string id,
                        string gender,
                        string city,
-                       string photo
+                       string photo,
+                       string dateOfBirth,
+                       string registrationDate
             )
         {
-            new PetCard().AddNewPetCard(category, nickName, breed, passportNumber, id, gender, city, photo);
+            new PetCard().AddNewPetCard(category, nickName, breed, passportNumber, id, gender, city, photo, dateOfBirth, registrationDate);
             new Journal().RegisterToJournal(IDUser_key.global_IDUser);
         }
 
@@ -133,7 +138,7 @@ namespace App_project
             new Journal().RegisterToJournal(IDUser_key.global_IDUser);
         }
 
-
+        //+
             //Удаление карточки о пропаже домашнего животного
         public static void DeletePetCard(string idCard)
         {
@@ -156,9 +161,13 @@ namespace App_project
 
             //еще не сделано
             //Экспорт карточки домашнего животного в Microsoft Excel
-        public static void Export2ExcelPetCard(IdPetCard idCard)
+        public static void Export2ExcelPetCard(string nickName, string categoryAnimal, string breed, string locality, string passportNumber)
         {
-            new PetCard().Export2ExcelPetCard(idCard);
+            new PetCard().Export2ExcelPetCard(nickName, categoryAnimal, breed, locality, passportNumber);
+
+
+
+
 
             new Journal().RegisterToJournal(IDUser_key.global_IDUser);
         }

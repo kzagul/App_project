@@ -194,5 +194,15 @@ namespace App_project
                 MessageBox.Show("Ошибка: " + ex.ToString());
             }
         }
+
+        private void списокToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.View = View.Details;
+        }
+
+        private void плиткаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listView1.View = View.SmallIcon;
+        }
     }
 }

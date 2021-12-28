@@ -39,9 +39,9 @@ namespace App_project
         //Добавление объявления
         public void AddNewAnnouncement(//DateTime DateOfAd,
                         string idPetCard,
-                        string localityOfMissing
-                        //DateTime CheckDate,
-                        //PetCard petCard)
+                        string localityOfMissing,
+                        string missingDate, 
+                        string postDate
                         )
         {
             SqlConnection connection = DataBase.LinkDataBase();
@@ -50,7 +50,7 @@ namespace App_project
             var PetDBSelectQuery = new SqlCommand("SELECT [IDPet] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + IDPetCard_key.global_IDPetCard + "'", connection);
             var sqlForIdPet = PetDBSelectQuery.ExecuteScalar().ToString();
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO [PetDataBase].[dbo].[AdData] (IDPet, LocalityOfMissing) VALUES (@IDPet, @LocalityOfMissing)", connection);
+            SqlCommand cmd = new SqlCommand("INSERT INTO [PetDataBase].[dbo].[AdData] (IDPet, PostDate, LocalityOfMissing, DateOfMissing) VALUES (@IDPet, @PostDate, @LocalityOfMissing, @DateOfMissing)", connection);
 
             //Проверка на уникальность IdPet
             string SQLCheckID = "SELECT [IDPet] FROM [PetDataBase].[dbo].[AdData] WHERE [IDPet] = '" + idPetCard + "'";
@@ -62,7 +62,9 @@ namespace App_project
                 {
 
                     cmd.Parameters.AddWithValue("@IDPet", sqlForIdPet);
+                    cmd.Parameters.AddWithValue("@PostDate", postDate);
                     cmd.Parameters.AddWithValue("@LocalityOfMissing", localityOfMissing);
+                    cmd.Parameters.AddWithValue("@DateOfMissing", missingDate);
 
                     try
                     {

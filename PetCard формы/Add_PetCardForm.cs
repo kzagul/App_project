@@ -61,6 +61,10 @@ namespace App_project
 
             string idUser = IDUser_key.global_IDUser;
 
+            string dateOfBirth = dateTimePicker1.Value.Date.ToString("dd-MM-yyyy");
+
+            string registrationDate = dateTimePicker2.Value.Date.ToString("dd-MM-yyyy");
+
             //Gender
             string gender = "male";
 
@@ -86,7 +90,9 @@ namespace App_project
                        idUser,
                        gender,
                        locality,
-                       photo
+                       photo,
+                       dateOfBirth,
+                       registrationDate
                        );
         }
 

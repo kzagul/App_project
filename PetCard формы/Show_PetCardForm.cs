@@ -172,7 +172,29 @@ namespace App_project
                     radioButton2.Checked = true;
                 }
 
+                //DateOfBirth
+                SqlCommand cmdDateOfBirth = new SqlCommand("SELECT [DateOfBirth] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
 
+                SqlDataReader thisReaderDateOfBirth = cmdDateOfBirth.ExecuteReader();
+                string res6 = string.Empty;
+                while (thisReaderDateOfBirth.Read())
+                {
+                    res6 += thisReaderDateOfBirth["DateOfBirth"];
+                }
+                thisReaderDateOfBirth.Close();
+                DateOfBirth.Text = res6;
+
+                //RegistrationdDate
+                SqlCommand cmdRegistrationdDate = new SqlCommand("SELECT [RegistrationdDate] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+                SqlDataReader thisReaderRegistrationdDate = cmdRegistrationdDate.ExecuteReader();
+                string res7 = string.Empty;
+                while (thisReaderRegistrationdDate.Read())
+                {
+                    res7 += thisReaderRegistrationdDate["RegistrationdDate"];
+                }
+                thisReaderRegistrationdDate.Close();
+                DateOfRegistration.Text = res7;
 
 
 
@@ -268,43 +290,51 @@ namespace App_project
 
         private void ExportToExcel_PetCard(object sender, EventArgs e)
         {
-            string nick = NickName.Text;
-            string fileName = "C:\\Users\\kirillzagul\\Downloads\\" + nick + ".xlsx";
+            //поля
+            string nickName = NickName.Text;
+            string categoryAnimal = CategoryAnimal.Text;
+            string breed = Breed.Text;
+            string locality = Locality.Text;
+            string passportNumber = PassportNumber.Text;
 
-            try
-            {
-                var excel = new Excel.Application();
+            //string fileName = "C:\\Users\\kirillzagul\\Downloads\\" + nickName + ".xlsx";
 
-                var workBooks = excel.Workbooks;
-                var workBook = workBooks.Add();
-                var workSheet = (Excel.Worksheet)excel.ActiveSheet;
-                workSheet.Columns[1].ColumnWidth = 30;
-                workSheet.Columns[2].ColumnWidth = 30;
-                var excelcells = workSheet.get_Range("A1", "A5");
-                excelcells.Borders.ColorIndex = 3;
-                workSheet.Cells.Style.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
-                workSheet.Cells[1, "A"] = "Кличка";
-                workSheet.Cells[1, "B"] = NickName.Text;
-                workSheet.Cells[2, "A"] = "Вид животного";
-                workSheet.Cells[2, "B"] = CategoryAnimal.Text;
-                workSheet.Cells[3, "A"] = "Порода";
-                workSheet.Cells[3, "B"] = Breed.Text;
-                workSheet.Cells[4, "A"] = "Населённый пункт";
-                workSheet.Cells[4, "B"] = Locality.Text;
-                workSheet.Cells[5, "A"] = "Номер паспорта";
-                workSheet.Cells[5, "B"] = PassportNumber.Text;
-                //workSheet.Cells[6, "A"] = "Фото";
-                //workSheet.Cells[6, "B"] = pictureBox1.ImageLocation;
-                workBook.SaveAs(fileName);
-                workBook.Close();
+            //try
+            //{
+            //    var excel = new Excel.Application();
+
+            //    var workBooks = excel.Workbooks;
+            //    var workBook = workBooks.Add();
+            //    var workSheet = (Excel.Worksheet)excel.ActiveSheet;
+            //    workSheet.Columns[1].ColumnWidth = 30;
+            //    workSheet.Columns[2].ColumnWidth = 30;
+            //    var excelcells = workSheet.get_Range("A1", "A5");
+            //    excelcells.Borders.ColorIndex = 3;
+            //    workSheet.Cells.Style.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
+            //    workSheet.Cells[1, "A"] = "Кличка";
+            //    workSheet.Cells[1, "B"] = nickName;
+            //    workSheet.Cells[2, "A"] = "Вид животного";
+            //    workSheet.Cells[2, "B"] = categoryAnimal;
+            //    workSheet.Cells[3, "A"] = "Порода";
+            //    workSheet.Cells[3, "B"] = breed;
+            //    workSheet.Cells[4, "A"] = "Населённый пункт";
+            //    workSheet.Cells[4, "B"] = locality;
+            //    workSheet.Cells[5, "A"] = "Номер паспорта";
+            //    workSheet.Cells[5, "B"] = passportNumber;
+            //    //workSheet.Cells[6, "A"] = "Фото";
+            //    //workSheet.Cells[6, "B"] = pictureBox1.ImageLocation;
+            //    workBook.SaveAs(fileName);
+            //    workBook.Close();
 
 
-                MessageBox.Show("Файл " + Path.GetFileName(fileName) + " записан успешно!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ошибка: " + ex.ToString());
-            }
+            //    MessageBox.Show("Файл " + Path.GetFileName(fileName) + " записан успешно!");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Ошибка: " + ex.ToString());
+            //}
+
+            Controller.Export2ExcelPetCard(nickName, categoryAnimal, breed, locality, passportNumber);
            
         }
 

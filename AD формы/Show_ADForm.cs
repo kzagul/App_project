@@ -27,7 +27,7 @@ namespace App_project
 
             SqlConnection connection = DataBase.LinkDataBase();
 
-            Controller.ShowPetCard(id_key);
+           // Controller.ShowPetCard(id_key);
 
             //CategoryAnimal.Text;
 
@@ -83,6 +83,26 @@ namespace App_project
                     pictureBox1.Image = Image.FromStream(mem);
                 }
 
+
+                //DateOfPosting
+                DateOfPosting.Text = DateTime.Now.Date.ToString("dd-MM-yyyy");
+
+
+                //Gender
+
+                SqlCommand cmdGender = new SqlCommand("SELECT [Gender] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+                var thisGender = cmdGender.ExecuteScalar().ToString();
+
+                if (thisGender == "male")
+                {
+                    GenderBox.Text = "Мужской";
+                }
+                else if (thisGender == "female")
+                {
+                    GenderBox.Text = "Женский";
+                }
+
+
             }
 
             fullData();
@@ -124,12 +144,12 @@ namespace App_project
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            Gender.ReadOnly = true;
+            //Gender.ReadOnly = true;
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            textBox4.ReadOnly = true;
+            DateOfPosting.ReadOnly = true;
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
@@ -147,9 +167,11 @@ namespace App_project
             #region Поля texbox
             string idPetCard = IDPetCard_key.GetGlobalPetCardID();
             string locality = Locality.Text;
+            string missingDate = DateOfMissing.Value.Date.ToString("dd-MM-yyyy");
+            string postDate = DateOfPosting.Text;
             #endregion
 
-            Controller.AddNewAnnouncement(idPetCard, locality);
+            Controller.AddNewAnnouncement(idPetCard, locality, missingDate, postDate);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

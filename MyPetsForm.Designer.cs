@@ -43,11 +43,11 @@ namespace App_project
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.задатьФильтрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.поКатегорииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.поИмениToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видОтображенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.плиткаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.поКатегорииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.поИмениToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -198,6 +198,18 @@ namespace App_project
             this.задатьФильтрToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
             this.задатьФильтрToolStripMenuItem.Text = "Задать фильтр";
             // 
+            // поКатегорииToolStripMenuItem
+            // 
+            this.поКатегорииToolStripMenuItem.Name = "поКатегорииToolStripMenuItem";
+            this.поКатегорииToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.поКатегорииToolStripMenuItem.Text = "По категории";
+            // 
+            // поИмениToolStripMenuItem
+            // 
+            this.поИмениToolStripMenuItem.Name = "поИмениToolStripMenuItem";
+            this.поИмениToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.поИмениToolStripMenuItem.Text = "По Имени";
+            // 
             // видОтображенияToolStripMenuItem
             // 
             this.видОтображенияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -212,24 +224,14 @@ namespace App_project
             this.плиткаToolStripMenuItem.Name = "плиткаToolStripMenuItem";
             this.плиткаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.плиткаToolStripMenuItem.Text = "Плитка";
+            this.плиткаToolStripMenuItem.Click += new System.EventHandler(this.плиткаToolStripMenuItem_Click);
             // 
             // списокToolStripMenuItem
             // 
             this.списокToolStripMenuItem.Name = "списокToolStripMenuItem";
             this.списокToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.списокToolStripMenuItem.Text = "Список";
-            // 
-            // поКатегорииToolStripMenuItem
-            // 
-            this.поКатегорииToolStripMenuItem.Name = "поКатегорииToolStripMenuItem";
-            this.поКатегорииToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.поКатегорииToolStripMenuItem.Text = "По категории";
-            // 
-            // поИмениToolStripMenuItem
-            // 
-            this.поИмениToolStripMenuItem.Name = "поИмениToolStripMenuItem";
-            this.поИмениToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.поИмениToolStripMenuItem.Text = "По Имени";
+            this.списокToolStripMenuItem.Click += new System.EventHandler(this.списокToolStripMenuItem_Click);
             // 
             // MyPetsForm
             // 

@@ -34,8 +34,7 @@ namespace App_project
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.Locality = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.Gender = new System.Windows.Forms.TextBox();
+            this.DateOfPosting = new System.Windows.Forms.TextBox();
             this.CategoryAnimal = new System.Windows.Forms.TextBox();
             this.NickName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,6 +43,9 @@ namespace App_project
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.DateOfMissing = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.GenderBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -61,10 +63,12 @@ namespace App_project
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Controls.Add(this.GenderBox);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.DateOfMissing);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.Locality);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.Gender);
+            this.panel1.Controls.Add(this.DateOfPosting);
             this.panel1.Controls.Add(this.CategoryAnimal);
             this.panel1.Controls.Add(this.NickName);
             this.panel1.Controls.Add(this.label5);
@@ -90,32 +94,27 @@ namespace App_project
             // 
             // Locality
             // 
-            this.Locality.Location = new System.Drawing.Point(573, 180);
+            this.Locality.Location = new System.Drawing.Point(573, 146);
             this.Locality.Name = "Locality";
+            this.Locality.ReadOnly = true;
             this.Locality.Size = new System.Drawing.Size(136, 20);
             this.Locality.TabIndex = 10;
             this.Locality.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
-            // textBox4
+            // DateOfPosting
             // 
-            this.textBox4.Location = new System.Drawing.Point(573, 91);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(136, 20);
-            this.textBox4.TabIndex = 9;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-            // 
-            // Gender
-            // 
-            this.Gender.Location = new System.Drawing.Point(290, 180);
-            this.Gender.Name = "Gender";
-            this.Gender.Size = new System.Drawing.Size(121, 20);
-            this.Gender.TabIndex = 8;
-            this.Gender.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.DateOfPosting.Location = new System.Drawing.Point(573, 91);
+            this.DateOfPosting.Name = "DateOfPosting";
+            this.DateOfPosting.ReadOnly = true;
+            this.DateOfPosting.Size = new System.Drawing.Size(136, 20);
+            this.DateOfPosting.TabIndex = 9;
+            this.DateOfPosting.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // CategoryAnimal
             // 
             this.CategoryAnimal.Location = new System.Drawing.Point(290, 91);
             this.CategoryAnimal.Name = "CategoryAnimal";
+            this.CategoryAnimal.ReadOnly = true;
             this.CategoryAnimal.Size = new System.Drawing.Size(121, 20);
             this.CategoryAnimal.TabIndex = 7;
             this.CategoryAnimal.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
@@ -124,6 +123,7 @@ namespace App_project
             // 
             this.NickName.Location = new System.Drawing.Point(379, 13);
             this.NickName.Name = "NickName";
+            this.NickName.ReadOnly = true;
             this.NickName.Size = new System.Drawing.Size(100, 20);
             this.NickName.TabIndex = 6;
             this.NickName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -132,7 +132,7 @@ namespace App_project
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(436, 181);
+            this.label5.Location = new System.Drawing.Point(436, 147);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(131, 16);
             this.label5.TabIndex = 5;
@@ -152,7 +152,7 @@ namespace App_project
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(178, 181);
+            this.label3.Location = new System.Drawing.Point(178, 147);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 16);
             this.label3.TabIndex = 3;
@@ -191,6 +191,31 @@ namespace App_project
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // DateOfMissing
+            // 
+            this.DateOfMissing.Location = new System.Drawing.Point(573, 201);
+            this.DateOfMissing.Name = "DateOfMissing";
+            this.DateOfMissing.Size = new System.Drawing.Size(136, 20);
+            this.DateOfMissing.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(436, 205);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(100, 16);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Дата пропажи";
+            // 
+            // GenderBox
+            // 
+            this.GenderBox.Location = new System.Drawing.Point(291, 146);
+            this.GenderBox.Name = "GenderBox";
+            this.GenderBox.ReadOnly = true;
+            this.GenderBox.Size = new System.Drawing.Size(120, 20);
+            this.GenderBox.TabIndex = 14;
+            // 
             // Show_ADForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,10 +246,12 @@ namespace App_project
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox Locality;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox Gender;
+        private System.Windows.Forms.TextBox DateOfPosting;
         private System.Windows.Forms.TextBox CategoryAnimal;
         private System.Windows.Forms.TextBox NickName;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker DateOfMissing;
+        private System.Windows.Forms.TextBox GenderBox;
     }
 }

@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Windows.Forms;
 using static App_project.Controller;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace App_project
 {
@@ -113,13 +114,16 @@ namespace App_project
                        string idUser,
                        string gender,
                        string locality,
-                       string photo
+                       string photo,
+                       string dateOfBirth,
+                       string registrationDate
             )
         {
             SqlConnection connection = DataBase.LinkDataBase();
 
             //SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality)", connection);
-            SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality, Photo) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality, @Photo)", connection);
+            //SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality, Photo) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality, @Photo)", connection);
+            SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality, Photo, DateOfBirth, RegistrationdDate) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality, @Photo, @DateOfBirth, @RegistrationdDate)", connection);
 
             //проверка на уникальность passportNumber
             string SQLCheckLogin = "SELECT [PassportNumber] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + passportNumber + "'";
@@ -143,6 +147,8 @@ namespace App_project
                     cmd.Parameters.AddWithValue("@Gender", gender);
                     cmd.Parameters.AddWithValue("@Locality", locality);
                     cmd.Parameters.AddWithValue("@Photo", images);
+                    cmd.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+                    cmd.Parameters.AddWithValue("@RegistrationdDate", registrationDate);
                     try
                     {
                         cmd.ExecuteNonQuery();
@@ -294,10 +300,44 @@ namespace App_project
         }
 
         //Экспорт карточки домашнего животного в Microsoft Excel
-        public void Export2ExcelPetCard(IdPetCard idCard)
+        public void Export2ExcelPetCard(string nickName, string categoryAnimal, string breed, string locality, string passportNumber)
         {
             //throw new NotImplementedException();
-            Console.WriteLine("Карточка Экспортирована");
+            string fileName = "C:\\Users\\kirillzagul\\Downloads\\" + nickName + ".xlsx";
+
+            try
+            {
+                var excel = new Excel.Application();
+
+                var workBooks = excel.Workbooks;
+                var workBook = workBooks.Add();
+                var workSheet = (Excel.Worksheet)excel.ActiveSheet;
+                workSheet.Columns[1].ColumnWidth = 30;
+                workSheet.Columns[2].ColumnWidth = 30;
+                var excelcells = workSheet.get_Range("A1", "A5");
+                excelcells.Borders.ColorIndex = 3;
+                workSheet.Cells.Style.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
+                workSheet.Cells[1, "A"] = "Кличка";
+                workSheet.Cells[1, "B"] = nickName;
+                workSheet.Cells[2, "A"] = "Вид животного";
+                workSheet.Cells[2, "B"] = categoryAnimal;
+                workSheet.Cells[3, "A"] = "Порода";
+                workSheet.Cells[3, "B"] = breed;
+                workSheet.Cells[4, "A"] = "Населённый пункт";
+                workSheet.Cells[4, "B"] = locality;
+                workSheet.Cells[5, "A"] = "Номер паспорта";
+                workSheet.Cells[5, "B"] = passportNumber;
+                //workSheet.Cells[6, "A"] = "Фото";
+                //workSheet.Cells[6, "B"] = pictureBox1.ImageLocation;
+                workBook.SaveAs(fileName);
+                workBook.Close();
+
+                MessageBox.Show("Файл " + Path.GetFileName(fileName) + " записан успешно!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.ToString());
+            }
         }
     }
 }
