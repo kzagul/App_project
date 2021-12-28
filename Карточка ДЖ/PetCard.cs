@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Windows.Forms;
 using static App_project.Controller;
 
@@ -111,11 +112,14 @@ namespace App_project
                        int passportNumber, //unique
                        string idUser,
                        string gender,
-                       string locality)
+                       string locality,
+                       string photo
+            )
         {
             SqlConnection connection = DataBase.LinkDataBase();
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality)", connection);
+            //SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality)", connection);
+            SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality, Photo) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality, @Photo)", connection);
 
             //проверка на уникальность passportNumber
             string SQLCheckLogin = "SELECT [PassportNumber] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + passportNumber + "'";
@@ -123,6 +127,10 @@ namespace App_project
             {
                 DataTable table = new DataTable();
                 dataAdapter.Fill(table);
+                byte[] images = null;
+                FileStream stream = new FileStream(photo, FileMode.Open, FileAccess.Read);
+                BinaryReader brs = new BinaryReader(stream);
+                images = brs.ReadBytes((int)stream.Length);
                 if (table.Rows.Count == 0) 
                 {
                     //добавление в БД в PetCard
@@ -133,6 +141,7 @@ namespace App_project
                     cmd.Parameters.AddWithValue("@IDUser", idUser);
                     cmd.Parameters.AddWithValue("@Gender", gender);
                     cmd.Parameters.AddWithValue("@Locality", locality);
+                    cmd.Parameters.AddWithValue("@Photo", images);
                     try
                     {
                         cmd.ExecuteNonQuery();
@@ -147,28 +156,28 @@ namespace App_project
                     }
 
 
-                    connection.Open();
+                    //connection.Open();
 
-                    //добавление в БД в ADCard
-                    var PetDBSelectQuery = new SqlCommand("SELECT [IDPet] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + passportNumber + "'", connection);
-                    var sqlForIdPet = PetDBSelectQuery.ExecuteScalar().ToString();
+                    ////добавление в БД в ADCard
+                    //var PetDBSelectQuery = new SqlCommand("SELECT [IDPet] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + passportNumber + "'", connection);
+                    //var sqlForIdPet = PetDBSelectQuery.ExecuteScalar().ToString();
 
-                    SqlCommand cmd2 = new SqlCommand("INSERT INTO [PetDataBase].[dbo].[AdData] (IDPet, LocalityOfMissing) VALUES (@IDPet, @LocalityOfMissing)", connection);
-                    cmd2.Parameters.AddWithValue("@IDPet", sqlForIdPet);
-                    cmd2.Parameters.AddWithValue("@LocalityOfMissing", locality);
+                    //SqlCommand cmd2 = new SqlCommand("INSERT INTO [PetDataBase].[dbo].[AdData] (IDPet, LocalityOfMissing) VALUES (@IDPet, @LocalityOfMissing)", connection);
+                    //cmd2.Parameters.AddWithValue("@IDPet", sqlForIdPet);
+                    //cmd2.Parameters.AddWithValue("@LocalityOfMissing", locality);
 
-                    try
-                    {
-                        cmd2.ExecuteNonQuery();
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Облом!");
-                    }
-                    finally
-                    {
-                        connection.Close();
-                    }
+                    //try
+                    //{
+                    //    cmd2.ExecuteNonQuery();
+                    //}
+                    //catch
+                    //{
+                    //    MessageBox.Show("Облом!");
+                    //}
+                    //finally
+                    //{
+                    //    connection.Close();
+                    //}
 
 
 

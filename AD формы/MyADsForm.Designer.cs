@@ -35,7 +35,6 @@ namespace App_project
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,9 +64,9 @@ namespace App_project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.listView1);
-            this.panel2.Location = new System.Drawing.Point(41, 50);
+            this.panel2.Location = new System.Drawing.Point(0, 36);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(747, 352);
+            this.panel2.Size = new System.Drawing.Size(834, 366);
             this.panel2.TabIndex = 4;
             // 
             // listView1
@@ -87,7 +86,7 @@ namespace App_project
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(747, 352);
+            this.listView1.Size = new System.Drawing.Size(834, 366);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -95,23 +94,18 @@ namespace App_project
             // 
             // columnHeader1
             // 
+            this.columnHeader1.Text = "Кличка";
             this.columnHeader1.Width = 155;
             // 
             // columnHeader2
             // 
+            this.columnHeader2.Text = "Вид животного";
             this.columnHeader2.Width = 256;
             // 
-            // button1
+            // columnHeader3
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(649, 434);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Создать карточку";
-            this.button1.UseVisualStyleBackColor = true;
+            this.columnHeader3.Text = "Место пропажи";
+            this.columnHeader3.Width = 188;
             // 
             // menuStrip1
             // 
@@ -167,13 +161,13 @@ namespace App_project
             // плиткаToolStripMenuItem
             // 
             this.плиткаToolStripMenuItem.Name = "плиткаToolStripMenuItem";
-            this.плиткаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.плиткаToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.плиткаToolStripMenuItem.Text = "Плитка";
             // 
             // списокToolStripMenuItem
             // 
             this.списокToolStripMenuItem.Name = "списокToolStripMenuItem";
-            this.списокToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.списокToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.списокToolStripMenuItem.Text = "Список";
             // 
             // MyADsForm
@@ -184,7 +178,6 @@ namespace App_project
             this.ClientSize = new System.Drawing.Size(834, 498);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
@@ -207,7 +200,6 @@ namespace App_project
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;

@@ -36,9 +36,11 @@ namespace App_project
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -48,9 +50,9 @@ namespace App_project
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(643, 435);
+            this.button1.Location = new System.Drawing.Point(643, 349);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 23);
+            this.button1.Size = new System.Drawing.Size(112, 24);
             this.button1.TabIndex = 0;
             this.button1.Text = "Создать карточку";
             this.button1.UseVisualStyleBackColor = true;
@@ -59,10 +61,13 @@ namespace App_project
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.listView1);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Location = new System.Drawing.Point(0, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(834, 360);
+            this.panel1.Size = new System.Drawing.Size(834, 387);
             this.panel1.TabIndex = 1;
             // 
             // listView1
@@ -73,8 +78,9 @@ namespace App_project
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.columnHeader4,
+            this.columnHeader5});
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
@@ -84,7 +90,7 @@ namespace App_project
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(834, 360);
+            this.listView1.Size = new System.Drawing.Size(834, 343);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -92,33 +98,38 @@ namespace App_project
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Кличка";
-            this.columnHeader1.Width = 155;
+            this.columnHeader1.Text = "Фото";
+            this.columnHeader1.Width = 79;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Вид";
+            this.columnHeader2.Text = "Кличка";
             this.columnHeader2.Width = 156;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Порода";
-            this.columnHeader3.Width = 101;
+            this.columnHeader3.Text = "Вид";
+            this.columnHeader3.Width = 189;
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Tag = "passport";
-            this.columnHeader4.Text = "Номер Паспорта";
-            this.columnHeader4.Width = 146;
+            this.columnHeader4.Tag = "";
+            this.columnHeader4.Text = "Порода";
+            this.columnHeader4.Width = 248;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Номер паспорта";
+            this.columnHeader5.Width = 142;
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(67, 435);
+            this.button2.Location = new System.Drawing.Point(69, 349);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 23);
+            this.button2.Size = new System.Drawing.Size(84, 24);
             this.button2.TabIndex = 2;
             this.button2.Text = "Обновить";
             this.button2.UseVisualStyleBackColor = true;
@@ -146,6 +157,19 @@ namespace App_project
             this.label1.Text = "Мои домашние животные";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(380, 349);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 24);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Экспорт";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Export_PetCardlist);
+            // 
             // MyPetsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,9 +179,7 @@ namespace App_project
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(834, 498);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MyPetsForm";
@@ -184,5 +206,7 @@ namespace App_project
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Button button3;
     }
 }

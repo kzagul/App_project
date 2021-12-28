@@ -37,7 +37,7 @@ namespace App_project
             this.PassportNumber = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.Breed = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.FIO = new System.Windows.Forms.TextBox();
             this.DateOfBirth = new System.Windows.Forms.TextBox();
             this.Locality = new System.Windows.Forms.TextBox();
             this.CategoryAnimal = new System.Windows.Forms.TextBox();
@@ -67,6 +67,7 @@ namespace App_project
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -133,12 +134,13 @@ namespace App_project
             this.Breed.TabIndex = 43;
             this.Breed.TextChanged += new System.EventHandler(this.Breed_TextChanged);
             // 
-            // textBox5
+            // FIO
             // 
-            this.textBox5.Location = new System.Drawing.Point(406, 263);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(351, 20);
-            this.textBox5.TabIndex = 42;
+            this.FIO.Location = new System.Drawing.Point(406, 263);
+            this.FIO.Name = "FIO";
+            this.FIO.Size = new System.Drawing.Size(351, 20);
+            this.FIO.TabIndex = 42;
+            this.FIO.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // DateOfBirth
             // 
@@ -255,6 +257,7 @@ namespace App_project
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 29;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // button4
             // 
@@ -379,7 +382,7 @@ namespace App_project
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(699, 433);
+            this.button1.Location = new System.Drawing.Point(699, 381);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 33);
             this.button1.TabIndex = 51;
@@ -389,7 +392,7 @@ namespace App_project
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(699, 480);
+            this.button2.Location = new System.Drawing.Point(699, 428);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 33);
             this.button2.TabIndex = 55;
@@ -399,12 +402,23 @@ namespace App_project
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(699, 523);
+            this.button3.Location = new System.Drawing.Point(699, 471);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 33);
+            this.button3.Size = new System.Drawing.Size(87, 42);
             this.button3.TabIndex = 56;
-            this.button3.Text = "Импорт";
+            this.button3.Text = "Экспорт в Excel";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.ExportToExcel_PetCard);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(699, 523);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(87, 40);
+            this.button8.TabIndex = 57;
+            this.button8.Text = "Экспорт в Word";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.ExportToWord_PetCard);
             // 
             // Show_PetCardForm
             // 
@@ -412,7 +426,8 @@ namespace App_project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(852, 459);
+            this.ClientSize = new System.Drawing.Size(869, 459);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -427,7 +442,7 @@ namespace App_project
             this.Controls.Add(this.PassportNumber);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.Breed);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.FIO);
             this.Controls.Add(this.DateOfBirth);
             this.Controls.Add(this.Locality);
             this.Controls.Add(this.CategoryAnimal);
@@ -462,7 +477,7 @@ namespace App_project
         private System.Windows.Forms.TextBox PassportNumber;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox Breed;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox FIO;
         private System.Windows.Forms.TextBox DateOfBirth;
         private System.Windows.Forms.TextBox Locality;
         private System.Windows.Forms.TextBox CategoryAnimal;
@@ -492,5 +507,6 @@ namespace App_project
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button8;
     }
 }

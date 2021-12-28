@@ -65,6 +65,7 @@ namespace App_project
             this.NickName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -382,6 +383,17 @@ namespace App_project
             this.label14.Text = "Поля, помеченные звездочкой *, обязательны для заполнения!";
             this.label14.Click += new System.EventHandler(this.label14_Click);
             // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button8.Location = new System.Drawing.Point(210, 197);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(57, 49);
+            this.button8.TabIndex = 58;
+            this.button8.Text = "+";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.Add_Photo);
+            // 
             // Add_PetCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,6 +401,7 @@ namespace App_project
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(834, 498);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NickName);
@@ -465,5 +478,6 @@ namespace App_project
         private System.Windows.Forms.TextBox NickName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button8;
     }
 }

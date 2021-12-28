@@ -26,7 +26,7 @@ namespace App_project
             DataBase.LinkDataBase();
 
             listView1.GridLines = false;
-            listView1.View = View.SmallIcon;
+            listView1.View = View.Details;
 
             string sql = "Select NickName, Category, Locality, PassportNumber from [PetDataBase].[dbo].[PetData] WHERE [IDUser] = '" + IDUser_key.global_IDUser + "'";
             SqlConnection cnn = new SqlConnection(connection);

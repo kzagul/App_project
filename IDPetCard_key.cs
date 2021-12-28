@@ -10,6 +10,7 @@ namespace App_project
     class IDPetCard_key
     {
         public static string global_IDPetCard;
+
         public static void GetIDPetCardForSession(string login)
         {
             //создание подключения
@@ -17,5 +18,13 @@ namespace App_project
             var SelectID = new SqlCommand("SELECT [IDUser] FROM [PetDataBase].[dbo].[LoginData] WHERE [Login] = '" + login + "'", connection);
             IDUser_key.global_IDUser = SelectID.ExecuteScalar().ToString();
         }
+
+        public static string GetGlobalPetCardID()
+        {
+            var connection = DataBase.LinkDataBase();
+            var sql = new SqlCommand("Select IDPet from [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + IDPetCard_key.global_IDPetCard + "'", connection);
+            return sql.ExecuteScalar().ToString();
+        }
+
     }
 }

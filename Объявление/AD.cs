@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using static App_project.Controller;
@@ -50,24 +51,46 @@ namespace App_project
             var sqlForIdPet = PetDBSelectQuery.ExecuteScalar().ToString();
 
             SqlCommand cmd = new SqlCommand("INSERT INTO [PetDataBase].[dbo].[AdData] (IDPet, LocalityOfMissing) VALUES (@IDPet, @LocalityOfMissing)", connection);
-            cmd.Parameters.AddWithValue("@IDPet", sqlForIdPet);
-            cmd.Parameters.AddWithValue("@LocalityOfMissing", localityOfMissing);
 
-            try
+            //Проверка на уникальность IdPet
+            string SQLCheckID = "SELECT [IDPet] FROM [PetDataBase].[dbo].[AdData] WHERE [IDPet] = '" + idPetCard + "'";
+            using (SqlDataAdapter dataAdapter = new SqlDataAdapter(SQLCheckID, DataBase.PetDBConnectionString))
             {
-                cmd.ExecuteNonQuery();
+                DataTable table = new DataTable();
+                dataAdapter.Fill(table);
+                if (table.Rows.Count == 0)
+                {
+
+                    cmd.Parameters.AddWithValue("@IDPet", sqlForIdPet);
+                    cmd.Parameters.AddWithValue("@LocalityOfMissing", localityOfMissing);
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ошибка!");
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+
+
+                else
+                {
+                    MessageBox.Show("Не корректные данные проверьте правильность заполнения полей и уникальность номера паспорта");
+                }
             }
-            catch
-            {
-                MessageBox.Show("Ошибка!");
-            }
-            finally
-            {
-                connection.Close();
-            }
+
+
         }
 
-        //Редактирование объявления
+
+
+                //Редактирование объявления
         public void EditADCard(AD ad,
                         DateTime DateOfAd,
                         string LoosingPlace,

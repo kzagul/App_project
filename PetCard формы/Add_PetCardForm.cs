@@ -49,6 +49,8 @@ namespace App_project
             string gender = "male";
 
             string locality = Locality.Text;
+
+            string photo = pictureBox1.ImageLocation;
             #endregion
 
             Controller.AddNewPetCard(categoryAnimal,
@@ -57,7 +59,9 @@ namespace App_project
                        Convert.ToInt32(passportNumber),
                        idUser,
                        gender,
-                       locality);
+                       locality,
+                       photo
+                       );
         }
 
         //-
@@ -74,6 +78,17 @@ namespace App_project
         private void Breed_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        string imgLocation = "";
+        private void Add_Photo(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "png files(*.png)|*.png|jpg files(*.jpg)|*.jpg|All files(*.*)|*.*";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                imgLocation = dialog.FileName.ToString();
+                pictureBox1.ImageLocation = imgLocation;
+            }
         }
     }
 }

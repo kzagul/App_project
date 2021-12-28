@@ -14,15 +14,19 @@ namespace App_project
         public static AD ShowAD(IdAD idAD)
             {
                 throw new NotImplementedException();
-            }
+
+            new Journal().RegisterToJournal(IDUser_key.global_IDUser);
+        }
 
             //Добавление объявления
             public static void AddNewAnnouncement(
                         string idPetCard,
                         string LoosingPlace)
             {
-            new AD().AddNewAnnouncement(idPetCard, LoosingPlace);
-            }
+                new AD().AddNewAnnouncement(idPetCard, LoosingPlace);
+
+                new Journal().RegisterToJournal(IDUser_key.global_IDUser);
+        }
 
             //Редактирование объявления
             public static void EditADCard(IdAD idAD,
@@ -31,14 +35,18 @@ namespace App_project
                             DateTime CheckDate,
                             PetCard petCard)
             {
-                //
-            }
+            //
+
+            new Journal().RegisterToJournal(IDUser_key.global_IDUser);
+        }
 
             //Удаление объявления о пропаже домашнего животного
             public static void DeleteADCard(IdAD idAD)
             {
                 throw new NotImplementedException();
-            }
+
+            new Journal().RegisterToJournal(IDUser_key.global_IDUser);
+        }
 
         /////////////////////////////////
 
@@ -70,6 +78,7 @@ namespace App_project
         public static void ShowPetCard(string idCard)
         {
             new PetCard().ShowPetCard(idCard);
+            new Journal().RegisterToJournal(IDUser_key.global_IDUser);
         }
 
         //Добавление карточки ДЖ
@@ -94,9 +103,12 @@ namespace App_project
                        int passportNumber,
                        string id,
                        string gender,
-                       string city)
+                       string city,
+                       string photo
+            )
         {
-            new PetCard().AddNewPetCard(category, nickName, breed, passportNumber, id, gender, city);
+            new PetCard().AddNewPetCard(category, nickName, breed, passportNumber, id, gender, city, photo);
+            new Journal().RegisterToJournal(IDUser_key.global_IDUser);
         }
 
 
@@ -117,13 +129,17 @@ namespace App_project
                             string city)
             {
                 throw new NotImplementedException();
-            }
+
+            new Journal().RegisterToJournal(IDUser_key.global_IDUser);
+        }
 
 
             //Удаление карточки о пропаже домашнего животного
         public static void DeletePetCard(string idCard)
         {
             new PetCard().DeletePetCard(idCard);
+
+            new Journal().RegisterToJournal(IDUser_key.global_IDUser);
         }
 
 
@@ -133,6 +149,8 @@ namespace App_project
         public static void Export2WordPetCard(IdPetCard idCard)
         {
             new PetCard().Export2WordPetCard(idCard);
+
+            new Journal().RegisterToJournal(IDUser_key.global_IDUser);
         }
 
 
@@ -141,6 +159,8 @@ namespace App_project
         public static void Export2ExcelPetCard(IdPetCard idCard)
         {
             new PetCard().Export2ExcelPetCard(idCard);
+
+            new Journal().RegisterToJournal(IDUser_key.global_IDUser);
         }
 
 
