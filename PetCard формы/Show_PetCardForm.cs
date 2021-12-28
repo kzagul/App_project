@@ -187,15 +187,25 @@ namespace App_project
             try
             {
                 var excel = new Excel.Application();
+                string gender = "";
+                if (radioButton1.Checked)
+                    gender = "Мужской";
+                if (radioButton2.Checked)
+                    gender = "Женский";
 
+                string dateofbirth = DateOfBirth.Text;
+                string dateofregistration = textBox7.Text;
+                string fio = textBox5.Text;
+                
                 var workBooks = excel.Workbooks;
                 var workBook = workBooks.Add();
                 var workSheet = (Excel.Worksheet)excel.ActiveSheet;
                 workSheet.Columns[1].ColumnWidth = 30;
                 workSheet.Columns[2].ColumnWidth = 30;
-                var excelcells = workSheet.get_Range("A1", "A5");
+                var excelcells = workSheet.get_Range("A1", "A9");
                 excelcells.Borders.ColorIndex = 3;
                 workSheet.Cells.Style.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
+                workSheet.Cells.NumberFormat= "@";
                 workSheet.Cells[1, "A"] = "Кличка";
                 workSheet.Cells[1, "B"] = NickName.Text;
                 workSheet.Cells[2, "A"] = "Вид животного";
@@ -206,8 +216,14 @@ namespace App_project
                 workSheet.Cells[4, "B"] = Locality.Text;
                 workSheet.Cells[5, "A"] = "Номер паспорта";
                 workSheet.Cells[5, "B"] = PassportNumber.Text;
-                //workSheet.Cells[6, "A"] = "Фото";
-                //workSheet.Cells[6, "B"] = pictureBox1.ImageLocation;
+                workSheet.Cells[6, "A"] = "Пол";
+                workSheet.Cells[6, "B"] = gender;
+                workSheet.Cells[7, "A"] = "Дата рождения";
+                workSheet.Cells[7, "B"] = dateofbirth;
+                workSheet.Cells[8, "A"] = "Дата регистрации";
+                workSheet.Cells[8, "B"] = dateofregistration;
+                workSheet.Cells[9, "A"] = "Ф.И.О.";
+                workSheet.Cells[9, "B"] = fio;            
                 workBook.SaveAs(fileName);
                 workBook.Close();
             }
@@ -236,6 +252,16 @@ namespace App_project
                 //Создание нового документа
                 Word.Document document = winword.Documents.Add(ref missing, ref missing, ref missing, ref missing);
 
+                string gender = "";
+                if (radioButton1.Checked)
+                    gender = "Мужской";
+                if (radioButton2.Checked)
+                    gender = "Женский";
+
+                string dateofbirth = DateOfBirth.Text;
+                string dateofregistration = textBox7.Text;
+                string fio = textBox5.Text;
+
                 //добавление новой страницы
                 winword.Selection.InsertNewPage();                
                 document.Content.SetRange(0, 0);
@@ -243,7 +269,11 @@ namespace App_project
                     + "Вид животного: " + CategoryAnimal.Text + Environment.NewLine
                      + "Порода: " + Breed.Text + Environment.NewLine
                      + "Населённый пункт: " + Locality.Text + Environment.NewLine
-                     + "Номер паспорта: " + PassportNumber.Text + Environment.NewLine;
+                     + "Номер паспорта: " + PassportNumber.Text + Environment.NewLine
+                     + "Пол: "+gender + Environment.NewLine
+                     + "Дата рождения: " + dateofbirth + Environment.NewLine
+                     + "Дата регистрации: "+ dateofregistration + Environment.NewLine
+                     + "Ф.И.О.: " + fio + Environment.NewLine;
                 //document.Content.Text = CategoryAnimal.Text + Environment.NewLine;
                 //winword.Visible = true;
 
