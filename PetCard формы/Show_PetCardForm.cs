@@ -134,7 +134,31 @@ namespace App_project
                 MemoryStream mem = new MemoryStream(data);
                 pictureBox1.Image = Image.FromStream(mem);
             }
-            
+            //DateOfBirth
+            SqlCommand cmdDateOfBirth = new SqlCommand("SELECT [DateOfBirth] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+            SqlDataReader thisReaderDateOfBirth = cmdDateOfBirth.ExecuteReader();
+            string res6 = string.Empty;
+            while (thisReaderDateOfBirth.Read())
+            {
+                res6 += thisReaderDateOfBirth["DateOfBirth"];
+            }
+            thisReaderDateOfBirth.Close();
+            DateOfBirth.Text = res6;
+
+            //RegistrationdDate
+            SqlCommand cmdRegistrationdDate = new SqlCommand("SELECT [RegistrationdDate] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+            SqlDataReader thisReaderRegistrationdDate = cmdRegistrationdDate.ExecuteReader();
+            string res7 = string.Empty;
+            while (thisReaderRegistrationdDate.Read())
+            {
+                res7 += thisReaderRegistrationdDate["RegistrationdDate"];
+            }
+            thisReaderRegistrationdDate.Close();
+            textBox7.Text = res7;
+
+
             //string SQLCheckLogin = "SELECT [Сategory] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'";
             //string nickName = NickName.Text;
             //string breed = Breed.Text;

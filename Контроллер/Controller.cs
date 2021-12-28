@@ -75,9 +75,11 @@ namespace App_project
                        string idUser,
                        string gender,
                        string locality,
-                       string photo)
+                       string photo,
+                       string dateOfBirth,
+                       string registrationDate)
         {
-            new PetCard().ShowPetCard(idCard, category, nickName, breed, passportNumber, idUser, gender, locality, photo);
+            new PetCard().ShowPetCard(idCard, category, nickName, breed, passportNumber, idUser, gender, locality, photo, dateOfBirth, registrationDate);
         }
 
         //Добавление карточки ДЖ
@@ -103,9 +105,11 @@ namespace App_project
                        string id,
                        string gender,
                        string city,
-                       string photo)
+                       string photo,
+                       string dateOfBirth,
+                       string registrationDate)
         {
-            new PetCard().AddNewPetCard(category, nickName, breed, passportNumber, id, gender, city, photo);
+            new PetCard().AddNewPetCard(category, nickName, breed, passportNumber, id, gender, city, photo, dateOfBirth, registrationDate);
         }
 
 

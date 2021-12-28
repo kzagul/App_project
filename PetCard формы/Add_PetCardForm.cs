@@ -44,9 +44,20 @@ namespace App_project
 
             string passportNumber = PassportNumber.Text;
 
-            string idUser = IDUser_key.global_IDUser;
+            string idUser = IDUser_key.global_IDUser;        
 
-            string gender = "male";
+            string gender="";
+
+            string dateOfBirth = dateTimePicker1.Value.Date.ToString("dd-MM-yyyy");
+
+            string registrationDate = dateTimePicker2.Value.Date.ToString("dd-MM-yyyy");
+
+
+
+            if (radioButton1.Checked)
+                gender = "male";
+            if (radioButton2.Checked)
+                gender = "female";
 
             string locality = Locality.Text;
 
@@ -60,7 +71,9 @@ namespace App_project
                        idUser,
                        gender,
                        locality,
-                       photo);
+                       photo,
+                       dateOfBirth,
+                       registrationDate);
         }
 
         //-

@@ -71,7 +71,9 @@ namespace App_project
                        string idUser,
                        string gender,
                        string locality,
-                       string photo)
+                       string photo,
+                       string dateOfBirth,
+                       string registrationDate)
         {
             //throw new NotImplementedException();
             //Console.WriteLine("Карточка показана");
@@ -121,11 +123,13 @@ namespace App_project
                        string idUser,
                        string gender,
                        string locality,
-                       string photo )
+                       string photo,
+                       string dateOfBirth,
+                       string registrationDate)
         {
             SqlConnection connection = DataBase.LinkDataBase();
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality, Photo) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality, @Photo)", connection);
+            SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality, Photo, DateOfBirth, RegistrationdDate) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality, @Photo, @DateOfBirth, @RegistrationdDate)", connection);
 
             //проверка на уникальность passportNumber
             string SQLCheckLogin = "SELECT [PassportNumber] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + passportNumber + "'";
@@ -149,6 +153,8 @@ namespace App_project
                     cmd.Parameters.AddWithValue("@Gender", gender);
                     cmd.Parameters.AddWithValue("@Locality", locality);
                     cmd.Parameters.AddWithValue("@Photo", images);
+                    cmd.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+                    cmd.Parameters.AddWithValue("@RegistrationdDate", registrationDate);
                     try
                     {
                         cmd.ExecuteNonQuery();
