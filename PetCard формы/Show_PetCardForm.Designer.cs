@@ -85,6 +85,7 @@ namespace App_project
             // 
             this.NickName.Location = new System.Drawing.Point(104, 263);
             this.NickName.Name = "NickName";
+            this.NickName.ReadOnly = true;
             this.NickName.Size = new System.Drawing.Size(123, 20);
             this.NickName.TabIndex = 48;
             this.NickName.TextChanged += new System.EventHandler(this.NickName_TextChanged);
@@ -92,6 +93,7 @@ namespace App_project
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
+            this.radioButton2.Enabled = false;
             this.radioButton2.Location = new System.Drawing.Point(461, 132);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(36, 17);
@@ -99,10 +101,12 @@ namespace App_project
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Ж";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Enabled = false;
             this.radioButton1.Location = new System.Drawing.Point(406, 132);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(34, 17);
@@ -110,11 +114,13 @@ namespace App_project
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "М";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // PassportNumber
             // 
             this.PassportNumber.Location = new System.Drawing.Point(657, 170);
             this.PassportNumber.Name = "PassportNumber";
+            this.PassportNumber.ReadOnly = true;
             this.PassportNumber.Size = new System.Drawing.Size(100, 20);
             this.PassportNumber.TabIndex = 45;
             this.PassportNumber.TextChanged += new System.EventHandler(this.PassportNumber_TextChanged);
@@ -123,6 +129,7 @@ namespace App_project
             // 
             this.textBox7.Location = new System.Drawing.Point(657, 129);
             this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(100, 20);
             this.textBox7.TabIndex = 44;
             // 
@@ -130,6 +137,7 @@ namespace App_project
             // 
             this.Breed.Location = new System.Drawing.Point(657, 86);
             this.Breed.Name = "Breed";
+            this.Breed.ReadOnly = true;
             this.Breed.Size = new System.Drawing.Size(100, 20);
             this.Breed.TabIndex = 43;
             this.Breed.TextChanged += new System.EventHandler(this.Breed_TextChanged);
@@ -138,21 +146,25 @@ namespace App_project
             // 
             this.FIO.Location = new System.Drawing.Point(406, 263);
             this.FIO.Name = "FIO";
+            this.FIO.ReadOnly = true;
             this.FIO.Size = new System.Drawing.Size(351, 20);
             this.FIO.TabIndex = 42;
-            this.FIO.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.FIO.TextChanged += new System.EventHandler(this.FIO_textbox);
             // 
             // DateOfBirth
             // 
             this.DateOfBirth.Location = new System.Drawing.Point(406, 217);
             this.DateOfBirth.Name = "DateOfBirth";
+            this.DateOfBirth.ReadOnly = true;
             this.DateOfBirth.Size = new System.Drawing.Size(100, 20);
             this.DateOfBirth.TabIndex = 41;
+            this.DateOfBirth.TextChanged += new System.EventHandler(this.DateOfBirth_TextChanged);
             // 
             // Locality
             // 
             this.Locality.Location = new System.Drawing.Point(406, 170);
             this.Locality.Name = "Locality";
+            this.Locality.ReadOnly = true;
             this.Locality.Size = new System.Drawing.Size(123, 20);
             this.Locality.TabIndex = 40;
             this.Locality.TextChanged += new System.EventHandler(this.Locality_TextChanged);
@@ -161,6 +173,7 @@ namespace App_project
             // 
             this.CategoryAnimal.Location = new System.Drawing.Point(406, 86);
             this.CategoryAnimal.Name = "CategoryAnimal";
+            this.CategoryAnimal.ReadOnly = true;
             this.CategoryAnimal.Size = new System.Drawing.Size(123, 20);
             this.CategoryAnimal.TabIndex = 39;
             this.CategoryAnimal.TextChanged += new System.EventHandler(this.CategoryAnimal_TextChanged);
@@ -459,7 +472,7 @@ namespace App_project
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Show_PetCardForm";
             this.Text = "Delete_PetCardForm";
-            this.Load += new System.EventHandler(this.Delete_PetCardForm_Load);
+            this.Load += new System.EventHandler(this.Show_PetCardForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

@@ -22,9 +22,9 @@ namespace App_project
             Show_DataInForm();
         }
 
-        private void Delete_PetCardForm_Load(object sender, EventArgs e)
+        private void Show_PetCardForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void CloseThisForm_Button(object sender, EventArgs e)
@@ -144,9 +144,54 @@ namespace App_project
                 }
 
                 //FIO
+                SqlCommand cmdFIO_ID = new SqlCommand("SELECT [IDUser] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+                var thisUserID = cmdFIO_ID.ExecuteScalar().ToString();
+
+                SqlCommand cmdName = new SqlCommand("SELECT [Name] FROM [PetDataBase].[dbo].[User] WHERE [IDUser] = '" + thisUserID + "'", connection);
+                var thisUserName = cmdName.ExecuteScalar().ToString();
+                SqlCommand cmdSurname = new SqlCommand("SELECT [Surname] FROM [PetDataBase].[dbo].[User] WHERE [IDUser] = '" + thisUserID + "'", connection);
+                var thisUserSurname = cmdSurname.ExecuteScalar().ToString();
+                SqlCommand cmdSecondName = new SqlCommand("SELECT [SecondName] FROM [PetDataBase].[dbo].[User] WHERE [IDUser] = '" + thisUserID + "'", connection);
+                var thisUserSecondName = cmdSecondName.ExecuteScalar().ToString();
+
+                var FullName = thisUserSurname + " " + thisUserName + " " + thisUserSecondName;
+
+                FIO.Text = FullName;
 
 
-                string Fio = FIO.Text;
+                //Gender
+                SqlCommand cmdGender = new SqlCommand("SELECT [Gender] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+                var thisGender = cmdGender.ExecuteScalar().ToString();
+
+                if (thisGender == "male")
+                {
+                    radioButton1.Checked = true;
+                }
+                else if (thisGender == "female")
+                {
+                    radioButton2.Checked = true;
+                }
+
+
+
+
+
+
+                ///
+
+                //SqlDataReader thisReaderLocality = cmdLocality.ExecuteReader();
+                //string res4 = string.Empty;
+                //while (thisReaderLocality.Read())
+                //{
+                //    res4 += thisReaderLocality["Locality"];
+                //}
+                //thisReaderLocality.Close();
+                //Locality.Text = res4;
+
+
+                //string Fio = FIO.Text;
+
+
 
                 //string SQLCheckLogin = "SELECT [Сategory] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'";
 
@@ -314,9 +359,24 @@ namespace App_project
 
         }
 
-        private void textBox5_TextChanged(object sender, EventArgs e)
+        private void FIO_textbox(object sender, EventArgs e)
+        {
+            FIO.ReadOnly = true;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DateOfBirth_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

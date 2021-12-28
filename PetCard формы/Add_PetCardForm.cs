@@ -25,7 +25,22 @@ namespace App_project
 
         private void PetCardForm_Load(object sender, EventArgs e)
         {
+            var connection = DataBase.LinkDataBase();
+            var id_key = IDUser_key.global_IDUser;
+            //FIO
+            //SqlCommand cmdFIO_ID = new SqlCommand("SELECT [IDUser] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+            //var thisUserID = cmdFIO_ID.ExecuteScalar().ToString();
+            
+            SqlCommand cmdName = new SqlCommand("SELECT [Name] FROM [PetDataBase].[dbo].[User] WHERE [IDUser] = '" + id_key + "'", connection);
+            var thisUserName = cmdName.ExecuteScalar().ToString();
+            SqlCommand cmdSurname = new SqlCommand("SELECT [Surname] FROM [PetDataBase].[dbo].[User] WHERE [IDUser] = '" + id_key + "'", connection);
+            var thisUserSurname = cmdSurname.ExecuteScalar().ToString();
+            SqlCommand cmdSecondName = new SqlCommand("SELECT [SecondName] FROM [PetDataBase].[dbo].[User] WHERE [IDUser] = '" + id_key + "'", connection);
+            var thisUserSecondName = cmdSecondName.ExecuteScalar().ToString();
 
+            var FullName = thisUserSurname + " " + thisUserName + " " + thisUserSecondName;
+
+            FIO.Text = FullName;
         }
 
         private void CloseThisForm_Button(object sender, EventArgs e)
@@ -46,7 +61,18 @@ namespace App_project
 
             string idUser = IDUser_key.global_IDUser;
 
+            //Gender
             string gender = "male";
+
+            if (radioButton1.Checked == true)
+            {
+                gender = "male";
+            }
+            else if (radioButton2.Checked == true)
+            {
+                gender = "female";
+            }
+
 
             string locality = Locality.Text;
 
@@ -89,6 +115,16 @@ namespace App_project
                 imgLocation = dialog.FileName.ToString();
                 pictureBox1.ImageLocation = imgLocation;
             }
+        }
+
+        private void FIO_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            //dateTimePicker1.Value.Tostring("#dd/mm/yyyy#");
         }
     }
 }

@@ -31,6 +31,7 @@ namespace App_project
         {
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -40,9 +41,16 @@ namespace App_project
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.задатьФильтрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.видОтображенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.плиткаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.поКатегорииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.поИмениToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -52,7 +60,7 @@ namespace App_project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(643, 349);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 24);
+            this.button1.Size = new System.Drawing.Size(115, 24);
             this.button1.TabIndex = 0;
             this.button1.Text = "Создать карточку";
             this.button1.UseVisualStyleBackColor = true;
@@ -67,8 +75,21 @@ namespace App_project
             this.panel1.Controls.Add(this.button2);
             this.panel1.Location = new System.Drawing.Point(0, 43);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(834, 387);
+            this.panel1.Size = new System.Drawing.Size(837, 387);
             this.panel1.TabIndex = 1;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(380, 349);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(78, 24);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Экспорт";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Export_PetCardlist);
             // 
             // listView1
             // 
@@ -80,7 +101,6 @@ namespace App_project
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
@@ -129,7 +149,7 @@ namespace App_project
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Location = new System.Drawing.Point(69, 349);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 24);
+            this.button2.Size = new System.Drawing.Size(87, 24);
             this.button2.TabIndex = 2;
             this.button2.Text = "Обновить";
             this.button2.UseVisualStyleBackColor = true;
@@ -139,10 +159,11 @@ namespace App_project
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(834, 37);
+            this.panel2.Size = new System.Drawing.Size(837, 37);
             this.panel2.TabIndex = 3;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -157,18 +178,58 @@ namespace App_project
             this.label1.Text = "Мои домашние животные";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button3
+            // menuStrip1
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(380, 349);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 24);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Экспорт";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Export_PetCardlist);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.задатьФильтрToolStripMenuItem,
+            this.видОтображенияToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(837, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // задатьФильтрToolStripMenuItem
+            // 
+            this.задатьФильтрToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.поКатегорииToolStripMenuItem,
+            this.поИмениToolStripMenuItem});
+            this.задатьФильтрToolStripMenuItem.Name = "задатьФильтрToolStripMenuItem";
+            this.задатьФильтрToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
+            this.задатьФильтрToolStripMenuItem.Text = "Задать фильтр";
+            // 
+            // видОтображенияToolStripMenuItem
+            // 
+            this.видОтображенияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.плиткаToolStripMenuItem,
+            this.списокToolStripMenuItem});
+            this.видОтображенияToolStripMenuItem.Name = "видОтображенияToolStripMenuItem";
+            this.видОтображенияToolStripMenuItem.Size = new System.Drawing.Size(116, 20);
+            this.видОтображенияToolStripMenuItem.Text = "Вид отображения";
+            // 
+            // плиткаToolStripMenuItem
+            // 
+            this.плиткаToolStripMenuItem.Name = "плиткаToolStripMenuItem";
+            this.плиткаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.плиткаToolStripMenuItem.Text = "Плитка";
+            // 
+            // списокToolStripMenuItem
+            // 
+            this.списокToolStripMenuItem.Name = "списокToolStripMenuItem";
+            this.списокToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.списокToolStripMenuItem.Text = "Список";
+            // 
+            // поКатегорииToolStripMenuItem
+            // 
+            this.поКатегорииToolStripMenuItem.Name = "поКатегорииToolStripMenuItem";
+            this.поКатегорииToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.поКатегорииToolStripMenuItem.Text = "По категории";
+            // 
+            // поИмениToolStripMenuItem
+            // 
+            this.поИмениToolStripMenuItem.Name = "поИмениToolStripMenuItem";
+            this.поИмениToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.поИмениToolStripMenuItem.Text = "По Имени";
             // 
             // MyPetsForm
             // 
@@ -182,6 +243,7 @@ namespace App_project
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MyPetsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MyPets";
@@ -189,6 +251,8 @@ namespace App_project
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +272,12 @@ namespace App_project
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem задатьФильтрToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem видОтображенияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem плиткаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem списокToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem поКатегорииToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem поИмениToolStripMenuItem;
     }
 }

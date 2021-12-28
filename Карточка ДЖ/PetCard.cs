@@ -133,6 +133,7 @@ namespace App_project
                 images = brs.ReadBytes((int)stream.Length);
                 if (table.Rows.Count == 0) 
                 {
+
                     //добавление в БД в PetCard
                     cmd.Parameters.AddWithValue("@Category", category);
                     cmd.Parameters.AddWithValue("@NickName", nickName);

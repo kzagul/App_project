@@ -56,7 +56,7 @@ namespace App_project
             this.CategoryAnimal = new System.Windows.Forms.TextBox();
             this.Locality = new System.Windows.Forms.TextBox();
             this.DateOfBirth = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.FIO = new System.Windows.Forms.TextBox();
             this.Breed = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.PassportNumber = new System.Windows.Forms.TextBox();
@@ -66,6 +66,8 @@ namespace App_project
             this.label2 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -300,29 +302,31 @@ namespace App_project
             // 
             // DateOfBirth
             // 
-            this.DateOfBirth.Location = new System.Drawing.Point(420, 206);
+            this.DateOfBirth.Location = new System.Drawing.Point(303, 186);
             this.DateOfBirth.Name = "DateOfBirth";
             this.DateOfBirth.Size = new System.Drawing.Size(100, 20);
             this.DateOfBirth.TabIndex = 20;
             // 
-            // textBox5
+            // FIO
             // 
-            this.textBox5.Location = new System.Drawing.Point(420, 252);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(351, 20);
-            this.textBox5.TabIndex = 21;
+            this.FIO.Location = new System.Drawing.Point(420, 252);
+            this.FIO.Name = "FIO";
+            this.FIO.ReadOnly = true;
+            this.FIO.Size = new System.Drawing.Size(351, 20);
+            this.FIO.TabIndex = 21;
+            this.FIO.TextChanged += new System.EventHandler(this.FIO_TextChanged);
             // 
             // Breed
             // 
             this.Breed.Location = new System.Drawing.Point(671, 75);
             this.Breed.Name = "Breed";
-            this.Breed.Size = new System.Drawing.Size(100, 20);
+            this.Breed.Size = new System.Drawing.Size(123, 20);
             this.Breed.TabIndex = 22;
             this.Breed.TextChanged += new System.EventHandler(this.Breed_TextChanged);
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(671, 118);
+            this.textBox7.Location = new System.Drawing.Point(562, 98);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 20);
             this.textBox7.TabIndex = 23;
@@ -331,7 +335,7 @@ namespace App_project
             // 
             this.PassportNumber.Location = new System.Drawing.Point(671, 159);
             this.PassportNumber.Name = "PassportNumber";
-            this.PassportNumber.Size = new System.Drawing.Size(100, 20);
+            this.PassportNumber.Size = new System.Drawing.Size(123, 20);
             this.PassportNumber.TabIndex = 24;
             // 
             // radioButton1
@@ -394,13 +398,30 @@ namespace App_project
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.Add_Photo);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(420, 206);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(123, 20);
+            this.dateTimePicker1.TabIndex = 59;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(671, 118);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(123, 20);
+            this.dateTimePicker2.TabIndex = 60;
+            // 
             // Add_PetCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(834, 498);
+            this.ClientSize = new System.Drawing.Size(851, 498);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label2);
@@ -410,7 +431,7 @@ namespace App_project
             this.Controls.Add(this.PassportNumber);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.Breed);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.FIO);
             this.Controls.Add(this.DateOfBirth);
             this.Controls.Add(this.Locality);
             this.Controls.Add(this.CategoryAnimal);
@@ -460,7 +481,7 @@ namespace App_project
         private System.Windows.Forms.TextBox CategoryAnimal;
         private System.Windows.Forms.TextBox Locality;
         private System.Windows.Forms.TextBox DateOfBirth;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox FIO;
         private System.Windows.Forms.TextBox Breed;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox PassportNumber;
@@ -479,5 +500,7 @@ namespace App_project
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
