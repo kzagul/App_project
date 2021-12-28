@@ -74,6 +74,7 @@ namespace App_project
             this.button4.TabIndex = 76;
             this.button4.Text = "X";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.close_button);
             // 
             // label2
             // 
@@ -258,6 +259,7 @@ namespace App_project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.button4);

@@ -34,6 +34,7 @@ namespace App_project
 
         private void Edit_PetCard_Button(object sender, EventArgs e)
         {
+            this.Hide();
             OpenChildForm(new Edit_PetCardForm());
         }
 
@@ -61,8 +62,8 @@ namespace App_project
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
 
-            panel1.Controls.Add(childForm);
-            panel1.Tag = childForm;
+            MyPetsForm.panel.Controls.Add(childForm);
+            MyPetsForm.panel.Tag = childForm;
 
             childForm.BringToFront();
             childForm.Show();
@@ -290,97 +291,93 @@ namespace App_project
 
         private void ExportToExcel_PetCard(object sender, EventArgs e)
         {
-            //поля
+            #region поля
             string nickName = NickName.Text;
             string categoryAnimal = CategoryAnimal.Text;
             string breed = Breed.Text;
             string locality = Locality.Text;
             string passportNumber = PassportNumber.Text;
 
-            //string fileName = "C:\\Users\\kirillzagul\\Downloads\\" + nickName + ".xlsx";
+            string dateofbirth = DateOfBirth.Text;
+            string dateofregistration = DateOfRegistration.Text;
+            string fio = FIO.Text;
 
-            //try
-            //{
-            //    var excel = new Excel.Application();
+            string gender = "";
+            if (radioButton1.Checked)
+                gender = "Мужской";
+            if (radioButton2.Checked)
+                gender = "Женский";
+            #endregion
 
-            //    var workBooks = excel.Workbooks;
-            //    var workBook = workBooks.Add();
-            //    var workSheet = (Excel.Worksheet)excel.ActiveSheet;
-            //    workSheet.Columns[1].ColumnWidth = 30;
-            //    workSheet.Columns[2].ColumnWidth = 30;
-            //    var excelcells = workSheet.get_Range("A1", "A5");
-            //    excelcells.Borders.ColorIndex = 3;
-            //    workSheet.Cells.Style.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
-            //    workSheet.Cells[1, "A"] = "Кличка";
-            //    workSheet.Cells[1, "B"] = nickName;
-            //    workSheet.Cells[2, "A"] = "Вид животного";
-            //    workSheet.Cells[2, "B"] = categoryAnimal;
-            //    workSheet.Cells[3, "A"] = "Порода";
-            //    workSheet.Cells[3, "B"] = breed;
-            //    workSheet.Cells[4, "A"] = "Населённый пункт";
-            //    workSheet.Cells[4, "B"] = locality;
-            //    workSheet.Cells[5, "A"] = "Номер паспорта";
-            //    workSheet.Cells[5, "B"] = passportNumber;
-            //    //workSheet.Cells[6, "A"] = "Фото";
-            //    //workSheet.Cells[6, "B"] = pictureBox1.ImageLocation;
-            //    workBook.SaveAs(fileName);
-            //    workBook.Close();
-
-
-            //    MessageBox.Show("Файл " + Path.GetFileName(fileName) + " записан успешно!");
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Ошибка: " + ex.ToString());
-            //}
-
-            Controller.Export2ExcelPetCard(nickName, categoryAnimal, breed, locality, passportNumber);
+            Controller.Export2ExcelPetCard(nickName, categoryAnimal, breed, locality, passportNumber, dateofbirth, dateofregistration, fio, gender);
            
         }
 
         private void ExportToWord_PetCard(object sender, EventArgs e)
         {
-            string nick = NickName.Text;
+            string nickName = NickName.Text;
+            string categoryAnimal = CategoryAnimal.Text;
+            string breed = Breed.Text;
+            string locality = Locality.Text;
+            string passportNumber = PassportNumber.Text;
+
+            string dateofbirth = DateOfBirth.Text;
+            string dateofregistration = DateOfRegistration.Text;
+            string fio = FIO.Text;
+
+            string gender = "";
+            if (radioButton1.Checked)
+                gender = "Мужской";
+            if (radioButton2.Checked)
+                gender = "Женский";
 
 
             // Создаём объект документа
-            Word.Document doc = null;
-            try
-            {
-                Word.Application winword = new Word.Application();
+            //Word.Document doc = null;
+            //try
+            //{
+            //    Word.Application winword = new Word.Application();
 
-                winword.Visible = false;
-                object missing = System.Reflection.Missing.Value;
+            //    winword.Visible = false;
+            //    object missing = System.Reflection.Missing.Value;
 
-                //Создание нового документа
-                Word.Document document = winword.Documents.Add(ref missing, ref missing, ref missing, ref missing);
+            //    //Создание нового документа
+            //    Word.Document document = winword.Documents.Add(ref missing, ref missing, ref missing, ref missing);
 
-                //добавление новой страницы
-                winword.Selection.InsertNewPage();
-                document.Content.SetRange(0, 0);
-                document.Content.Text = "Кличка: " + NickName.Text + Environment.NewLine
-                    + "Вид животного: " + CategoryAnimal.Text + Environment.NewLine
-                     + "Порода: " + Breed.Text + Environment.NewLine
-                     + "Населённый пункт: " + Locality.Text + Environment.NewLine
-                     + "Номер паспорта: " + PassportNumber.Text + Environment.NewLine;
-                //document.Content.Text = CategoryAnimal.Text + Environment.NewLine;
-                //winword.Visible = true;
+            //    //добавление новой страницы
+            //    winword.Selection.InsertNewPage();
+            //    document.Content.SetRange(0, 0);
+            //    document.Content.Text = "Кличка: " + nickName + Environment.NewLine
+            //        + "Вид животного: " + categoryAnimal + Environment.NewLine
+            //         + "Порода: " + breed + Environment.NewLine
+            //         + "Населённый пункт: " + locality + Environment.NewLine
+            //          + "Номер паспорта: " + passportNumber + Environment.NewLine
+            //          + "Пол: " + gender + Environment.NewLine
+            //          + "Дата рождения: " + dateofbirth + Environment.NewLine
+            //          + "Дата регистрации: " + dateofregistration + Environment.NewLine
+            //          + "Ф.И.О.: " + fio + Environment.NewLine;
+            //    //document.Content.Text = CategoryAnimal.Text + Environment.NewLine;
+            //    //winword.Visible = true;
 
-                //Сохранение документа
-                object filename = "C:\\Users\\kirillzagul\\Downloads\\" + nick + ".docx";
-                document.SaveAs(ref filename);
-                //Закрытие текущего документа
-                document.Close(ref missing, ref missing, ref missing);
-                document = null;
-                //Закрытие приложения Word
-                winword.Quit(ref missing, ref missing, ref missing);
-                winword = null;
-                MessageBox.Show("Успешно!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //    //Сохранение документа
+            //    object filename = "C:\\Users\\kirillzagul\\Downloads\\" + nickName + ".docx";
+            //    document.SaveAs(ref filename);
+            //    //Закрытие текущего документа
+            //    document.Close(ref missing, ref missing, ref missing);
+            //    document = null;
+            //    //Закрытие приложения Word
+            //    winword.Quit(ref missing, ref missing, ref missing);
+            //    winword = null;
+            //    MessageBox.Show("Успешно!");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+
+            Controller.Export2WordPetCard(nickName, categoryAnimal, breed, locality, passportNumber, dateofbirth, dateofregistration, fio, gender);
+
+
         }
 
         //-

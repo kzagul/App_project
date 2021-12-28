@@ -21,5 +21,10 @@ namespace App_project
         {
 
         }
+
+        private void close_button(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

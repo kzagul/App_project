@@ -5,6 +5,8 @@ using System.IO;
 using System.Windows.Forms;
 using static App_project.Controller;
 using Excel = Microsoft.Office.Interop.Excel;
+using Word = Microsoft.Office.Interop.Word;
+
 
 namespace App_project
 {
@@ -289,18 +291,55 @@ namespace App_project
 
 
 
-
-
-
         //Сформировать паспорт домашнего животного в Microsoft Word
-        public void Export2WordPetCard(IdPetCard idCard)
+        public void Export2WordPetCard(string nickName, string categoryAnimal, string breed, string locality, string passportNumber, string dateofbirth, string dateofregistration, string fio, string gender)
         {
-            //throw new NotImplementedException();
-            Console.WriteLine("Паспорт сформирован");
+            // Создаём объект документа
+            Word.Document doc = null;
+            try
+            {
+                Word.Application winword = new Word.Application();
+
+                winword.Visible = false;
+                object missing = System.Reflection.Missing.Value;
+
+                //Создание нового документа
+                Word.Document document = winword.Documents.Add(ref missing, ref missing, ref missing, ref missing);
+
+                //добавление новой страницы
+                winword.Selection.InsertNewPage();
+                document.Content.SetRange(0, 0);
+                document.Content.Text = "Кличка: " + nickName + Environment.NewLine
+                    + "Вид животного: " + categoryAnimal + Environment.NewLine
+                     + "Порода: " + breed + Environment.NewLine
+                     + "Населённый пункт: " + locality + Environment.NewLine
+                      + "Номер паспорта: " + passportNumber + Environment.NewLine
+                      + "Пол: " + gender + Environment.NewLine
+                      + "Дата рождения: " + dateofbirth + Environment.NewLine
+                      + "Дата регистрации: " + dateofregistration + Environment.NewLine
+                      + "Ф.И.О.: " + fio + Environment.NewLine;
+                //document.Content.Text = CategoryAnimal.Text + Environment.NewLine;
+                //winword.Visible = true;
+
+                //Сохранение документа
+                object filename = "C:\\Users\\kirillzagul\\Downloads\\" + nickName + ".docx";
+                document.SaveAs(ref filename);
+                //Закрытие текущего документа
+                document.Close(ref missing, ref missing, ref missing);
+                document = null;
+                //Закрытие приложения Word
+                winword.Quit(ref missing, ref missing, ref missing);
+                winword = null;
+                MessageBox.Show("Успешно!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         //Экспорт карточки домашнего животного в Microsoft Excel
-        public void Export2ExcelPetCard(string nickName, string categoryAnimal, string breed, string locality, string passportNumber)
+        public void Export2ExcelPetCard(string nickName, string categoryAnimal, string breed, string locality, string passportNumber, string dateofbirth, string dateofregistration, string fio, string gender)
         {
             //throw new NotImplementedException();
             string fileName = "C:\\Users\\kirillzagul\\Downloads\\" + nickName + ".xlsx";
@@ -314,9 +353,10 @@ namespace App_project
                 var workSheet = (Excel.Worksheet)excel.ActiveSheet;
                 workSheet.Columns[1].ColumnWidth = 30;
                 workSheet.Columns[2].ColumnWidth = 30;
-                var excelcells = workSheet.get_Range("A1", "A5");
+                var excelcells = workSheet.get_Range("A1", "A9");
                 excelcells.Borders.ColorIndex = 3;
                 workSheet.Cells.Style.HorizontalAlignment = Excel.XlHAlign.xlHAlignLeft;
+                workSheet.Cells.NumberFormat = "@";
                 workSheet.Cells[1, "A"] = "Кличка";
                 workSheet.Cells[1, "B"] = nickName;
                 workSheet.Cells[2, "A"] = "Вид животного";
@@ -327,6 +367,14 @@ namespace App_project
                 workSheet.Cells[4, "B"] = locality;
                 workSheet.Cells[5, "A"] = "Номер паспорта";
                 workSheet.Cells[5, "B"] = passportNumber;
+                workSheet.Cells[6, "A"] = "Пол";
+                workSheet.Cells[6, "B"] = gender;
+                workSheet.Cells[7, "A"] = "Дата рождения";
+                workSheet.Cells[7, "B"] = dateofbirth;
+                workSheet.Cells[8, "A"] = "Дата регистрации";
+                workSheet.Cells[8, "B"] = dateofregistration;
+                workSheet.Cells[9, "A"] = "Ф.И.О.";
+                workSheet.Cells[9, "B"] = fio;
                 //workSheet.Cells[6, "A"] = "Фото";
                 //workSheet.Cells[6, "B"] = pictureBox1.ImageLocation;
                 workBook.SaveAs(fileName);

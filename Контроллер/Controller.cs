@@ -151,9 +151,9 @@ namespace App_project
 
             //еще не сделано
             //Сформировать паспорт домашнего животного в Microsoft Word
-        public static void Export2WordPetCard(IdPetCard idCard)
+        public static void Export2WordPetCard(string nickName, string categoryAnimal, string breed, string locality, string passportNumber, string dateofbirth, string dateofregistration, string fio, string gender)
         {
-            new PetCard().Export2WordPetCard(idCard);
+            new PetCard().Export2WordPetCard(nickName, categoryAnimal, breed, locality, passportNumber, dateofbirth, dateofregistration, fio, gender);
 
             new Journal().RegisterToJournal(IDUser_key.global_IDUser);
         }
@@ -161,13 +161,9 @@ namespace App_project
 
             //еще не сделано
             //Экспорт карточки домашнего животного в Microsoft Excel
-        public static void Export2ExcelPetCard(string nickName, string categoryAnimal, string breed, string locality, string passportNumber)
+        public static void Export2ExcelPetCard(string nickName, string categoryAnimal, string breed, string locality, string passportNumber, string dateofbirth,string dateofregistration,string fio, string gender)
         {
-            new PetCard().Export2ExcelPetCard(nickName, categoryAnimal, breed, locality, passportNumber);
-
-
-
-
+            new PetCard().Export2ExcelPetCard(nickName, categoryAnimal, breed, locality, passportNumber, dateofbirth, dateofregistration, fio, gender);
 
             new Journal().RegisterToJournal(IDUser_key.global_IDUser);
         }

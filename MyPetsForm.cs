@@ -15,10 +15,14 @@ namespace App_project
 {
     public partial class MyPetsForm : Form
     {
+
+        public static Panel panel;
+
         public MyPetsForm()
         {
             InitializeComponent();
             listView1.MouseDoubleClick += new MouseEventHandler(listView1_MouseDoubleClick);
+            panel = panel1;
         }
 
         private void button1_Click(object sender, EventArgs e)
