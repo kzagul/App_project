@@ -180,7 +180,7 @@ namespace App_project
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Пропажа";
+            this.columnHeader4.Text = "Порода";
             this.columnHeader4.Width = 123;
             // 
             // columnHeader5

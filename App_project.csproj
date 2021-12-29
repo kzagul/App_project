@@ -60,6 +60,12 @@
     <Compile Include="AD формы\Show_ADForm.Designer.cs">
       <DependentUpon>Show_ADForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Show_ADForm_ForMyADs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Show_ADForm_ForMyADs.Designer.cs">
+      <DependentUpon>Show_ADForm_ForMyADs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Журнал\Journal.cs" />
     <Compile Include="Фильтрация\IFilter.cs" />
     <Compile Include="Сортировка\ISort.cs" />
@@ -186,6 +192,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="AD формы\Show_ADForm.resx">
       <DependentUpon>Show_ADForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Show_ADForm_ForMyADs.resx">
+      <DependentUpon>Show_ADForm_ForMyADs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sign формы\SignINForm.resx">
       <DependentUpon>SignINForm.cs</DependentUpon>

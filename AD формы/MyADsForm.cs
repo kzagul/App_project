@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace App_project
 
             string sql = "Select PostDate, DateOfMissing, LocalityOfMissing from [PetDataBase].[dbo].[AdData] WHERE [IDUser] = '" + IDUser_key.global_IDUser + "'";
 
-            string sql2 = "Select NickName, Category, Breed from [PetDataBase].[dbo].[PetData] WHERE [IDUser] = '" + IDUser_key.global_IDUser + "'";
+            string sql2 = "Select NickName, Category, Breed, PassportNumber from [PetDataBase].[dbo].[PetData] WHERE [IDUser] = '" + IDUser_key.global_IDUser + "'";
 
             //для sql1
             SqlConnection cnn = new SqlConnection(connection);
@@ -50,23 +51,81 @@ namespace App_project
             SqlCommand cmd2 = new SqlCommand(sql2, cnn2);
             SqlDataReader Reader2 = cmd2.ExecuteReader();
 
+            
+
+            //photo
+            SqlCommand cmdPhoto = new SqlCommand("SELECT [Photo] FROM [PetDataBase].[dbo].[PetData]", DataBase.LinkDataBase());
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmdPhoto);
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+
             listView1.Items.Clear();
 
-            while (Reader2.Read()&& Reader.Read())
+            ImageList imagelist = new ImageList();
+            imagelist.ImageSize = new Size(50, 50);
+
+            for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
             {
-                ListViewItem lv = new ListViewItem(Reader2.GetString(0));
-                lv.SubItems.Add(Reader2.GetString(1));
-                lv.SubItems.Add(Reader2.GetString(2));
-                lv.SubItems.Add(Reader.GetString(0));
-                lv.SubItems.Add(Reader.GetString(1));
-                lv.SubItems.Add(Reader.GetString(2));
-                listView1.Items.Add(lv);
-                //perem = Convert.ToString(Reader.GetInt32(3));
+                Byte[] data = new Byte[0];
+                data = (Byte[])(dataSet.Tables[0].Rows[i]["Photo"]);
+                MemoryStream mem = new MemoryStream(data);
+
+                imagelist.Images.Add(Image.FromStream(mem));
             }
+
+            //}
+            listView1.SmallImageList = imagelist;
+
+            var nick = new List<string>();
+            var category = new List<string>();
+            var breed = new List<string>();
+
+            //PostDate, DateOfMissing, LocalityOfMissing
+            var postDate = new List<string>();
+            var dateOfMissing = new List<string>();
+            var localityOfMissing = new List<string>();
+            var passportNumber = new List<string>();
+
+            while (Reader2.Read() && Reader.Read())
+            {
+                nick.Add(Reader2.GetString(0));
+                category.Add(Reader2.GetString(1));
+                breed.Add(Reader2.GetString(2));
+
+                postDate.Add(Reader.GetString(0));
+                dateOfMissing.Add(Reader.GetString(1));
+                localityOfMissing.Add(Reader.GetString(2));
+                passportNumber.Add(Convert.ToString(Reader2.GetInt32(3)));
+            }
+
+            for (int i = 0; i < category.Count; i++)
+            {
+                ListViewItem lst = new ListViewItem(new string[] { "", nick[i], category[i], breed[i], postDate[i], dateOfMissing[i], localityOfMissing[i], passportNumber[i] });
+                lst.ImageIndex = i;
+                listView1.Items.Add(lst);
+            }
+
             Reader.Close();
             cnn.Close();
             Reader2.Close();
             cnn2.Close();
+
+
+            //while (Reader2.Read()&& Reader.Read())
+            //{
+            //    ListViewItem lv = new ListViewItem(Reader2.GetString(0));
+            //    lv.SubItems.Add(Reader2.GetString(1));
+            //    lv.SubItems.Add(Reader2.GetString(2));
+            //    lv.SubItems.Add(Reader.GetString(0));
+            //    lv.SubItems.Add(Reader.GetString(1));
+            //    lv.SubItems.Add(Reader.GetString(2));
+            //    listView1.Items.Add(lv);
+            //    //perem = Convert.ToString(Reader.GetInt32(3));
+            //}
+            //Reader.Close();
+            //cnn.Close();
+            //Reader2.Close();
+            //cnn2.Close();
 
             //string sql = "Select IDAd, IDPet, LocalityOfMissing from [PetDataBase].[dbo].[AdData] INNER JOIN [PetDataBase].[dbo].[PetData] ON [PetDataBase].[dbo].[PetData].IDPet = [PetDataBase].[dbo].[AdData].IDPet";
 
@@ -110,8 +169,8 @@ namespace App_project
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            IDPetCard_key.global_IDPetCard = listView1.SelectedItems[0].SubItems[3].Text;
-            OpenChildForm(new Show_ADForm());
+            IDPetCard_key.global_IDPetCard = listView1.SelectedItems[0].SubItems[7].Text;
+            OpenChildForm(new Show_ADForm_ForMyADs());
         }
 
 

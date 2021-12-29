@@ -46,9 +46,13 @@ namespace App_project
             this.adDataTableAdapter = new App_project.PetDBDataSetTableAdapters.AdDataTableAdapter();
             this.panel1 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.adDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.petDBDataSet)).BeginInit();
@@ -140,13 +144,13 @@ namespace App_project
             // плиткаToolStripMenuItem
             // 
             this.плиткаToolStripMenuItem.Name = "плиткаToolStripMenuItem";
-            this.плиткаToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.плиткаToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.плиткаToolStripMenuItem.Text = "Плитка";
             // 
             // реестрToolStripMenuItem
             // 
             this.реестрToolStripMenuItem.Name = "реестрToolStripMenuItem";
-            this.реестрToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.реестрToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.реестрToolStripMenuItem.Text = "Список";
             this.реестрToolStripMenuItem.Click += new System.EventHandler(this.реестрToolStripMenuItem_Click);
             // 
@@ -177,9 +181,13 @@ namespace App_project
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.id,
+            this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(0, 0);
@@ -191,20 +199,39 @@ namespace App_project
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // id
+            // columnHeader1
             // 
-            this.id.Text = "id";
-            this.id.Width = 135;
+            this.columnHeader1.Text = "Фото";
+            this.columnHeader1.Width = 135;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "idPet";
+            this.columnHeader2.Text = "Кличка";
             this.columnHeader2.Width = 142;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Locality";
+            this.columnHeader3.Text = "Вид животного";
             this.columnHeader3.Width = 185;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Порода";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Дата пропажи";
+            this.columnHeader5.Width = 98;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Дата размещения";
+            this.columnHeader6.Width = 122;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Место пропажи";
+            this.columnHeader7.Width = 113;
             // 
             // ADListForm
             // 
@@ -250,8 +277,12 @@ namespace App_project
         private System.Windows.Forms.ToolStripMenuItem реестрToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader id;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }
