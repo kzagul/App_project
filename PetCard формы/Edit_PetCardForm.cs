@@ -272,6 +272,12 @@ namespace App_project
             //{
             //    cmd.ExecuteNonQuery();
             //}
+
+
+
+
+            MessageBox.Show("Карточка успешно изменена");
+            this.Close();
         }
     }
 }

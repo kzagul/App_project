@@ -109,5 +109,21 @@ namespace App_project
         {
             //label1.Text = IDUser_key.global_IDUser;
         }
+
+        private void Exit_button(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // this.Close();
+            MessageBox.Show("Вы вышли из аккаунта");
+
+            SignINForm signForm = new SignINForm();
+            signForm.Show();
+           
+            this.Hide();
+        }
     }
 }

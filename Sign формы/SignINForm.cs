@@ -55,7 +55,7 @@ namespace App_project
 
                     Body bodyForm = new Body();
                     bodyForm.Show();
-                    MessageBox.Show(IDUser_key.global_IDUser);
+                   // MessageBox.Show(IDUser_key.global_IDUser);
                     this.Hide();
                 }
             }

@@ -182,6 +182,9 @@ namespace App_project
             #endregion
 
             Controller.AddNewAnnouncement(idPetCard, locality, missingDate, postDate);
+
+            MessageBox.Show("Карточка добавлена в объявления");
+            this.Close();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

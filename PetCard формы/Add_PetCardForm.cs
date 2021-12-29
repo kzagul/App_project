@@ -94,6 +94,8 @@ namespace App_project
                        dateOfBirth,
                        registrationDate
                        );
+
+            this.Close();
         }
 
         //-

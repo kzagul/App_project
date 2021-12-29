@@ -201,5 +201,10 @@ namespace App_project
             childForm.BringToFront();
             childForm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MyADsForm_Load(sender, e);
+        }
     }
 }

@@ -151,6 +151,8 @@ namespace App_project
                 try
                 {
                     cmd1.ExecuteNonQuery();
+                    MessageBox.Show("Объявление удалено");
+                    this.Close();
                 }
                 catch (SqlException ex)
                 {

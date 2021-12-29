@@ -30,7 +30,6 @@ namespace App_project
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.buttonNewAD = new System.Windows.Forms.Button();
             this.adDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.petDBDataSet = new App_project.PetDBDataSet();
@@ -59,20 +58,6 @@ namespace App_project
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonNewAD
-            // 
-            this.buttonNewAD.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.buttonNewAD.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonNewAD.Location = new System.Drawing.Point(742, 406);
-            this.buttonNewAD.Name = "buttonNewAD";
-            this.buttonNewAD.Size = new System.Drawing.Size(80, 80);
-            this.buttonNewAD.TabIndex = 0;
-            this.buttonNewAD.Text = "+";
-            this.buttonNewAD.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonNewAD.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.buttonNewAD.UseVisualStyleBackColor = true;
-            this.buttonNewAD.Click += new System.EventHandler(this.AddNewAD_Button);
             // 
             // adDataBindingSource
             // 
@@ -202,17 +187,17 @@ namespace App_project
             // columnHeader1
             // 
             this.columnHeader1.Text = "Фото";
-            this.columnHeader1.Width = 135;
+            this.columnHeader1.Width = 121;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Кличка";
-            this.columnHeader2.Width = 142;
+            this.columnHeader2.Width = 119;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Вид животного";
-            this.columnHeader3.Width = 185;
+            this.columnHeader3.Width = 147;
             // 
             // columnHeader4
             // 
@@ -220,12 +205,12 @@ namespace App_project
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "Дата пропажи";
-            this.columnHeader5.Width = 98;
+            this.columnHeader5.Text = "Дата размещения";
+            this.columnHeader5.Width = 118;
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "Дата размещения";
+            this.columnHeader6.Text = "Дата пропажи";
             this.columnHeader6.Width = 122;
             // 
             // columnHeader7
@@ -241,7 +226,6 @@ namespace App_project
             this.ClientSize = new System.Drawing.Size(834, 498);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonNewAD);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
@@ -260,8 +244,6 @@ namespace App_project
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonNewAD;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem задатьФильтрToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem поНаселенномуПунктуToolStripMenuItem;

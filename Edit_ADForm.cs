@@ -47,6 +47,9 @@ namespace App_project
                 cmd.ExecuteNonQuery();
             }
 
+
+            MessageBox.Show("Объявление изменено");
+            this.Close();
         }
 
 
