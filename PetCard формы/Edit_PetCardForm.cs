@@ -234,6 +234,7 @@ namespace App_project
 
             string registrationDate = DateOfRegistration.Value.Date.ToString("dd-MM-yyyy");
 
+           
             //Gender
             string gender = "male";
 
@@ -247,34 +248,10 @@ namespace App_project
             }
             string locality = Locality.Text;
 
-            string photo = pictureBox1.ImageLocation;
+            //string photo = pictureBox1.ImageLocation;
             #endregion
 
-            //byte[] images = null;
-            //FileStream stream = new FileStream(photo, FileMode.Open, FileAccess.Read);
-            //BinaryReader brs = new BinaryReader(stream);
-            //images = brs.ReadBytes((int)stream.Length);
-
-            //подключение базы
-            SqlConnection connection = DataBase.LinkDataBase();
-
-
-            string sql = string.Format("Update PetData Set NickName = '{1}', Category = '{2}', DateOfBirth = '{3}', Breed = '{4}', RegistrationdDate = '{5}', PassportNumber = '{6}', Gender = '{7}', Locality = '{8}' Where IDPet = '{0}'",
-            IDPetCard_key.GetGlobalPetCardID(), nickName, categoryAnimal, dateOfBirth, breed, registrationDate, passportNumber, gender, locality);
-            using (SqlCommand cmd = new SqlCommand(sql, connection))
-            {
-                cmd.ExecuteNonQuery();
-            }
-
-            //string sql = string.Format("Update PetData Set NickName = '{1}', Category = '{2}', DateOfBirth = '{3}', Breed = '{4}', RegistrationdDate = '{5}', PassportNumber = '{6}', Photo = '{7}', Gender = '{8}', Locality = '{9}' Where IDPet = '{0}'",
-            //IDPetCard_key.GetGlobalPetCardID(), nickName, categoryAnimal, dateOfBirth, breed, registrationDate, passportNumber, images, gender, locality);
-            //using (SqlCommand cmd = new SqlCommand(sql, connection))
-            //{
-            //    cmd.ExecuteNonQuery();
-            //}
-
-
-
+            Controller.EditPetCard(categoryAnimal, nickName, breed, passportNumber, idUser, dateOfBirth, registrationDate, gender, locality);
 
             MessageBox.Show("Карточка успешно изменена");
             this.Close();

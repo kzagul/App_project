@@ -27,99 +27,44 @@ namespace App_project
 
             SqlConnection connection = DataBase.LinkDataBase();
 
-            //Controller.ShowPetCard(id_key);
+            string categoryAnimal = "";
 
-            //CategoryAnimal.Text;
+            string nickName = "";
 
-            void fullData()
+            string locality = "";
+
+            //Image img;
+
+            string dateOfPosting = "";
+
+            string gender = "";
+
+            var list = Controller.ShowAD();
+
+           
+
+            //Photo
+            SqlCommand cmdPhoto = new SqlCommand("SELECT [Photo] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmdPhoto);
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+            if (dataSet.Tables[0].Rows.Count == 1)
             {
-                //Category
-                SqlCommand cmdCategory = new SqlCommand("SELECT [Category] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
-
-                SqlDataReader thisReaderCategory = cmdCategory.ExecuteReader();
-                string res1 = string.Empty;
-                while (thisReaderCategory.Read())
-                {
-                    res1 += thisReaderCategory["Category"];
-                }
-                thisReaderCategory.Close();
-
-                CategoryAnimal.Text = res1;
-
-                //NickName
-                SqlCommand cmdNickName = new SqlCommand("SELECT [NickName] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
-
-                SqlDataReader thisReaderNickName = cmdNickName.ExecuteReader();
-                string res3 = string.Empty;
-                while (thisReaderNickName.Read())
-                {
-                    res3 += thisReaderNickName["NickName"];
-                }
-                thisReaderNickName.Close();
-                NickName.Text = res3;
-
-                //Locality
-                SqlCommand cmdLocality = new SqlCommand("SELECT [Locality] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
-
-                SqlDataReader thisReaderLocality = cmdLocality.ExecuteReader();
-                string res4 = string.Empty;
-                while (thisReaderLocality.Read())
-                {
-                    res4 += thisReaderLocality["Locality"];
-                }
-                thisReaderLocality.Close();
-                Locality.Text = res4;
-
-                //Photo
-                SqlCommand cmdPhoto = new SqlCommand("SELECT [Photo] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(cmdPhoto);
-                DataSet dataSet = new DataSet();
-                dataAdapter.Fill(dataSet);
-                if (dataSet.Tables[0].Rows.Count == 1)
-                {
-                    Byte[] data = new Byte[0];
-                    data = (Byte[])(dataSet.Tables[0].Rows[0]["Photo"]);
-                    MemoryStream mem = new MemoryStream(data);
-                    pictureBox1.Image = Image.FromStream(mem);
-                }
-
-
-                //DateOfPosting
-                //DateOfPosting.Text = DateTime.Now.Date.ToString("dd-MM-yyyy");
-
-                SqlCommand cmdDateOfPost = new SqlCommand("SELECT [PostDate] FROM [PetDataBase].[dbo].[AdData] WHERE [IDPet] = '" + IDPetCard_key.GetGlobalPetCardID() + "'", connection);
-
-                SqlDataReader thisReaderDateOfPost = cmdDateOfPost.ExecuteReader();
-                string res6 = string.Empty;
-                while (thisReaderDateOfPost.Read())
-                {
-                    res6 += thisReaderDateOfPost["PostDate"];
-                }
-                thisReaderDateOfPost.Close();
-                DateOfPosting.Text = res6;
-
-                //Gender
-
-                SqlCommand cmdGender = new SqlCommand("SELECT [Gender] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
-                var thisGender = cmdGender.ExecuteScalar().ToString();
-
-                if (thisGender == "male")
-                {
-                    GenderBox.Text = "Мужской";
-                }
-                else if (thisGender == "female")
-                {
-                    GenderBox.Text = "Женский";
-                }
-
-
+                Byte[] data = new Byte[0];
+                data = (Byte[])(dataSet.Tables[0].Rows[0]["Photo"]);
+                MemoryStream mem = new MemoryStream(data);
+                pictureBox1.Image = Image.FromStream(mem);
             }
 
-            fullData();
+            CategoryAnimal.Text = list[0];
+            NickName.Text = list[1];
+            Locality.Text = list[2];
+
+            DateOfPosting.Text = list[3];
+            GenderBox.Text = list[4];
 
 
-            //IDPetCard_key.global_IDPetCard;
-            //MessageBox.Show(IDPetCard_key.global_IDPetCard);
+
 
         }
 

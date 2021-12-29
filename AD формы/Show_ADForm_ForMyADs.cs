@@ -142,24 +142,31 @@ namespace App_project
         {
             SqlConnection connection = DataBase.LinkDataBase();
 
-            var PetDBSelectQuery = new SqlCommand("SELECT [IDPet] FROM [PetDataBase].[dbo].[AdData] WHERE [IDPet] = '" + IDPetCard_key.GetGlobalPetCardID() + "'", connection);
-            var sqlForIdPet = PetDBSelectQuery.ExecuteScalar().ToString();
+            var petCardID = IDPetCard_key.GetGlobalPetCardID();
 
-            string sql1 = string.Format("DELETE FROM [PetDataBase].[dbo].[AdData] WHERE [IDPet] = '{0}'", sqlForIdPet);
-            using (SqlCommand cmd1 = new SqlCommand(sql1, connection))
-            {
-                try
-                {
-                    cmd1.ExecuteNonQuery();
-                    MessageBox.Show("Объявление удалено");
-                    this.Close();
-                }
-                catch (SqlException ex)
-                {
-                    Exception error = new Exception("Ошибка", ex);
-                    throw error;
-                }
-            }
+
+            Controller.DeleteADCard(petCardID);
+            
+            //var PetDBSelectQuery = new SqlCommand("SELECT [IDPet] FROM [PetDataBase].[dbo].[AdData] WHERE [IDPet] = '" + petCardID + "'", connection);
+            //var sqlForIdPet = PetDBSelectQuery.ExecuteScalar().ToString();
+
+            //string sql1 = string.Format("DELETE FROM [PetDataBase].[dbo].[AdData] WHERE [IDPet] = '{0}'", sqlForIdPet);
+            //using (SqlCommand cmd1 = new SqlCommand(sql1, connection))
+            //{
+            //    try
+            //    {
+            //        cmd1.ExecuteNonQuery();
+                   
+            //    }
+            //    catch (SqlException ex)
+            //    {
+            //        Exception error = new Exception("Ошибка", ex);
+            //        throw error;
+            //    }
+            //}
+
+            MessageBox.Show("Объявление удалено");
+            this.Close();
         }
 
         private void Change_Announcement(object sender, EventArgs e)

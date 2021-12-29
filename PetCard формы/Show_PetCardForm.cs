@@ -79,7 +79,6 @@ namespace App_project
 
             Controller.ShowPetCard(id_key);
 
-            //CategoryAnimal.Text;
 
             void fullData() {
                 //Category
@@ -239,17 +238,6 @@ namespace App_project
 
             fullData();
 
-            //Image ConvertByteArrayToImage(byte[] data)
-            //{
-            //    using (MemoryStream ms = new MemoryStream(data))
-            //    {
-            //        return Image.FromStream(ms);
-            //    }
-            //}
-
-
-            //IDPetCard_key.global_IDPetCard;
-            //MessageBox.Show(IDPetCard_key.global_IDPetCard);
         }
 
         //-

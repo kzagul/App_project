@@ -60,11 +60,6 @@ namespace App_project
             listView1.GridLines = false;
             listView1.View = View.Details;
 
-            //Add Column Header
-
-            //listView1.Columns.Add("Employee ID", 150);
-            //listView1.Columns.Add("First Name", 150);
-            //listView1.Columns.Add("Last Name", 150);
 
             SqlConnection connection2 = DataBase.LinkDataBase();
 
@@ -74,7 +69,7 @@ namespace App_project
             SqlCommand cmd = new SqlCommand(sql, cnn);
             SqlDataReader Reader = cmd.ExecuteReader();
 
-            SqlCommand cmdPhoto = new SqlCommand("SELECT [Photo] FROM [PetDataBase].[dbo].[PetData]", connection2);
+            SqlCommand cmdPhoto = new SqlCommand("SELECT [Photo] FROM [PetDataBase].[dbo].[PetData] WHERE [IDUser] = '" + IDUser_key.global_IDUser + "'", connection2);
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cmdPhoto);
             DataSet dataSet = new DataSet();
             dataAdapter.Fill(dataSet);

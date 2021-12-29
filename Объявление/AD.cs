@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Windows.Forms;
 using static App_project.Controller;
 
@@ -31,11 +33,98 @@ namespace App_project
         }
 
         //Просмотр объявления
-        public AD ShowAD(IdAD idAD)
+        public List<string> ShowAD(
+            //string categoryAnimal,
+            //                    string nickName,
+            //                    string locality,
+            //                    string dateOfPosting,
+            //                    string gender
+            )
         {
-            throw new NotImplementedException();
+            string id_key = IDPetCard_key.global_PetCardPassport;
+
+
+            var list = new List<string>();
+
+            SqlConnection connection = DataBase.LinkDataBase();
+                //Category
+                SqlCommand cmdCategory = new SqlCommand("SELECT [Category] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+                SqlDataReader thisReaderCategory = cmdCategory.ExecuteReader();
+                string res1 = string.Empty;
+                while (thisReaderCategory.Read())
+                {
+                    res1 += thisReaderCategory["Category"];
+                }
+                thisReaderCategory.Close();
+
+            //categoryAnimal = res1;
+            list.Add(res1);
+
+                //NickName
+                SqlCommand cmdNickName = new SqlCommand("SELECT [NickName] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+                SqlDataReader thisReaderNickName = cmdNickName.ExecuteReader();
+                string res3 = string.Empty;
+                while (thisReaderNickName.Read())
+                {
+                    res3 += thisReaderNickName["NickName"];
+                }
+                thisReaderNickName.Close();
+            //nickName = res3;
+            list.Add(res3);
+
+
+            //Locality
+            SqlCommand cmdLocality = new SqlCommand("SELECT [Locality] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+                SqlDataReader thisReaderLocality = cmdLocality.ExecuteReader();
+                string res4 = string.Empty;
+                while (thisReaderLocality.Read())
+                {
+                    res4 += thisReaderLocality["Locality"];
+                }
+                thisReaderLocality.Close();
+            //locality = res4;
+            list.Add(res4);
+
+
+
+            //DateOfPosting
+            //DateOfPosting.Text = DateTime.Now.Date.ToString("dd-MM-yyyy");
+
+            SqlCommand cmdDateOfPost = new SqlCommand("SELECT [PostDate] FROM [PetDataBase].[dbo].[AdData] WHERE [IDPet] = '" + IDPetCard_key.GetGlobalPetCardID() + "'", connection);
+
+                SqlDataReader thisReaderDateOfPost = cmdDateOfPost.ExecuteReader();
+                string res6 = string.Empty;
+                while (thisReaderDateOfPost.Read())
+                {
+                    res6 += thisReaderDateOfPost["PostDate"];
+                }
+                thisReaderDateOfPost.Close();
+            // dateOfPosting = res6;
+            list.Add(res6);
+            //Gender
+
+            SqlCommand cmdGender = new SqlCommand("SELECT [Gender] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+                var thisGender = cmdGender.ExecuteScalar().ToString();
+                var res8 = "";
+                if (thisGender == "male")
+                {
+                res8 = "Мужской";
+                list.Add(res8);
+                }
+                else if (thisGender == "female")
+                {
+                res8 = "Женский";
+                list.Add(res8);
+                }
+
+            return list;
         }
 
+        //СДЕЛАНО
+        //+
         //Добавление объявления
         public void AddNewAnnouncement(//DateTime DateOfAd,
                         string idPetCard,
@@ -92,21 +181,46 @@ namespace App_project
         }
 
 
-
-                //Редактирование объявления
-        public void EditADCard(AD ad,
-                        DateTime DateOfAd,
-                        string LoosingPlace,
-                        DateTime CheckDate,
-                        PetCard petCard)
+        //СДЕЛАНО
+        //+
+        //Редактирование объявления
+        public void EditADCard(string localityOfMissing,
+                                            string postDate,
+                                            string dateOfMissing)
         {
-            throw new NotImplementedException();
+            SqlConnection connection = DataBase.LinkDataBase();
+
+            string sql = string.Format("Update AdData Set PostDate = '{1}', LocalityOfMissing = '{2}', DateOfMissing = '{3}' Where IDPet = '{0}'",
+            IDPetCard_key.GetGlobalPetCardID(), postDate, localityOfMissing, dateOfMissing);
+            using (SqlCommand cmd = new SqlCommand(sql, connection))
+            {
+                cmd.ExecuteNonQuery();
+            }
         }
 
+        //СДЕЛАНО
+        //+
         //Удаление объявления о пропаже домашнего животного
-        public void DeleteADCard(AD ad)
+        public void DeleteADCard(string petCardID)
         {
-            throw new NotImplementedException();
+            SqlConnection connection = DataBase.LinkDataBase();
+
+            var PetDBSelectQuery = new SqlCommand("SELECT [IDPet] FROM [PetDataBase].[dbo].[AdData] WHERE [IDPet] = '" + petCardID + "'", connection);
+            var sqlForIdPet = PetDBSelectQuery.ExecuteScalar().ToString();
+
+            string sql1 = string.Format("DELETE FROM [PetDataBase].[dbo].[AdData] WHERE [IDPet] = '{0}'", sqlForIdPet);
+            using (SqlCommand cmd1 = new SqlCommand(sql1, connection))
+            {
+                try
+                {
+                    cmd1.ExecuteNonQuery();
+                }
+                catch (SqlException ex)
+                {
+                    Exception error = new Exception("Ошибка", ex);
+                    throw error;
+                }
+            }
         }
     }
 }

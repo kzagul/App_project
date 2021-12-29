@@ -56,7 +56,7 @@ namespace App_project
             
 
             //photo
-            SqlCommand cmdPhoto = new SqlCommand("SELECT [Photo] FROM [PetDataBase].[dbo].[PetData]", DataBase.LinkDataBase());
+            SqlCommand cmdPhoto = new SqlCommand("SELECT [Photo] FROM [PetDataBase].[dbo].[PetData]  WHERE [IDUser] = '" + IDUser_key.global_IDUser + "'", DataBase.LinkDataBase());
             SqlDataAdapter dataAdapter = new SqlDataAdapter(cmdPhoto);
             DataSet dataSet = new DataSet();
             dataAdapter.Fill(dataSet);

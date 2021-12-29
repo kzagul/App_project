@@ -64,15 +64,11 @@ namespace App_project
         #endregion
 
 
-
+        //СДЕЛАНО
         //Просмотр карточки ДЖ
+        //+
         public void ShowPetCard(string idCard)
         {
-            //throw new NotImplementedException();
-            //Console.WriteLine("Карточка показана");
-
-            // string SQLCheckLogin = "SELECT [Login] FROM [PetDataBase].[dbo].[LoginData] WHERE [Login] = '" + login + "'";
-
             SqlConnection connection = DataBase.LinkDataBase();
 
             string id_key = IDPetCard_key.global_PetCardPassport;
@@ -93,22 +89,9 @@ namespace App_project
 
 
 
+        //СДЕЛАНО
         //Добавление карточки ДЖ
-        //public void AddNewPetCard(string category,
-        //                string name,
-        //                DateTime birthDate,
-        //                string breed,
-        //                DateTime registrationDate,
-        //                int passportNumber,
-        //                CertainUser thisPetOwner,
-        //                string gender,
-        //                Photo animalPhoto,
-        //                string city)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //+
+        //+ 
         public void AddNewPetCard(string category,
                        string nickName,
                        string breed,
@@ -123,8 +106,6 @@ namespace App_project
         {
             SqlConnection connection = DataBase.LinkDataBase();
 
-            //SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality)", connection);
-            //SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality, Photo) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality, @Photo)", connection);
             SqlCommand cmd = new SqlCommand("INSERT INTO[PetDataBase].[dbo].[PetData](Category, NickName, Breed, PassportNumber, IDUser, Gender, Locality, Photo, DateOfBirth, RegistrationdDate) VALUES (@Category, @NickName, @Breed, @PassportNumber, @IDUser, @Gender, @Locality, @Photo, @DateOfBirth, @RegistrationdDate)", connection);
 
             //проверка на уникальность passportNumber
@@ -167,31 +148,6 @@ namespace App_project
                     }
 
 
-                    //connection.Open();
-
-                    ////добавление в БД в ADCard
-                    //var PetDBSelectQuery = new SqlCommand("SELECT [IDPet] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + passportNumber + "'", connection);
-                    //var sqlForIdPet = PetDBSelectQuery.ExecuteScalar().ToString();
-
-                    //SqlCommand cmd2 = new SqlCommand("INSERT INTO [PetDataBase].[dbo].[AdData] (IDPet, LocalityOfMissing) VALUES (@IDPet, @LocalityOfMissing)", connection);
-                    //cmd2.Parameters.AddWithValue("@IDPet", sqlForIdPet);
-                    //cmd2.Parameters.AddWithValue("@LocalityOfMissing", locality);
-
-                    //try
-                    //{
-                    //    cmd2.ExecuteNonQuery();
-                    //}
-                    //catch
-                    //{
-                    //    MessageBox.Show("Облом!");
-                    //}
-                    //finally
-                    //{
-                    //    connection.Close();
-                    //}
-
-
-
                     MessageBox.Show("Карточка успешно добавлена!");
 
                 }
@@ -204,48 +160,50 @@ namespace App_project
 
 
 
-
+        //СДЕЛАНО
+        //+
         //Редактирование карточки ДЖ
+        public void EditPetCard(string categoryAnimal,
+                                        string nickName,
+                                        string breed,
+                                        string passportNumber,
+                                        string idUser,
+                                        string dateOfBirth,
+                                        string registrationDate,
+                                        string gender,
+                                        string locality)
 
-        //public void EditPetCard(PetCard petCard,
-        //                string category,
-        //                string name,
-        //                DateTime birthDate,
-        //                string breed,
-        //                DateTime registrationDate,
-        //                int passportNumber,
-        //                CertainUser thisPetOwner,
-        //                string gender,
-        //                Photo animalPhoto,
-        //                string city)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        public void EditPetCard(string category,
-                       string nickName,
-                       string breed,
-                       int passportNumber, //unique
-                       string idUser,
-                       string gender,
-                       string locality)
         {
-          
+            //byte[] images = null;
+            //FileStream stream = new FileStream(photo, FileMode.Open, FileAccess.Read);
+            //BinaryReader brs = new BinaryReader(stream);
+            //images = brs.ReadBytes((int)stream.Length);
+
+            //подключение базы
+            SqlConnection connection = DataBase.LinkDataBase();
+
+
+            string sql = string.Format("Update PetData Set NickName = '{1}', Category = '{2}', DateOfBirth = '{3}', Breed = '{4}', RegistrationdDate = '{5}', PassportNumber = '{6}', Gender = '{7}', Locality = '{8}' Where IDPet = '{0}'",
+            IDPetCard_key.GetGlobalPetCardID(), nickName, categoryAnimal, dateOfBirth, breed, registrationDate, passportNumber, gender, locality);
+            using (SqlCommand cmd = new SqlCommand(sql, connection))
+            {
+                cmd.ExecuteNonQuery();
+            }
+
+            //string sql = string.Format("Update PetData Set NickName = '{1}', Category = '{2}', DateOfBirth = '{3}', Breed = '{4}', RegistrationdDate = '{5}', PassportNumber = '{6}', Photo = '{7}', Gender = '{8}', Locality = '{9}' Where IDPet = '{0}'",
+            //IDPetCard_key.GetGlobalPetCardID(), nickName, categoryAnimal, dateOfBirth, breed, registrationDate, passportNumber, images, gender, locality);
+            //using (SqlCommand cmd = new SqlCommand(sql, connection))
+            //{
+            //    cmd.ExecuteNonQuery();
+            //}
         }
 
 
 
 
-
+        //СДЕЛАНО
         //+
         //Удаление карточки о пропаже домашнего животного
-
-        //public void DeletePetCard(IdPetCard idCard)
-        //{
-        //    //throw new NotImplementedException();
-        //    Console.WriteLine("Карточка удалена");
-        //}
-
         public void DeletePetCard(string idCard)
         {
             SqlConnection connection = DataBase.LinkDataBase();
@@ -290,9 +248,8 @@ namespace App_project
 
 
 
-
+        //СДЕЛАНО
         //+
-
         //Сформировать паспорт домашнего животного в Microsoft Word
         public void Export2WordPetCard(string nickName, string categoryAnimal, string breed, string locality, string passportNumber, string dateofbirth, string dateofregistration, string fio, string gender)
         {
@@ -340,8 +297,11 @@ namespace App_project
             }
         }
 
-        //+
 
+
+
+        //сДЕЛАНО
+        //+
         //Экспорт карточки домашнего животного в Microsoft Excel
         public void Export2ExcelPetCard(string nickName, string categoryAnimal, string breed, string locality, string passportNumber, string dateofbirth, string dateofregistration, string fio, string gender)
         {

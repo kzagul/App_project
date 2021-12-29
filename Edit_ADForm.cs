@@ -38,14 +38,7 @@ namespace App_project
 
             string dateOfMissing = DateOfMissing.Value.Date.ToString("dd-MM-yyyy");
 
-            SqlConnection connection = DataBase.LinkDataBase();
-
-            string sql = string.Format("Update AdData Set PostDate = '{1}', LocalityOfMissing = '{2}', DateOfMissing = '{3}' Where IDPet = '{0}'",
-            IDPetCard_key.GetGlobalPetCardID(), postDate, localityOfMissing, dateOfMissing);
-            using (SqlCommand cmd = new SqlCommand(sql, connection))
-            {
-                cmd.ExecuteNonQuery();
-            }
+            Controller.EditADCard(localityOfMissing, postDate, dateOfMissing);
 
 
             MessageBox.Show("Объявление изменено");
