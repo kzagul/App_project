@@ -47,42 +47,38 @@ namespace App_project
 
         private void ADListForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "petDBDataSet.AdData". При необходимости она может быть перемещена или удалена.
-            // this.adDataTableAdapter.Fill(this.petDBDataSet.AdData);
-
             //соединение с базой
-            //string connection = DataBase.PetDBConnectionString;
-            //DataBase.LinkDataBase();
+            string connection = DataBase.PetDBConnectionString;
+            DataBase.LinkDataBase();
 
-            //listView1.GridLines = false;
-            //listView1.View = View.SmallIcon;
+            listView1.GridLines = false;
+            listView1.View = View.Details;
 
-            ////string sql = "SELECT NickName, Category, LocalityOfMissing FROM [PetDataBase].[dbo].[PetData] LEFT JOIN [PetDataBase].[dbo].[AdData] ON [PetDataBase].[dbo].[PetData].IDPet = [PetDataBase].[dbo].[AdData].IDPet  WHERE [PetDataBase].[dbo].[PetData].[IDUser] = '" + IDUser_key.global_IDUser + "'";
+            string sql = "Select IdAD, IDPet, LocalityOfMissing from [PetDataBase].[dbo].[AdData]";
+            SqlConnection cnn = new SqlConnection(connection);
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand(sql, cnn);
+            SqlDataReader Reader = cmd.ExecuteReader();
 
+            listView1.Items.Clear();
+
+            while (Reader.Read())
+            {
+                ListViewItem lv = new ListViewItem(Convert.ToString(Reader.GetInt32(0)));
+                lv.SubItems.Add(Convert.ToString(Reader.GetInt32(1)));
+                lv.SubItems.Add(Reader.GetString(2));
+                
+                listView1.Items.Add(lv);
+                //perem = Convert.ToString(Reader.GetInt32(3));
+            }
+            Reader.Close();
+            cnn.Close();
             //string sql = "Select IDAd, IDPet, LocalityOfMissing from [PetDataBase].[dbo].[AdData] INNER JOIN [PetDataBase].[dbo].[PetData] ON [PetDataBase].[dbo].[PetData].IDPet = [PetDataBase].[dbo].[AdData].IDPet";
-            ////WHERE[IDUser] = '" + IDUser_key.global_IDUser + "'";
-            //SqlConnection cnn = new SqlConnection(connection);
-            //cnn.Open();
-            //SqlCommand cmd = new SqlCommand(sql, cnn);
-            //SqlDataReader Reader = cmd.ExecuteReader();
-
-            //listView1.Items.Clear();
-
-            //while (Reader.Read())
-            //{
-            //    ListViewItem lv = new ListViewItem(Reader.GetString(0));
-            //    lv.SubItems.Add(Reader.GetString(1));
-            //    //lv.SubItems.Add(Reader.GetString(2));
-            //    listView1.Items.Add(lv);
-            //    //perem = Convert.ToString(Reader.GetInt32(3));
-            //}
-            //Reader.Close();
-            //cnn.Close();
-
-
-
-
-
+        }
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            IDPetCard_key.global_IDPetCard = listView1.SelectedItems[0].SubItems[1].Text;
+            OpenChildForm(new Show_ADForm());
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -108,15 +104,6 @@ namespace App_project
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            IDPetCard_key.global_IDPetCard = listView1.SelectedItems[0].SubItems[3].Text;
-            OpenChildForm(new Show_PetCardForm());
-            //MessageBox.Show(IDPetCard_key.global_IDPetCard);
-
-            //var epa = listView1.SelectedItems[]
         }
     }
 }

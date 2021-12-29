@@ -37,10 +37,8 @@ namespace App_project
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.PassportNumber = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.Breed = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.DateOfBirth = new System.Windows.Forms.TextBox();
+            this.FIO = new System.Windows.Forms.TextBox();
             this.Locality = new System.Windows.Forms.TextBox();
             this.CategoryAnimal = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -53,6 +51,10 @@ namespace App_project
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Save_Button = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.DateOfRegistration = new System.Windows.Forms.DateTimePicker();
+            this.DateOfBirth = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,36 +120,22 @@ namespace App_project
             // 
             this.PassportNumber.Location = new System.Drawing.Point(642, 171);
             this.PassportNumber.Name = "PassportNumber";
-            this.PassportNumber.Size = new System.Drawing.Size(100, 20);
+            this.PassportNumber.Size = new System.Drawing.Size(123, 20);
             this.PassportNumber.TabIndex = 71;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(642, 130);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 70;
             // 
             // Breed
             // 
             this.Breed.Location = new System.Drawing.Point(642, 87);
             this.Breed.Name = "Breed";
-            this.Breed.Size = new System.Drawing.Size(100, 20);
+            this.Breed.Size = new System.Drawing.Size(123, 20);
             this.Breed.TabIndex = 69;
             // 
-            // textBox5
+            // FIO
             // 
-            this.textBox5.Location = new System.Drawing.Point(391, 264);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(351, 20);
-            this.textBox5.TabIndex = 68;
-            // 
-            // DateOfBirth
-            // 
-            this.DateOfBirth.Location = new System.Drawing.Point(391, 218);
-            this.DateOfBirth.Name = "DateOfBirth";
-            this.DateOfBirth.Size = new System.Drawing.Size(100, 20);
-            this.DateOfBirth.TabIndex = 67;
+            this.FIO.Location = new System.Drawing.Point(391, 264);
+            this.FIO.Name = "FIO";
+            this.FIO.Size = new System.Drawing.Size(351, 20);
+            this.FIO.TabIndex = 68;
             // 
             // Locality
             // 
@@ -255,12 +243,51 @@ namespace App_project
             this.pictureBox1.TabIndex = 55;
             this.pictureBox1.TabStop = false;
             // 
+            // Save_Button
+            // 
+            this.Save_Button.Location = new System.Drawing.Point(667, 358);
+            this.Save_Button.Name = "Save_Button";
+            this.Save_Button.Size = new System.Drawing.Size(75, 23);
+            this.Save_Button.TabIndex = 78;
+            this.Save_Button.Text = "Сохранить";
+            this.Save_Button.UseVisualStyleBackColor = true;
+            this.Save_Button.Click += new System.EventHandler(this.Save_Button_Click);
+            // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button8.Location = new System.Drawing.Point(181, 209);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(57, 49);
+            this.button8.TabIndex = 79;
+            this.button8.Text = "+";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.Add_Photo);
+            // 
+            // DateOfRegistration
+            // 
+            this.DateOfRegistration.Location = new System.Drawing.Point(642, 130);
+            this.DateOfRegistration.Name = "DateOfRegistration";
+            this.DateOfRegistration.Size = new System.Drawing.Size(123, 20);
+            this.DateOfRegistration.TabIndex = 80;
+            // 
+            // DateOfBirth
+            // 
+            this.DateOfBirth.Location = new System.Drawing.Point(391, 218);
+            this.DateOfBirth.Name = "DateOfBirth";
+            this.DateOfBirth.Size = new System.Drawing.Size(123, 20);
+            this.DateOfBirth.TabIndex = 81;
+            // 
             // Edit_PetCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DateOfBirth);
+            this.Controls.Add(this.DateOfRegistration);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.Save_Button);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label2);
@@ -268,10 +295,8 @@ namespace App_project
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.PassportNumber);
-            this.Controls.Add(this.textBox7);
             this.Controls.Add(this.Breed);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.DateOfBirth);
+            this.Controls.Add(this.FIO);
             this.Controls.Add(this.Locality);
             this.Controls.Add(this.CategoryAnimal);
             this.Controls.Add(this.label10);
@@ -303,10 +328,8 @@ namespace App_project
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.TextBox PassportNumber;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox Breed;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox DateOfBirth;
+        private System.Windows.Forms.TextBox FIO;
         private System.Windows.Forms.TextBox Locality;
         private System.Windows.Forms.TextBox CategoryAnimal;
         private System.Windows.Forms.Label label10;
@@ -319,5 +342,9 @@ namespace App_project
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button Save_Button;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.DateTimePicker DateOfRegistration;
+        private System.Windows.Forms.DateTimePicker DateOfBirth;
     }
 }

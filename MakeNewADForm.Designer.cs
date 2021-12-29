@@ -103,7 +103,7 @@ namespace App_project
             // columnHeader3
             // 
             this.columnHeader3.Text = "Место пропажи";
-            this.columnHeader3.Width = 321;
+            this.columnHeader3.Width = 180;
             // 
             // MakeNewADForm
             // 

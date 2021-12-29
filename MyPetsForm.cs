@@ -85,6 +85,7 @@ namespace App_project
             imagelist.ImageSize = new Size(50, 50);
             //if (dataSet.Tables[0].Rows.Count == 1)
             //{
+
             for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
             {
                 Byte[] data = new Byte[0];

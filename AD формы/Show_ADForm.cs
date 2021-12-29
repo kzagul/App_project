@@ -27,7 +27,7 @@ namespace App_project
 
             SqlConnection connection = DataBase.LinkDataBase();
 
-           // Controller.ShowPetCard(id_key);
+            //Controller.ShowPetCard(id_key);
 
             //CategoryAnimal.Text;
 
@@ -175,6 +175,11 @@ namespace App_project
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

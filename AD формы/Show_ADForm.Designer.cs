@@ -32,6 +32,9 @@ namespace App_project
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Show_ADForm));
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.GenderBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.DateOfMissing = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.Locality = new System.Windows.Forms.TextBox();
             this.DateOfPosting = new System.Windows.Forms.TextBox();
@@ -43,9 +46,6 @@ namespace App_project
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.DateOfMissing = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.GenderBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -81,6 +81,32 @@ namespace App_project
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(737, 282);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // GenderBox
+            // 
+            this.GenderBox.Location = new System.Drawing.Point(291, 146);
+            this.GenderBox.Name = "GenderBox";
+            this.GenderBox.ReadOnly = true;
+            this.GenderBox.Size = new System.Drawing.Size(120, 20);
+            this.GenderBox.TabIndex = 14;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(436, 205);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(100, 16);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Дата пропажи";
+            // 
+            // DateOfMissing
+            // 
+            this.DateOfMissing.Location = new System.Drawing.Point(573, 201);
+            this.DateOfMissing.Name = "DateOfMissing";
+            this.DateOfMissing.Size = new System.Drawing.Size(136, 20);
+            this.DateOfMissing.TabIndex = 12;
             // 
             // button2
             // 
@@ -190,31 +216,6 @@ namespace App_project
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // DateOfMissing
-            // 
-            this.DateOfMissing.Location = new System.Drawing.Point(573, 201);
-            this.DateOfMissing.Name = "DateOfMissing";
-            this.DateOfMissing.Size = new System.Drawing.Size(136, 20);
-            this.DateOfMissing.TabIndex = 12;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(436, 205);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 16);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Дата пропажи";
-            // 
-            // GenderBox
-            // 
-            this.GenderBox.Location = new System.Drawing.Point(291, 146);
-            this.GenderBox.Name = "GenderBox";
-            this.GenderBox.ReadOnly = true;
-            this.GenderBox.Size = new System.Drawing.Size(120, 20);
-            this.GenderBox.TabIndex = 14;
             // 
             // Show_ADForm
             // 

@@ -133,10 +133,12 @@ namespace App_project
             {
                 DataTable table = new DataTable();
                 dataAdapter.Fill(table);
+
                 byte[] images = null;
                 FileStream stream = new FileStream(photo, FileMode.Open, FileAccess.Read);
                 BinaryReader brs = new BinaryReader(stream);
                 images = brs.ReadBytes((int)stream.Length);
+
                 if (table.Rows.Count == 0) 
                 {
 
@@ -235,7 +237,7 @@ namespace App_project
 
 
 
-        //+-
+        //+
         //Удаление карточки о пропаже домашнего животного
 
         //public void DeletePetCard(IdPetCard idCard)
@@ -289,7 +291,7 @@ namespace App_project
 
 
 
-
+        //+
 
         //Сформировать паспорт домашнего животного в Microsoft Word
         public void Export2WordPetCard(string nickName, string categoryAnimal, string breed, string locality, string passportNumber, string dateofbirth, string dateofregistration, string fio, string gender)
@@ -337,6 +339,8 @@ namespace App_project
                 MessageBox.Show(ex.Message);
             }
         }
+
+        //+
 
         //Экспорт карточки домашнего животного в Microsoft Excel
         public void Export2ExcelPetCard(string nickName, string categoryAnimal, string breed, string locality, string passportNumber, string dateofbirth, string dateofregistration, string fio, string gender)

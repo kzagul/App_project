@@ -43,6 +43,10 @@ namespace App_project
             this.видОтображенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.плиткаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -76,7 +80,11 @@ namespace App_project
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listView1.FullRowSelect = true;
@@ -94,18 +102,18 @@ namespace App_project
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Кличка";
-            this.columnHeader1.Width = 155;
+            this.columnHeader1.Text = "Фото";
+            this.columnHeader1.Width = 95;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Вид животного";
-            this.columnHeader2.Width = 256;
+            this.columnHeader2.Text = "Кличка";
+            this.columnHeader2.Width = 134;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Место пропажи";
-            this.columnHeader3.Width = 188;
+            this.columnHeader3.Text = "Вид животного";
+            this.columnHeader3.Width = 116;
             // 
             // menuStrip1
             // 
@@ -170,6 +178,25 @@ namespace App_project
             this.списокToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.списокToolStripMenuItem.Text = "Список";
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Пропажа";
+            this.columnHeader4.Width = 123;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Дата пропажи";
+            this.columnHeader5.Width = 155;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Дата размещения";
+            this.columnHeader6.Width = 155;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Место пропажи";
+            // 
             // MyADsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,5 +235,9 @@ namespace App_project
         private System.Windows.Forms.ToolStripMenuItem видОтображенияToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem плиткаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem списокToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
     }
 }
