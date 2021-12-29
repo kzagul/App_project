@@ -75,7 +75,7 @@ namespace App_project
 
             SqlConnection connection = DataBase.LinkDataBase();
 
-            string id_key = IDPetCard_key.global_IDPetCard;
+            string id_key = IDPetCard_key.global_PetCardPassport;
 
             SqlCommand cmdCategory = new SqlCommand("SELECT [Category] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
 

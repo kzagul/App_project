@@ -9,7 +9,7 @@ namespace App_project
 {
     class IDPetCard_key
     {
-        public static string global_IDPetCard;
+        public static string global_PetCardPassport;
 
         public static void GetIDPetCardForSession(string login)
         {
@@ -22,7 +22,7 @@ namespace App_project
         public static string GetGlobalPetCardID()
         {
             var connection = DataBase.LinkDataBase();
-            var sql = new SqlCommand("Select IDPet from [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + IDPetCard_key.global_IDPetCard + "'", connection);
+            var sql = new SqlCommand("Select IDPet from [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + IDPetCard_key.global_PetCardPassport + "'", connection);
             return sql.ExecuteScalar().ToString();
         }
 

@@ -23,7 +23,7 @@ namespace App_project
 
         public void Show_DataInForm()
         {
-            string id_key = IDPetCard_key.global_IDPetCard;
+            string id_key = IDPetCard_key.global_PetCardPassport;
 
             SqlConnection connection = DataBase.LinkDataBase();
 

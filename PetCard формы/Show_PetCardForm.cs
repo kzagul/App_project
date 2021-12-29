@@ -42,7 +42,7 @@ namespace App_project
         {
             this.Close();
             MessageBox.Show("Карточка удалена");
-            Controller.DeletePetCard(IDPetCard_key.global_IDPetCard);
+            Controller.DeletePetCard(IDPetCard_key.global_PetCardPassport);
 
             //dataGridView1.Rows.Remove(SelectedRows);
         }
@@ -73,7 +73,7 @@ namespace App_project
 
         public void Show_DataInForm()
         {
-            string id_key = IDPetCard_key.global_IDPetCard;
+            string id_key = IDPetCard_key.global_PetCardPassport;
 
             SqlConnection connection = DataBase.LinkDataBase();
 

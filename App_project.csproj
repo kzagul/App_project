@@ -60,10 +60,10 @@
     <Compile Include="AD формы\Show_ADForm.Designer.cs">
       <DependentUpon>Show_ADForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Show_ADForm_ForMyADs.cs">
+    <Compile Include="AD формы\Show_ADForm_ForMyADs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Show_ADForm_ForMyADs.Designer.cs">
+    <Compile Include="AD формы\Show_ADForm_ForMyADs.Designer.cs">
       <DependentUpon>Show_ADForm_ForMyADs.cs</DependentUpon>
     </Compile>
     <Compile Include="Журнал\Journal.cs" />
@@ -193,7 +193,7 @@
     <EmbeddedResource Include="AD формы\Show_ADForm.resx">
       <DependentUpon>Show_ADForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Show_ADForm_ForMyADs.resx">
+    <EmbeddedResource Include="AD формы\Show_ADForm_ForMyADs.resx">
       <DependentUpon>Show_ADForm_ForMyADs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sign формы\SignINForm.resx">

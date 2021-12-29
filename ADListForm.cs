@@ -174,7 +174,7 @@ namespace App_project
         }
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            IDPetCard_key.global_IDPetCard = listView1.SelectedItems[0].SubItems[7].Text;
+            IDPetCard_key.global_PetCardPassport = listView1.SelectedItems[0].SubItems[7].Text;
             OpenChildForm(new Show_ADForm_ForMyADs());
         }
 

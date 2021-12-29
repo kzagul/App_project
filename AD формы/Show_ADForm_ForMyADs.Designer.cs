@@ -31,6 +31,8 @@ namespace App_project
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Show_ADForm_ForMyADs));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.DateOfMissing = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.GenderBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -45,8 +47,6 @@ namespace App_project
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.DateOfMissing = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -74,6 +74,24 @@ namespace App_project
             this.panel1.Size = new System.Drawing.Size(737, 282);
             this.panel1.TabIndex = 3;
             // 
+            // DateOfMissing
+            // 
+            this.DateOfMissing.Location = new System.Drawing.Point(573, 201);
+            this.DateOfMissing.Name = "DateOfMissing";
+            this.DateOfMissing.ReadOnly = true;
+            this.DateOfMissing.Size = new System.Drawing.Size(136, 20);
+            this.DateOfMissing.TabIndex = 16;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(388, 247);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(148, 32);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "Изменить объявление";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Change_Announcement);
+            // 
             // GenderBox
             // 
             this.GenderBox.Location = new System.Drawing.Point(291, 146);
@@ -100,6 +118,7 @@ namespace App_project
             this.button2.TabIndex = 11;
             this.button2.Text = "Удалить объявление";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Delete_Announcement);
             // 
             // Locality
             // 
@@ -202,23 +221,6 @@ namespace App_project
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(388, 247);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(148, 32);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Изменить объявление";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // DateOfMissing
-            // 
-            this.DateOfMissing.Location = new System.Drawing.Point(573, 201);
-            this.DateOfMissing.Name = "DateOfMissing";
-            this.DateOfMissing.ReadOnly = true;
-            this.DateOfMissing.Size = new System.Drawing.Size(136, 20);
-            this.DateOfMissing.TabIndex = 16;
             // 
             // Show_ADForm_ForMyADs
             // 

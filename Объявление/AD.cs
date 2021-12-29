@@ -47,7 +47,7 @@ namespace App_project
             SqlConnection connection = DataBase.LinkDataBase();
 
             //добавление в БД ADCard
-            var PetDBSelectQuery = new SqlCommand("SELECT [IDPet] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + IDPetCard_key.global_IDPetCard + "'", connection);
+            var PetDBSelectQuery = new SqlCommand("SELECT [IDPet] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + IDPetCard_key.global_PetCardPassport + "'", connection);
             var sqlForIdPet = PetDBSelectQuery.ExecuteScalar().ToString();
 
             SqlCommand cmd = new SqlCommand("INSERT INTO [PetDataBase].[dbo].[AdData] (IDPet, PostDate, LocalityOfMissing, DateOfMissing, IDUser) VALUES (@IDPet, @PostDate, @LocalityOfMissing, @DateOfMissing, @IDUser)", connection);
