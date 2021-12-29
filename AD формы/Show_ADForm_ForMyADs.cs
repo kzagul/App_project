@@ -162,7 +162,30 @@ namespace App_project
 
         private void Change_Announcement(object sender, EventArgs e)
         {
-
+            this.Hide();
+            OpenChildForm(new Edit_ADForm());
         }
+
+
+        private Form activeForm = null;
+        private void OpenChildForm(Form childForm)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = childForm;
+
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+
+            MyADsForm.panel.Controls.Add(childForm);
+            MyADsForm.panel.Tag = childForm;
+
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
     }
 }

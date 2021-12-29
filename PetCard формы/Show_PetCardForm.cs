@@ -405,5 +405,10 @@ namespace App_project
         {
             
         }
+
+        private void DateOfRegistration_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

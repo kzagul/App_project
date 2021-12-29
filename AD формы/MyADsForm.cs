@@ -14,10 +14,12 @@ namespace App_project
 {
     public partial class MyADsForm : Form
     {
+        public static Panel panel;
         public MyADsForm()
         {
             InitializeComponent();
             listView1.MouseDoubleClick += new MouseEventHandler(listView1_MouseDoubleClick);
+            panel = panel2;
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

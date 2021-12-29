@@ -12,12 +12,41 @@ using System.Windows.Forms;
 
 namespace App_project
 {
-    public partial class Show_ADForm : Form
+    public partial class Edit_ADForm : Form
     {
-        public Show_ADForm()
+        public Edit_ADForm()
         {
             InitializeComponent();
             Show_DataInForm();
+        }
+
+        private void Exit_Button(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Edit_ADForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Save_Button(object sender, EventArgs e)
+        {
+            string localityOfMissing = Locality.Text;
+
+            string postDate = PostDate.Value.Date.ToString("dd-MM-yyyy");//
+
+            string dateOfMissing = DateOfMissing.Value.Date.ToString("dd-MM-yyyy");
+
+            SqlConnection connection = DataBase.LinkDataBase();
+
+            string sql = string.Format("Update AdData Set PostDate = '{1}', LocalityOfMissing = '{2}', DateOfMissing = '{3}' Where IDPet = '{0}'",
+            IDPetCard_key.GetGlobalPetCardID(), postDate, localityOfMissing, dateOfMissing);
+            using (SqlCommand cmd = new SqlCommand(sql, connection))
+            {
+                cmd.ExecuteNonQuery();
+            }
+
         }
 
 
@@ -27,7 +56,7 @@ namespace App_project
 
             SqlConnection connection = DataBase.LinkDataBase();
 
-            //Controller.ShowPetCard(id_key);
+            Controller.ShowPetCard(id_key);
 
             //CategoryAnimal.Text;
 
@@ -45,6 +74,7 @@ namespace App_project
                 thisReaderCategory.Close();
 
                 CategoryAnimal.Text = res1;
+
 
                 //NickName
                 SqlCommand cmdNickName = new SqlCommand("SELECT [NickName] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
@@ -83,21 +113,6 @@ namespace App_project
                     pictureBox1.Image = Image.FromStream(mem);
                 }
 
-
-                //DateOfPosting
-                //DateOfPosting.Text = DateTime.Now.Date.ToString("dd-MM-yyyy");
-
-                SqlCommand cmdDateOfPost = new SqlCommand("SELECT [PostDate] FROM [PetDataBase].[dbo].[AdData] WHERE [IDPet] = '" + IDPetCard_key.GetGlobalPetCardID() + "'", connection);
-
-                SqlDataReader thisReaderDateOfPost = cmdDateOfPost.ExecuteReader();
-                string res6 = string.Empty;
-                while (thisReaderDateOfPost.Read())
-                {
-                    res6 += thisReaderDateOfPost["PostDate"];
-                }
-                thisReaderDateOfPost.Close();
-                DateOfPosting.Text = res6;
-
                 //Gender
 
                 SqlCommand cmdGender = new SqlCommand("SELECT [Gender] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
@@ -112,85 +127,36 @@ namespace App_project
                     GenderBox.Text = "Женский";
                 }
 
+                //DateOfPosting
+                //DateOfPosting.Text = DateTime.Now.Date.ToString("dd-MM-yyyy");
 
+                SqlCommand cmdDateOfPost = new SqlCommand("SELECT [PostDate] FROM [PetDataBase].[dbo].[AdData] WHERE [IDPet] = '" + IDPetCard_key.GetGlobalPetCardID() + "'", connection);
+
+                SqlDataReader thisReaderDateOfPost = cmdDateOfPost.ExecuteReader();
+                string res6 = string.Empty;
+                while (thisReaderDateOfPost.Read())
+                {
+                    res6 += thisReaderDateOfPost["PostDate"];
+                }
+                thisReaderDateOfPost.Close();
+                PostDate.Text = res6;
+
+                //DateOfMissing
+                //DateOfPosting.Text = DateTime.Now.Date.ToString("dd-MM-yyyy");
+
+                SqlCommand cmdDateOfMissing = new SqlCommand("SELECT [DateOfMissing] FROM [PetDataBase].[dbo].[AdData] WHERE [IDPet] = '" + IDPetCard_key.GetGlobalPetCardID() + "'", connection);
+
+                SqlDataReader thisReaderDateOfMissing = cmdDateOfMissing.ExecuteReader();
+                string res7 = string.Empty;
+                while (thisReaderDateOfMissing.Read())
+                {
+                    res7 += thisReaderDateOfMissing["DateOfMissing"];
+                }
+                thisReaderDateOfMissing.Close();
+                DateOfMissing.Text = res7;
             }
 
             fullData();
-
-
-            //IDPetCard_key.global_IDPetCard;
-            //MessageBox.Show(IDPetCard_key.global_IDPetCard);
-
-        }
-
-
-
-
-
-        private void Show_ADForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            NickName.ReadOnly = true;
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            CategoryAnimal.ReadOnly = true;
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            //Gender.ReadOnly = true;
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-            DateOfPosting.ReadOnly = true;
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-            Locality.ReadOnly = true;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void Add_AD(object sender, EventArgs e)
-        {
-            #region Поля texbox
-            string idPetCard = IDPetCard_key.GetGlobalPetCardID();
-            string locality = Locality.Text;
-            string missingDate = DateOfMissing.Value.Date.ToString("dd-MM-yyyy");
-            string postDate = DateTime.Now.Date.ToString("dd-MM-yyyy");
-            #endregion
-
-            Controller.AddNewAnnouncement(idPetCard, locality, missingDate, postDate);
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
         }
     }

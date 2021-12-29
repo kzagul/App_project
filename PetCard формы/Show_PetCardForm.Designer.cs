@@ -132,6 +132,7 @@ namespace App_project
             this.DateOfRegistration.ReadOnly = true;
             this.DateOfRegistration.Size = new System.Drawing.Size(100, 20);
             this.DateOfRegistration.TabIndex = 44;
+            this.DateOfRegistration.TextChanged += new System.EventHandler(this.DateOfRegistration_TextChanged);
             // 
             // Breed
             // 

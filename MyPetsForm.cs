@@ -209,5 +209,10 @@ namespace App_project
         {
             listView1.View = View.SmallIcon;
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

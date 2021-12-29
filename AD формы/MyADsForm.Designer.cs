@@ -35,6 +35,10 @@ namespace App_project
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,10 +47,6 @@ namespace App_project
             this.видОтображенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.плиткаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -115,6 +115,25 @@ namespace App_project
             this.columnHeader3.Text = "Вид животного";
             this.columnHeader3.Width = 116;
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Порода";
+            this.columnHeader4.Width = 123;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Дата размещения";
+            this.columnHeader5.Width = 155;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Дата пропажи";
+            this.columnHeader6.Width = 155;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Место пропажи";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -177,25 +196,6 @@ namespace App_project
             this.списокToolStripMenuItem.Name = "списокToolStripMenuItem";
             this.списокToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.списокToolStripMenuItem.Text = "Список";
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Порода";
-            this.columnHeader4.Width = 123;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Дата пропажи";
-            this.columnHeader5.Width = 155;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Дата размещения";
-            this.columnHeader6.Width = 155;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Место пропажи";
             // 
             // MyADsForm
             // 

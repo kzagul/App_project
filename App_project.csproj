@@ -53,6 +53,12 @@
   <ItemGroup>
     <Compile Include="ChildForm.cs" />
     <Compile Include="DataBase.cs" />
+    <Compile Include="Edit_ADForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_ADForm.Designer.cs">
+      <DependentUpon>Edit_ADForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="IDPetCard_key.cs" />
     <Compile Include="AD формы\Show_ADForm.cs">
       <SubType>Form</SubType>
@@ -173,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AD формы\MyADsForm.resx">
       <DependentUpon>MyADsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_ADForm.resx">
+      <DependentUpon>Edit_ADForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PetCard формы\Edit_PetCardForm.resx">
       <DependentUpon>Edit_PetCardForm.cs</DependentUpon>
