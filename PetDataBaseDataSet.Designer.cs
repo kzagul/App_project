@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace App_project.База_данных {
+namespace App_project {
     
     
     /// <summary>
@@ -3301,7 +3301,7 @@ namespace App_project.База_данных {
         }
     }
 }
-namespace App_project.База_данных.PetDataBaseDataSetTableAdapters {
+namespace App_project.PetDataBaseDataSetTableAdapters {
     
     
     /// <summary>

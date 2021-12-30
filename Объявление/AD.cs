@@ -11,27 +11,12 @@ namespace App_project
 {
     public class AD
     {
-        ////IdAD IdAd { get; set; } //Id объявления
-        //DateTime DateOfAd { get; set; } //дата добавления объявления
-        //string LoosingPlace { get; set; } // место пропажи
-        //DateTime CheckDate { get; set; } // дата пропажи/находки
-        //PetCard CardOfPet { get; set; } //карточка дж
+        #region конструктор
+        public AD()
+        {
 
-        //public AD()
-        //{
-
-        //}
-
-        //public AD(DateTime dateOfAd,
-        //          string loosingPlace,
-        //          DateTime checkDate,
-        //          PetCard cardOfPet)
-        //{
-        //    DateOfAd = dateOfAd;
-        //    LoosingPlace = loosingPlace;
-        //    CheckDate = checkDate;
-        //    CardOfPet = cardOfPet;
-        //}
+        }
+        #endregion
 
         //СДЕЛАНО
         //+

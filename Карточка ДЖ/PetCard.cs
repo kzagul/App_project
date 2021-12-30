@@ -18,50 +18,10 @@ namespace App_project
     //
     public class PetCard
     {
-        int IdCard { get; set; } //Id карточки дж
-        string Category { get; set; } //категория животного
-        public string Name { get; set; } //имя животного
-        DateTime BirthDate { get; set; } //дата рождения животного
-        string Breed { get; set; } //порода собаки
-        DateTime RegistrationDate { get; set; } //дата регистрации
-        int PassportNumber { get; set; } //номер паспорта
-        CertainUser ThisPetOwner { get; set; } //Владелец собаки
-        string Gender { get; set; } // пол животного
-        //Photo AnimalPhoto { get; set; } // фото животного
-        string City { get; set; } // населенный пункт
-
-
-
-        #region Конструкторы
+        #region Конструктор
         public PetCard()
         {
 
-        }
-
-
-       // конструктор
-        public PetCard(string category,
-                        string name,
-                        DateTime birthDate,
-                        string breed,
-                        DateTime registrationDate,
-                        int passportNumber,
-                        CertainUser thisPetOwner,
-                        string gender,
-                        //Photo animalPhoto,
-                        string city
-                        )
-        {
-            Category = category;
-            Name = name;
-            BirthDate = birthDate;
-            Breed = breed;
-            RegistrationDate = registrationDate;
-            PassportNumber = passportNumber;
-            ThisPetOwner = thisPetOwner;
-            Gender = gender;
-            //AnimalPhoto = animalPhoto;
-            City = city;
         }
         #endregion
 

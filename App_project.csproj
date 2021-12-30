@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Show_ADForm_ForADs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Show_ADForm_ForADs.Designer.cs">
+      <DependentUpon>Show_ADForm_ForADs.cs</DependentUpon>
+    </Compile>
     <Compile Include="База данных\DataBase.cs" />
     <Compile Include="AD формы\Edit_ADForm.cs">
       <SubType>Form</SubType>
@@ -75,8 +81,6 @@
     <Compile Include="Фильтрация\IFilter.cs" />
     <Compile Include="Регистрация\ISignUP.cs" />
     <Compile Include="Объявление\AD.cs" />
-    <Compile Include="ADList.cs" />
-    <Compile Include="ListPetCards.cs" />
     <Compile Include="Карточка ДЖ\PetCard.cs" />
     <Compile Include="Авторизация\Admin.cs" />
     <Compile Include="MenuForms\Body.cs">
@@ -131,7 +135,7 @@
     <Compile Include="PetCard формы\Add_PetCardForm.Designer.cs">
       <DependentUpon>Add_PetCardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="База данных\PetDataBaseDataSet.Designer.cs">
+    <Compile Include="PetDataBaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PetDataBaseDataSet.xsd</DependentUpon>
@@ -141,7 +145,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PetDBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Program — копия.cs" />
     <Compile Include="Sign формы\SignINForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +205,9 @@
     <EmbeddedResource Include="AD формы\Show_ADForm_ForMyADs.resx">
       <DependentUpon>Show_ADForm_ForMyADs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Show_ADForm_ForADs.resx">
+      <DependentUpon>Show_ADForm_ForADs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sign формы\SignINForm.resx">
       <DependentUpon>SignINForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,15 +230,15 @@
       <DependentUpon>UncorrectSignINForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
-    <None Include="База данных\PetDataBaseDataSet.xsc">
+    <None Include="PetDataBaseDataSet.xsc">
       <DependentUpon>PetDataBaseDataSet.xsd</DependentUpon>
     </None>
-    <None Include="База данных\PetDataBaseDataSet.xsd">
+    <None Include="PetDataBaseDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>PetDataBaseDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="База данных\PetDataBaseDataSet.xss">
+    <None Include="PetDataBaseDataSet.xss">
       <DependentUpon>PetDataBaseDataSet.xsd</DependentUpon>
     </None>
     <None Include="PetDBDataSet.xsc">

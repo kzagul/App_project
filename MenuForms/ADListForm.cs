@@ -63,7 +63,7 @@ namespace App_project
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             IDPetCard_key.global_PetCardPassport = listView1.SelectedItems[0].SubItems[7].Text;
-            OpenChildForm(new Show_ADForm_ForMyADs());
+            OpenChildForm(new Show_ADForm_ForADs());
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
