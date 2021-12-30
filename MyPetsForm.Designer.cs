@@ -48,6 +48,7 @@ namespace App_project
             this.видОтображенияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.плиткаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -194,6 +195,7 @@ namespace App_project
             // 
             this.задатьФильтрToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.поКатегорииToolStripMenuItem,
+            this.toolStripTextBox1,
             this.поИмениToolStripMenuItem});
             this.задатьФильтрToolStripMenuItem.Name = "задатьФильтрToolStripMenuItem";
             this.задатьФильтрToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
@@ -202,14 +204,15 @@ namespace App_project
             // поКатегорииToolStripMenuItem
             // 
             this.поКатегорииToolStripMenuItem.Name = "поКатегорииToolStripMenuItem";
-            this.поКатегорииToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.поКатегорииToolStripMenuItem.Text = "По категории";
+            this.поКатегорииToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.поКатегорииToolStripMenuItem.Text = "Введите вид животного";
             // 
             // поИмениToolStripMenuItem
             // 
             this.поИмениToolStripMenuItem.Name = "поИмениToolStripMenuItem";
-            this.поИмениToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.поИмениToolStripMenuItem.Text = "По Имени";
+            this.поИмениToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.поИмениToolStripMenuItem.Text = "Поиск";
+            this.поИмениToolStripMenuItem.Click += new System.EventHandler(this.поИмениToolStripMenuItem_Click);
             // 
             // видОтображенияToolStripMenuItem
             // 
@@ -233,6 +236,12 @@ namespace App_project
             this.списокToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.списокToolStripMenuItem.Text = "Список";
             this.списокToolStripMenuItem.Click += new System.EventHandler(this.списокToolStripMenuItem_Click);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             // 
             // MyPetsForm
             // 
@@ -282,5 +291,6 @@ namespace App_project
         private System.Windows.Forms.ToolStripMenuItem списокToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem поКатегорииToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem поИмениToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
     }
 }
