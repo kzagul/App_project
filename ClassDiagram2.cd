@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="App_project.Edit_ADForm" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEACAAQBAAAACABAADkAIoABEAAAAAAQBAAAA=</HashCode>
+      <FileName>AD формы\Edit_ADForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.Show_ADForm" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAIAUEACAAABABAACACAATkAI4AAEAIEBAAQBACAA=</HashCode>
+      <FileName>AD формы\Show_ADForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.Show_ADForm_ForADs" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAEACAAABABAACABAADkAIIAAEAAAAAAQBAAAA=</HashCode>
+      <FileName>AD формы\Show_ADForm_ForADs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.Show_ADForm_ForMyADs" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEACAAABABAICAAABDkAI4AAOAAEAAAQBAAAA=</HashCode>
+      <FileName>AD формы\Show_ADForm_ForMyADs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.ADListForm" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQQACAQBAiAAAHASAICAAQj7AwCoAACJAgAAAYQAAIQ=</HashCode>
+      <FileName>MenuForms\ADListForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.Body" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBAIAAQAACABAAAAAISABAACAMC8QACAADAAAQBAAAA=</HashCode>
+      <FileName>MenuForms\Body.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.MakeNewADForm" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBAAAAQBACAAABAAAICAAACCAwAAAACAAQAAAYAAAAA=</HashCode>
+      <FileName>MenuForms\MakeNewADForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.MyADsForm" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQAAAAABAiBAADASAICAAAD6A0TIAACAAkAAAYAAAAA=</HashCode>
+      <FileName>MenuForms\MyADsForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.MyPetsForm" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hRAACAQBACAABDAAAJCAAADmA0B4AACAAmAAAcAAAAQ=</HashCode>
+      <FileName>MenuForms\MyPetsForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.Add_PetCardForm" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EyAAAAQAACAAAJACgQCAgAASgEYKAAkAAAgAAAJAAII=</HashCode>
+      <FileName>PetCard формы\Add_PetCardForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.Edit_PetCardForm" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EyAAAAAAACAAwBCAAACAAAgDgEYQAAEAgAAAAAJAAII=</HashCode>
+      <FileName>PetCard формы\Edit_PetCardForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.Show_PetCardForm" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ExAAIEYAACAAAJAAAIGIBCoDgkY6EAGAAQAAAIJCgII=</HashCode>
+      <FileName>PetCard формы\Show_PetCardForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDataBaseDataSet" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABgBABCAAwAEEgNAFAAIQAQAAIgiQlhAAEAAAAEoBhQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDBDataSet" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABgBABCAAwAEEgNAFAAIQAQAAIgiQlhAAEAAAAEoBhQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.Program" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.SignINForm" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAACAAABAAAASACAASAAQIAAAAAAQEBABAAIA=</HashCode>
+      <FileName>Sign формы\SignINForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.SignUPForm" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAQQACAAABAAAACACAASAAQYAAAQBAAkEQBAAAA=</HashCode>
+      <FileName>Sign формы\SignUPForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.SignUPSuccessful" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAACAAAACAAAYAAAAAGAAAAAAAAA=</HashCode>
+      <FileName>Sign формы\SignUPSuccessful.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.UncorrectSignINForm" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAAgBAAAACAAAACAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sign формы\UncorrectSignINForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.Admin" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Авторизация\Admin.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="App_project.CertainUser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAEAAAAAAAAAAAAQADAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Авторизация\CertainUser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="App_project.DataBase">
+    <Position X="7" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>База данных\DataBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.IDPetCard_key" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAACAAABAAAAAAAAA=</HashCode>
+      <FileName>Глобальные переменные\IDPetCard_key.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.IDUser_key" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Глобальные переменные\IDUser_key.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.Journal" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Журнал\Journal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetCard" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAECAAABAAgAAAAAAAgAACAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Карточка ДЖ\PetCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.Controller">
+    <Position X="4.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAUAAECAABBAAgAAgAAAQgAACAAAEAAAAAAAAgAAAA=</HashCode>
+      <FileName>Контроллер\Controller.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.AD" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAABAAAAAAgAAAQAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Объявление\AD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDataBaseDataSetTableAdapters.AdDataTableAdapter" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDataBaseDataSetTableAdapters.LogTableAdapter" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDataBaseDataSetTableAdapters.LoginDataTableAdapter" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDataBaseDataSetTableAdapters.PetDataTableAdapter" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDataBaseDataSetTableAdapters.RoleTableAdapter" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDataBaseDataSetTableAdapters.UserTableAdapter" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDataBaseDataSetTableAdapters.TableAdapterManager" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQQABCAAIABEBAMBAAAEMIAgAAACgAAAAgQAAIIABAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDBDataSetTableAdapters.AdDataTableAdapter" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDBDataSetTableAdapters.LogTableAdapter" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDBDataSetTableAdapters.LoginDataTableAdapter" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDBDataSetTableAdapters.PetDataTableAdapter" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDBDataSetTableAdapters.RoleTableAdapter" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDBDataSetTableAdapters.UserTableAdapter" Collapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.PetDBDataSetTableAdapters.TableAdapterManager" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQQABCAAIABEBAMBAAAEMIAgAAACgAAAAgQAAIIABAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.Properties.Resources" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App_project.Properties.Settings" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAIAAAAQABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="App_project.ISignUP" Collapsed="true">
+    <Position X="4" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Регистрация\ISignUP.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="App_project.IFilter" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Фильтрация\IFilter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="App_project.ISignIN" Collapsed="true">
+    <Position X="2.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Авторизация\ISignIN.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

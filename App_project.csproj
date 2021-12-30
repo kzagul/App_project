@@ -51,10 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Show_ADForm_ForADs.cs">
+    <Compile Include="AD формы\Show_ADForm_ForADs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Show_ADForm_ForADs.Designer.cs">
+    <Compile Include="AD формы\Show_ADForm_ForADs.Designer.cs">
       <DependentUpon>Show_ADForm_ForADs.cs</DependentUpon>
     </Compile>
     <Compile Include="База данных\DataBase.cs" />
@@ -205,7 +205,7 @@
     <EmbeddedResource Include="AD формы\Show_ADForm_ForMyADs.resx">
       <DependentUpon>Show_ADForm_ForMyADs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Show_ADForm_ForADs.resx">
+    <EmbeddedResource Include="AD формы\Show_ADForm_ForADs.resx">
       <DependentUpon>Show_ADForm_ForADs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sign формы\SignINForm.resx">
@@ -230,6 +230,7 @@
       <DependentUpon>UncorrectSignINForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="PetDataBaseDataSet.xsc">
       <DependentUpon>PetDataBaseDataSet.xsd</DependentUpon>
     </None>
