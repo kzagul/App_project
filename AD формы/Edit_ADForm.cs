@@ -52,7 +52,7 @@ namespace App_project
 
             SqlConnection connection = DataBase.LinkDataBase();
 
-            Controller.ShowPetCard(id_key);
+            //Controller.ShowPetCard(id_key);
 
             //CategoryAnimal.Text;
 

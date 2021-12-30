@@ -51,15 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChildForm.cs" />
-    <Compile Include="DataBase.cs" />
-    <Compile Include="Edit_ADForm.cs">
+    <Compile Include="База данных\DataBase.cs" />
+    <Compile Include="AD формы\Edit_ADForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Edit_ADForm.Designer.cs">
+    <Compile Include="AD формы\Edit_ADForm.Designer.cs">
       <DependentUpon>Edit_ADForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IDPetCard_key.cs" />
+    <Compile Include="Глобальные переменные\IDPetCard_key.cs" />
     <Compile Include="AD формы\Show_ADForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,23 +73,22 @@
     </Compile>
     <Compile Include="Журнал\Journal.cs" />
     <Compile Include="Фильтрация\IFilter.cs" />
-    <Compile Include="Сортировка\ISort.cs" />
     <Compile Include="Регистрация\ISignUP.cs" />
     <Compile Include="Объявление\AD.cs" />
     <Compile Include="ADList.cs" />
     <Compile Include="ListPetCards.cs" />
     <Compile Include="Карточка ДЖ\PetCard.cs" />
     <Compile Include="Авторизация\Admin.cs" />
-    <Compile Include="Body.cs">
+    <Compile Include="MenuForms\Body.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Body.Designer.cs">
+    <Compile Include="MenuForms\Body.Designer.cs">
       <DependentUpon>Body.cs</DependentUpon>
     </Compile>
-    <Compile Include="ADListForm.cs">
+    <Compile Include="MenuForms\ADListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ADListForm.Designer.cs">
+    <Compile Include="MenuForms\ADListForm.Designer.cs">
       <DependentUpon>ADListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Авторизация\CertainUser.cs" />
@@ -108,23 +106,23 @@
     <Compile Include="PetCard формы\Show_PetCardForm.Designer.cs">
       <DependentUpon>Show_PetCardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AD формы\MyADsForm.cs">
+    <Compile Include="MenuForms\MyADsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AD формы\MyADsForm.Designer.cs">
+    <Compile Include="MenuForms\MyADsForm.Designer.cs">
       <DependentUpon>MyADsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IDUser_key.cs" />
-    <Compile Include="MakeNewADForm.cs">
+    <Compile Include="Глобальные переменные\IDUser_key.cs" />
+    <Compile Include="MenuForms\MakeNewADForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MakeNewADForm.Designer.cs">
+    <Compile Include="MenuForms\MakeNewADForm.Designer.cs">
       <DependentUpon>MakeNewADForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyPetsForm.cs">
+    <Compile Include="MenuForms\MyPetsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MyPetsForm.Designer.cs">
+    <Compile Include="MenuForms\MyPetsForm.Designer.cs">
       <DependentUpon>MyPetsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PetCard формы\Add_PetCardForm.cs">
@@ -133,7 +131,7 @@
     <Compile Include="PetCard формы\Add_PetCardForm.Designer.cs">
       <DependentUpon>Add_PetCardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PetDataBaseDataSet.Designer.cs">
+    <Compile Include="База данных\PetDataBaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PetDataBaseDataSet.xsd</DependentUpon>
@@ -158,29 +156,28 @@
     <Compile Include="Sign формы\SignUPForm.Designer.cs">
       <DependentUpon>SignUPForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SignUPSuccessful.cs">
+    <Compile Include="Sign формы\SignUPSuccessful.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SignUPSuccessful.Designer.cs">
+    <Compile Include="Sign формы\SignUPSuccessful.Designer.cs">
       <DependentUpon>SignUPSuccessful.cs</DependentUpon>
     </Compile>
-    <Compile Include="UncorrectSignINForm.cs">
+    <Compile Include="Sign формы\UncorrectSignINForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UncorrectSignINForm.Designer.cs">
+    <Compile Include="Sign формы\UncorrectSignINForm.Designer.cs">
       <DependentUpon>UncorrectSignINForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
-    <EmbeddedResource Include="Body.resx">
+    <EmbeddedResource Include="MenuForms\Body.resx">
       <DependentUpon>Body.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ADListForm.resx">
+    <EmbeddedResource Include="MenuForms\ADListForm.resx">
       <DependentUpon>ADListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AD формы\MyADsForm.resx">
+    <EmbeddedResource Include="MenuForms\MyADsForm.resx">
       <DependentUpon>MyADsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Edit_ADForm.resx">
+    <EmbeddedResource Include="AD формы\Edit_ADForm.resx">
       <DependentUpon>Edit_ADForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PetCard формы\Edit_PetCardForm.resx">
@@ -189,10 +186,10 @@
     <EmbeddedResource Include="PetCard формы\Show_PetCardForm.resx">
       <DependentUpon>Show_PetCardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MakeNewADForm.resx">
+    <EmbeddedResource Include="MenuForms\MakeNewADForm.resx">
       <DependentUpon>MakeNewADForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MyPetsForm.resx">
+    <EmbeddedResource Include="MenuForms\MyPetsForm.resx">
       <DependentUpon>MyPetsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PetCard формы\Add_PetCardForm.resx">
@@ -220,22 +217,22 @@
     <EmbeddedResource Include="Sign формы\SignUPForm.resx">
       <DependentUpon>SignUPForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignUPSuccessful.resx">
+    <EmbeddedResource Include="Sign формы\SignUPSuccessful.resx">
       <DependentUpon>SignUPSuccessful.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UncorrectSignINForm.resx">
+    <EmbeddedResource Include="Sign формы\UncorrectSignINForm.resx">
       <DependentUpon>UncorrectSignINForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
-    <None Include="PetDataBaseDataSet.xsc">
+    <None Include="База данных\PetDataBaseDataSet.xsc">
       <DependentUpon>PetDataBaseDataSet.xsd</DependentUpon>
     </None>
-    <None Include="PetDataBaseDataSet.xsd">
+    <None Include="База данных\PetDataBaseDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>PetDataBaseDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="PetDataBaseDataSet.xss">
+    <None Include="База данных\PetDataBaseDataSet.xss">
       <DependentUpon>PetDataBaseDataSet.xsd</DependentUpon>
     </None>
     <None Include="PetDBDataSet.xsc">
@@ -299,6 +296,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Фото для проекта\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

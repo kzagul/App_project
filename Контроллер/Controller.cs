@@ -84,11 +84,12 @@ namespace App_project
         //Карточка ДЖ
         //
 
+        //+
         //Просмотр карточки ДЖ
-        public static void ShowPetCard(string idCard)
+        public static List<string> ShowPetCard()
         {
             //+
-            new PetCard().ShowPetCard(idCard);
+            return new PetCard().ShowPetCard();
 
         }
 

@@ -69,12 +69,15 @@ namespace App_project
         //СДЕЛАНО
         //Просмотр карточки ДЖ
         //+
-        public void ShowPetCard(string idCard)
+        public List<string> ShowPetCard()
         {
             SqlConnection connection = DataBase.LinkDataBase();
 
             string id_key = IDPetCard_key.global_PetCardPassport;
 
+            var list = new List<string>();
+
+            //Category
             SqlCommand cmdCategory = new SqlCommand("SELECT [Category] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
 
             SqlDataReader thisReaderCategory = cmdCategory.ExecuteReader();
@@ -84,8 +87,92 @@ namespace App_project
                 res1 += thisReaderCategory["Category"];
             }
             thisReaderCategory.Close();
+            list.Add(res1);
 
-            Category = res1;
+            //Breed
+            SqlCommand cmbBreed = new SqlCommand("SELECT [Breed] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+            SqlDataReader thisReaderBreed = cmbBreed.ExecuteReader();
+            string res2 = string.Empty;
+            while (thisReaderBreed.Read())
+            {
+                res2 += thisReaderBreed["Breed"];
+            }
+            thisReaderBreed.Close();
+            list.Add(res2);
+
+            //NickName
+            SqlCommand cmdNickName = new SqlCommand("SELECT [NickName] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+            SqlDataReader thisReaderNickName = cmdNickName.ExecuteReader();
+            string res3 = string.Empty;
+            while (thisReaderNickName.Read())
+            {
+                res3 += thisReaderNickName["NickName"];
+            }
+            thisReaderNickName.Close();
+            list.Add(res3);
+
+            //Locality
+            SqlCommand cmdLocality = new SqlCommand("SELECT [Locality] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+            SqlDataReader thisReaderLocality = cmdLocality.ExecuteReader();
+            string res4 = string.Empty;
+            while (thisReaderLocality.Read())
+            {
+                res4 += thisReaderLocality["Locality"];
+            }
+            thisReaderLocality.Close();
+            list.Add(res4);
+
+            
+
+            //FIO
+            SqlCommand cmdFIO_ID = new SqlCommand("SELECT [IDUser] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+            var thisUserID = cmdFIO_ID.ExecuteScalar().ToString();
+
+            SqlCommand cmdName = new SqlCommand("SELECT [Name] FROM [PetDataBase].[dbo].[User] WHERE [IDUser] = '" + thisUserID + "'", connection);
+            var thisUserName = cmdName.ExecuteScalar().ToString();
+            SqlCommand cmdSurname = new SqlCommand("SELECT [Surname] FROM [PetDataBase].[dbo].[User] WHERE [IDUser] = '" + thisUserID + "'", connection);
+            var thisUserSurname = cmdSurname.ExecuteScalar().ToString();
+            SqlCommand cmdSecondName = new SqlCommand("SELECT [SecondName] FROM [PetDataBase].[dbo].[User] WHERE [IDUser] = '" + thisUserID + "'", connection);
+            var thisUserSecondName = cmdSecondName.ExecuteScalar().ToString();
+
+            var FullName = thisUserSurname + " " + thisUserName + " " + thisUserSecondName;
+
+            list.Add(FullName);
+
+
+            //DateOfBirth
+            SqlCommand cmdDateOfBirth = new SqlCommand("SELECT [DateOfBirth] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+            SqlDataReader thisReaderDateOfBirth = cmdDateOfBirth.ExecuteReader();
+            string res6 = string.Empty;
+            while (thisReaderDateOfBirth.Read())
+            {
+                res6 += thisReaderDateOfBirth["DateOfBirth"];
+            }
+            thisReaderDateOfBirth.Close();
+            list.Add(res6);
+
+            //RegistrationdDate
+            SqlCommand cmdRegistrationdDate = new SqlCommand("SELECT [RegistrationdDate] FROM [PetDataBase].[dbo].[PetData] WHERE [PassportNumber] = '" + id_key + "'", connection);
+
+            SqlDataReader thisReaderRegistrationdDate = cmdRegistrationdDate.ExecuteReader();
+            string res7 = string.Empty;
+            while (thisReaderRegistrationdDate.Read())
+            {
+                res7 += thisReaderRegistrationdDate["RegistrationdDate"];
+            }
+            thisReaderRegistrationdDate.Close();
+            list.Add(res7);
+
+
+            //PassportNumber
+            list.Add(id_key);
+
+
+            return list;
         }
 
 
