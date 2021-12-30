@@ -40,17 +40,6 @@ namespace App_project
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.CategoryAnimal = new System.Windows.Forms.TextBox();
             this.Locality = new System.Windows.Forms.TextBox();
@@ -66,12 +55,11 @@ namespace App_project
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(718, 532);
+            this.button1.Location = new System.Drawing.Point(716, 296);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(87, 33);
             this.button1.TabIndex = 0;
@@ -170,106 +158,6 @@ namespace App_project
             this.label10.Size = new System.Drawing.Size(98, 13);
             this.label10.TabIndex = 13;
             this.label10.Text = "Номер паспорта *";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.panel1.Location = new System.Drawing.Point(439, 359);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(228, 220);
-            this.panel1.TabIndex = 14;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.button7);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.textBox11);
-            this.panel2.Controls.Add(this.button6);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.textBox10);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.textBox9);
-            this.panel2.Location = new System.Drawing.Point(97, 359);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(228, 220);
-            this.panel2.TabIndex = 15;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(150, 184);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 8;
-            this.button7.Text = "Открыть";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(28, 155);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(167, 26);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "Дегельминтизация/обработка \r\nот экто и эндопаразитов";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(3, 186);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(141, 20);
-            this.textBox11.TabIndex = 6;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(150, 112);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Открыть";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(43, 85);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(143, 13);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "Ветеринарные назначения";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(3, 114);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(141, 20);
-            this.textBox10.TabIndex = 3;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(150, 39);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "Открыть";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(76, 13);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(68, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Вакцинация";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(3, 41);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(141, 20);
-            this.textBox9.TabIndex = 0;
             // 
             // button4
             // 
@@ -416,8 +304,6 @@ namespace App_project
             this.Controls.Add(this.Locality);
             this.Controls.Add(this.CategoryAnimal);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -435,8 +321,6 @@ namespace App_project
             this.Text = "PetCardForm";
             this.Load += new System.EventHandler(this.PetCardForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,8 +339,6 @@ namespace App_project
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox CategoryAnimal;
         private System.Windows.Forms.TextBox Locality;
@@ -465,15 +347,6 @@ namespace App_project
         private System.Windows.Forms.TextBox PassportNumber;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox NickName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label14;

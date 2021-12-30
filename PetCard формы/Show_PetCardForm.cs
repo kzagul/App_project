@@ -273,8 +273,8 @@ namespace App_project
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            panel1.BackColor = Color.FromArgb(0, 0, 0, 0);
-            panel1.Parent = this;
+            //panel1.BackColor = Color.FromArgb(0, 0, 0, 0);
+            //panel1.Parent = this;
         }
 
         private void ExportToExcel_PetCard(object sender, EventArgs e)

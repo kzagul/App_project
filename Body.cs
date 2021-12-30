@@ -112,7 +112,7 @@ namespace App_project
 
         private void Exit_button(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

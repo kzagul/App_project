@@ -77,8 +77,8 @@
     <Compile Include="Сортировка\ISort.cs" />
     <Compile Include="Регистрация\ISignUP.cs" />
     <Compile Include="Объявление\AD.cs" />
-    <Compile Include="Объявление\ADList.cs" />
-    <Compile Include="Карточка ДЖ\ListPetCards.cs" />
+    <Compile Include="ADList.cs" />
+    <Compile Include="ListPetCards.cs" />
     <Compile Include="Карточка ДЖ\PetCard.cs" />
     <Compile Include="Авторизация\Admin.cs" />
     <Compile Include="Body.cs">

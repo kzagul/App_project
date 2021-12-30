@@ -1,32 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace App_project
 {
     public class Controller
     {
-        //
+        //+
         #region объявление ДЖ
         //
         //объявление ДЖ
         //
 
         //Просмотр объявления
-        public static List<string> ShowAD(
-            //string categoryAnimal,
-            //                    string nickName,
-            //                    string locality,
-            //                    string dateOfPosting,
-            //                    string gender
-            )
+        public static List<string> ShowAD()
         {
 
-            //new Journal().RegisterToJournal("ShowAd");
-
             //+
-            return new AD().ShowAD(
-                //categoryAnimal, nickName, locality, dateOfPosting, gender
-                );
+            return new AD().ShowAD();
         
         }
 
@@ -71,26 +62,23 @@ namespace App_project
 
         #endregion
 
+        //+
         #region реестр объявлений
         /// 
         /// реестр объявлений
         /// 
-        List<AD> adList;
 
-            //Просмотр списка карточек ДЖ
-            public static List<AD> LoadADList(IFilter filter, ISort sort)
-            {
-                throw new NotImplementedException();
-
-            new Journal().RegisterToJournal(IDUser_key.global_IDUser);
+            //Просмотр списка объявлений
+        public static void LoadADList(ListView list)
+        {
+            new AD().LoadADList(list);
         }
 
         /////////////////////////////////
 
-
         #endregion
 
-        //
+        //+
         #region Карточка ДЖ
         //
         //Карточка ДЖ
@@ -102,8 +90,6 @@ namespace App_project
             //+
             new PetCard().ShowPetCard(idCard);
 
-            //-
-            new Journal().RegisterToJournal("ShowPetCard");
         }
 
 
@@ -124,7 +110,7 @@ namespace App_project
             //+
             new PetCard().AddNewPetCard(category, nickName, breed, passportNumber, id, gender, city, photo, dateOfBirth, registrationDate);
             
-            //-
+            //+
             new Journal().RegisterToJournal("AddNewPetCard");
         }
 
@@ -141,12 +127,14 @@ namespace App_project
                                         string dateOfBirth, 
                                         string registrationDate,
                                         string gender, 
-                                        string locality)
+                                        string locality
+            
+            )
             {
             //+
             new PetCard().EditPetCard(categoryAnimal, nickName, breed, passportNumber, idUser, dateOfBirth, registrationDate, gender, locality);
 
-            //-
+            //+
             new Journal().RegisterToJournal("EditPetCard");
         }
 
@@ -158,7 +146,7 @@ namespace App_project
             //+
             new PetCard().DeletePetCard(idCard);
 
-            //-
+            //+
             new Journal().RegisterToJournal("DeletePetCard");
         }
 
@@ -171,7 +159,7 @@ namespace App_project
             //+
             new PetCard().Export2WordPetCard(nickName, categoryAnimal, breed, locality, passportNumber, dateofbirth, dateofregistration, fio, gender);
 
-            //-
+            //+
             new Journal().RegisterToJournal("Export2WordPetCard");
         }
 
@@ -183,33 +171,37 @@ namespace App_project
             //+
             new PetCard().Export2ExcelPetCard(nickName, categoryAnimal, breed, locality, passportNumber, dateofbirth, dateofregistration, fio, gender);
 
-            //-
+            //+
             new Journal().RegisterToJournal("Export2ExcelPetCard");
         }
 
 
         ///////////////////////////////////
         #endregion
-
+        
+        //+
         #region Реестр карточек домашних животных
 
         //
         //Реестр карточек домашних животных
         //
 
-        List<PetCard> petList;
 
             //Просмотр списка карточек ДЖ
-            public static List<PetCard> LoadPetList(IFilter filter, ISort sort)
-            {
-                throw new NotImplementedException();
-            }
+        public static void LoadPetList(ListView list)
+        {
+            new PetCard().LoadPetList(list);
+        }
+
+
 
             //Экспорт записей реестра карточек домашних животных в Microsoft Excel
-            public static void ExportPetRegisterExcel(List<PetCard> petList)
-            {
-                throw new NotImplementedException();
-            }
+        public static void ExportPetRegisterExcel(ListView list)
+        {
+            new PetCard().ExportPetRegisterExcel(list);
+
+            new Journal().RegisterToJournal("ExportPetRegisterExcel");
+        }
 
 
         ///////////////////////////////////
@@ -217,36 +209,5 @@ namespace App_project
 
         #endregion
 
-        #region ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ
-        //ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ
-
-        //класс фотографии
-        public class Photo
-        {
-            public Photo()
-            {
-                //kind of magic
-            }
-        }
-
-
-        //Класс для ID карточки ДЖ
-        public class IdPetCard
-        {
-            int id;
-            public IdPetCard(int id)
-            {
-                this.id = id;
-            }
-        }
-
-
-        //Класс для ID объявления
-        public class IdAD
-        {
-            //
-        }
-
-        #endregion
     }
 }
